@@ -1,0 +1,32 @@
+<h1><%= @team.title %></h1>
+<h2><%= @team.description %></h2>
+
+<h4>Chat</h4>
+
+
+<h4>Members</h4>
+<% @users.each do |user| %>
+<%= user.first_name %> <%= user.last_name %><br>
+<%= user.email %><br>
+<% end %>
+
+<h4>Messavge Board</h4>
+
+
+<h4><%= link_to 'Tasks', team_tasks_path(@team)  %></h4>
+<%= @task.errors.full_messages.join(', ') %>
+<ul>
+
+
+<% @tasks.each do |t| %>
+<li><%= t.body %></li>
+<br>
+<% end %>
+</ul>
+
+<hr>
+
+<h4>Schedule</h4>
+
+
+<h4>Documents and files</h4>

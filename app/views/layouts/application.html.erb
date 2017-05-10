@@ -9,6 +9,24 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
-</html>
+
+
+      <% if user_signed_in? %>
+        Hello <%= current_user.first_name %>,
+        <%= link_to 'Sign Out', sessions_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_path %>
+        |
+        <%= link_to 'Sign In', new_session_path %>
+      <% end %>
+      <hr>
+      <% if flash[:notice] %>
+        <div class="flash-notice"><%= flash[:notice] %></div>
+      <% elsif flash[:alert] %>
+        <div class="flash-alert"><%= flash[:alert] %></div>
+      <% end %>
+      <div class='container-fluid'>
+        <%= yield %>
+      </div>
+    </body>
+  </html>

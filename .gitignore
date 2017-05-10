@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+/config/initializers/app_keys.rb
+/public/uploads
 # Ignore Byebug command history file.
 .byebug_history
