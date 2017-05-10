@@ -64,7 +64,7 @@ gem 'geocoder'
 gem 'bootstrap-sass'
 gem 'gmaps4rails'
 gem 'underscore-rails'
-
+gem 'chosen-rails'
 gem 'delayed_job_active_record'
 gem 'sinatra', '2.0.0.rc2'
 gem 'delayed_job_web'

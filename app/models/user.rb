@@ -5,6 +5,9 @@ class User < ApplicationRecord
   has_many :joins, dependent: :destroy
   has_many :joined_teams, through: :joins, source: :team
 
+  has_many :assigns, dependent: :destroy
+  has_many :assigned_tasks, through: :assigns, source: :task
+
   validates(:first_name, { presence: true })
   validates(:last_name, { presence: true })
   validates(:email, { presence: true })

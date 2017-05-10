@@ -14,7 +14,7 @@
 end
 
 # create Users
-20.times do
+40.times do
   team = Team.all.sample
   User.create(first_name: Faker::Name.first_name,
                 last_name: Faker::Name.last_name,
@@ -37,10 +37,12 @@ end
 
 teams = Team.all
 teams.each do |t|
-  rand(5..20).times do
+  rand(10..20).times do
+    user = User.all.sample
     t.tasks.create({
 
       body: Faker::Friends.quote,
+      user_id: user.id
       })
     end
   end

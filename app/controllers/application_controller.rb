@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def user_signed_in?
-    session[:user_id].present?
+    if session[:user_id].present?
+      return true if User.exists?(id: session[:user_id])
+      session[:user_id] = nil
+    end
   end
   helper_method :user_signed_in?
 

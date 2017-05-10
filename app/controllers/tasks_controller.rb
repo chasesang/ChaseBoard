@@ -25,7 +25,7 @@ end
 def create
   @task = @team.tasks.create task_params
   @task.team = @team
-  @task.user = current_user
+
   if @task.save
     redirect_to team_tasks_path(@team)
   else
@@ -73,7 +73,7 @@ end
 
 
 def task_params
-  params.require(:task).permit([:body])
+  params.require(:task).permit([:body,:user_id])
 end
 
 end
