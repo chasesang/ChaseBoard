@@ -17,8 +17,9 @@ end
 end
 
 def show
-    @task = Task.find params[:id]
+  @task = Task.find params[:id]
 end
+
 
 
 def create
@@ -54,6 +55,12 @@ end
 def destroy
   @task = Task.find params[:id]
   @task.destroy
+  redirect_to team_tasks_path(@task.team)
+end
+
+def complete
+  @task = Task.find params[:id]
+  @task.update_attribute(:completed_at, Time.now)
   redirect_to team_tasks_path(@task.team)
 end
 

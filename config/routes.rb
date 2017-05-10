@@ -5,11 +5,17 @@ Rails.application.routes.draw do
   get('/contact' => 'contact#index')
 
   resources :teams do
-    resources :tasks
+    resources :tasks do
+      member do
+        patch :complete
+      end
+    end
   end
 
+
+
   resources :dashboard
-  
+
   resources :users, only: [:new, :create]
 
     resources :sessions, only: [:new, :create] do

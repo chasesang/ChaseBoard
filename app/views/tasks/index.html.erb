@@ -3,12 +3,27 @@
 <% if user_signed_in? %>
 <ul>
 <% @tasks.each do |task| %>
-<li><%= link_to task.body, team_task_path(@team, task) %></li>
-<br>
+<% if task.complete? %>
+
+
+<li><h3 style ="opacity: 0.5"><strike><%= link_to task.body, team_task_path(@team, task) %></strike></h3></li>
+<p style = "opacity: 0.5">Completed <%= time_ago_in_words(task.completed_at)  %> ago</p>
+<%= link_to complete_team_task_path(@team, task), method: :patch do %>
+<i class="fa fa-check fa-lg"></i>
+	<% end %>
+<%= link_to team_task_path(@team, task), method: :delete, data: { confirm: "Are you sure?" } do %>
+<i class="fa fa-trash fa-lg"></i>
+  <% end %>
+  <% else %>
+
+  <li><h3><%= link_to task.body, team_task_path(@team, task) %></h3></li>
+  <p>Created <%= time_ago_in_words(task.created_at)  %> ago</p>
+  <%= link_to complete_team_task_path(@team, task), method: :patch do %>
+  <i class="fa fa-check fa-lg"></i>
+  	<% end %>
+  <%= link_to team_task_path(@team, task), method: :delete, data: { confirm: "Are you sure?" } do %>
+  <i class="fa fa-trash fa-lg"></i>
+    <% end %>
 <% end %>
-</ul>
 <% end %>
-<%= simple_form_for [@team, @task] do |f| %>
-<%= f.input :body, label: "New todos..." %>
-<%= f.submit 'Submit', class: 'btn btn-primary' %>
 <% end %>
