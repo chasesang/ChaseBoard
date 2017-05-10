@@ -1,11 +1,33 @@
 <h1>Dashboard</h1>
-
+<hr>
 <h2>My Stuff</h2>
+<h3>My To-do List</h3>
 
+<% if user_signed_in? %>
+<ul>
+<% @tasks.each do |task| %>
+<li><%= link_to task.body, team_task_path(task.team, task) %><br>
+  From Team: <%= link_to task.team.title %>
+</li>
+<br>
+<% end %>
+</ul>
+<% end %>
+<h3>My Bookmarks</h3>
+<h3>My Schedule</h3>
+<h3>My Toolbox</h3>
 
+<hr>
 <h2>Teams</h2>
+<% if user_signed_in? %>
 <% @teams.each do |team| %>
 <p><%= link_to team.title, team_path(team.id) %></p>
 <% end %>
-
+<% end %>
+<hr>
 <h2>Projects</h2>
+
+
+
+
+<hr>

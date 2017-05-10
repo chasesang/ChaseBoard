@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :teams, dependent: :nullify
-  has_many :tasks
+  has_many :tasks, dependent: :nullify
   has_many :joins, dependent: :destroy
   has_many :joined_teams, through: :joins, source: :team
 

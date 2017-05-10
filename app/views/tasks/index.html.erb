@@ -1,10 +1,13 @@
 <h1>Task</h1>
 
+<% if user_signed_in? %>
+<ul>
 <% @tasks.each do |task| %>
 <li><%= link_to task.body, team_task_path(@team, task) %></li>
 <br>
 <% end %>
 </ul>
+<% end %>
 <%= simple_form_for [@team, @task] do |f| %>
 <%= f.input :body, label: "New todos..." %>
 <%= f.submit 'Submit', class: 'btn btn-primary' %>

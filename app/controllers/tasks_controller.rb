@@ -4,13 +4,16 @@ before_action :find_team, only: [:index, :create, :edit, :update]
 
 
 def new
-  @task = Task.new
+  @task = current_user.tasks.build
+
 end
 
 
 def index
+  if user_signed_in?
   @task = Task.new
   @tasks = @team.tasks.all.order("created_at DESC")
+end
 end
 
 def show
@@ -20,6 +23,8 @@ end
 
 def create
   @task = @team.tasks.create task_params
+  @task.team = @team
+  @task.user = current_user
   if @task.save
     redirect_to team_tasks_path(@team)
   else
@@ -29,7 +34,7 @@ def create
 end
 
 def edit
-  
+
   @task = Task.find params[:id]
 
 end

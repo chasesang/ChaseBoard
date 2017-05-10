@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-
+before_action :authenticate_user!, except: [:index]
 def new
   @team = Team.new
 end
@@ -9,6 +9,7 @@ def create
 end
 
 def index
+
   @teams = Team.all
 end
 
