@@ -1,0 +1,11 @@
+<li>
+  <h3><%= link_to task.body, team_task_path(@team, task) %></h3>
+</li>
+
+<p>Created <%= time_ago_in_words(task.created_at)  %> ago</p>
+
+<%= link_to complete_team_task_path(@team, task), method: :patch do %>
+  <i class="fa fa-check fa-lg"></i>
+<% end %>
+
+<%= render "task_footer", task: task %>

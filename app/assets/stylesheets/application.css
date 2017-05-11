@@ -13,4 +13,5 @@
  *= require_tree .
  *= require_self
  *= require chosen
+ *=stub active_admin
  */

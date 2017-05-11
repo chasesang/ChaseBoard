@@ -24,14 +24,13 @@ end
 
 def create
   @task = @team.tasks.create task_params
-  @task.team = @team
+  @task.user = current_user
 
   if @task.save
     redirect_to team_tasks_path(@team)
   else
-      redirect_to team_tasks_path(@team)
-    end
-
+    redirect_to team_tasks_path(@team)
+  end
 end
 
 def edit
@@ -43,13 +42,12 @@ end
 
 
 def update
-    @task = Task.find params[:id]
+  @task = Task.find params[:id]
   if @task.update(task_params)
-  redirect_to team_tasks_path(@task.team)
-else
-  render :edit
-end
-
+    redirect_to team_tasks_path(@task.team)
+  else
+    render :edit
+  end
 end
 
 def destroy
@@ -73,7 +71,7 @@ end
 
 
 def task_params
-  params.require(:task).permit([:body,:user_id])
+  params.require(:task).permit([:body, :assignee_ids => []])
 end
 
 end

@@ -51,6 +51,8 @@ gem 'chosen-rails'
 gem 'active_model_serializers'
 gem 'cowsay', '~> 0.3'
 gem 'mini_magick'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 gem 'colorize', '0.8.1'
 gem 'rack-cors'
 gem 'faker'
@@ -86,6 +88,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

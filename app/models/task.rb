@@ -1,13 +1,20 @@
 class Task < ApplicationRecord
   belongs_to :team
-  belongs_to :user
+  belongs_to :user #author
 
   has_many :assigns, dependent: :destroy
-  has_many :users, through: :assigns
+  has_many :assignees, through: :assigns, source: :user
 
   def complete?
     !completed_at.blank?
   end
 
+  def assignee_short_names
+    assignees.map(&:first_name).join(",")
+  end
+
+  def has_author?
+    user.present?
+  end
 
 end

@@ -16,6 +16,16 @@
 <% end %>
 
 <h5>The To-dos assigned to me</h5>
+<% if user_signed_in? %>
+<ul>
+  <% @user.assigned_tasks.each do |task| %>
+  <li><%= link_to task.body,team_task_path(task.team, task) %><br>
+  From Team: <%= link_to task.team.title %>
+  </li>
+  <br>
+<% end %>
+</ul>
+<% end %>
 
 
 

@@ -1,6 +1,11 @@
 <div class="col-md-6 col-md-offset-3">
 	<p><%= @task.body %></p>
 
+	<% if @task.has_author? %>
+		<p>Author:  <%= @task.user.first_name %> </p>
+	<% end %>
+
+	<p>Assignees:  <%= @task.assignee_short_names %> </p>
 
 	<%= link_to "Edit", edit_team_task_path(@task.team) %>
 	<%= link_to "Delete", team_task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>

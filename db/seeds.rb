@@ -55,3 +55,4 @@ tasks_count = Task.count
 puts Cowsay.say "Created #{teams_count} Teams", :cow
 
 puts Cowsay.say "Created #{users_count} Users", :cow
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
