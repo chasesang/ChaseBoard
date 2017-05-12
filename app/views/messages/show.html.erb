@@ -1,0 +1,44 @@
+<div class="col-md-8 col-md-offset-2">
+	<div class="message-show">
+		<h2><%= @message.title %></h2>
+    <p><%= @message.description %></p>
+    <p><%= @message.category %></p>
+		<p class="message-posted-by">Posted by <%= @message.user.first_name %> <%= time_ago_in_words(@message.created_at) %> ago</p>
+		<p class="message-desc"><%= @message.description %></p>
+
+
+
+
+
+		<div class="links btn-group">
+      <%= link_to "Back", team_messages_path(@team), class: "btn btn-default" %>
+			<% if @message.user_id == current_user.id %>
+				<%= link_to "Edit", edit_team_message_path(@team, @message), class: "btn btn-default" %>
+				<%= link_to "Delete", team_message_path(@team, @message), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+			<% end %>
+		</div>
+	</div>
+
+
+
+
+		<h3 class="comment-section-header">Comments:</h3>
+		<% @comments.each do |comment| %>
+
+		<div class="comment">
+			<p class="comment-content"><strong><%= comment.content %></strong></p>
+			<% if comment.user_id %>
+			<p class="comment-posted-by">Posted by <%= comment.user.first_name %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+			<% end %>
+			<div class="links">
+				<% if comment.user_id == current_user.id %>
+					<%= link_to "Edit", edit_team_message_comment_path(comment.message.team, comment.message, comment) %>
+					<%= link_to "Delete", team_message_comment_path(comment.message.team, comment.message, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+					<br>
+				<% end %>
+				<br>
+				<% end %>
+
+		<h3 class="reply-to-msg">Reply to Message:</h3>
+
+		<%= render 'comments/form' %>

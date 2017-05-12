@@ -13,6 +13,10 @@ Rails.application.routes.draw do
         patch :complete
       end
     end
+    resources :messages do
+      resources :comments, only: [:create, :destroy, :edit, :update]
+    end
+
   end
 
 

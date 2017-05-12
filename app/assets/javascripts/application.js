@@ -14,13 +14,14 @@
 //= require jquery_ujs
 //= require cocoon
 //= require underscore
+//= require bootstrap-sprockets
 //= require chosen-jquery
 //= require gmaps/google
 //= require_tree .
 $(document).ready(function(){
   $('.chosen-select').chosen();
 })
-// 
+//
 // $('.chosen-select').chosen
 //    allow_single_deselect: true
 //    no_results_text: 'No results matched'

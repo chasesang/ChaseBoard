@@ -10,14 +10,12 @@
 <%= user.email %><br>
 <% end %>
 
-<h4>Messavge Board</h4>
+<h4><%= link_to 'Message Board', team_messages_path(@team) %></h4>
 
 
 <h4><%= link_to 'Tasks', team_tasks_path(@team)  %></h4>
 <%= @task.errors.full_messages.join(', ') %>
 <ul>
-
-
 <% @tasks.each do |t| %>
 <li><%= t.body %></li>
 <br>

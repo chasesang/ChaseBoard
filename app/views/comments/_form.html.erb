@@ -1,0 +1,4 @@
+<%= simple_form_for([@team, @message, @newcomment]) do |f| %>
+	<%= f.input :content, label: "Comment" %>
+	<%= f.button :submit, :class => 'btn-custom' %>
+<% end %>

@@ -1,0 +1,38 @@
+<h1>Message Board</h1>
+<hr>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  New Message
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Message</h4>
+      </div>
+      <div class="modal-body">
+
+        <%= simple_form_for [@team, @newmessage] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+				<%= f.input :category %>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+
+
+<% @messages.each do |message| %>
+	<div class="col-md-4">
+		<div class="message">
+			<h2 class="message-title"><%= message.title %></h2>
+      <p><%= message.category %></p>
+			<%= link_to "View Message", team_message_path(@team, message), class: "btn btn-default" %>
+		</div>
+	</div>
+<% end %>
