@@ -4,7 +4,8 @@ class Task < ApplicationRecord
 
   has_many :assigns, dependent: :destroy
   has_many :assignees, through: :assigns, source: :user
-
+  mount_uploader :documents, DocumentUploader
+  
   def complete?
     !completed_at.blank?
   end

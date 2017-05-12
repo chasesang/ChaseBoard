@@ -72,7 +72,7 @@ end
 
 
 def task_params
-  params.require(:task).permit([:body, :assignee_ids => []])
+  params.require(:task).permit([:body, {document: []}, :assignee_ids => []])
 end
 
 end

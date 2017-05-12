@@ -13,6 +13,7 @@
 
 	<%= simple_form_for [@team, @task] do |f| %>
 		<%= f.input :body, label: "New todos..." %>
+		<%= f.file_field :documents, multiple: true %>
 		<%= f.association :assignees,
 											collection: User.all,
 											label_method: :first_name,

@@ -1,5 +1,8 @@
 <h1>Dashboard</h1>
 <hr>
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
 <h2>My Stuff</h2>
 <h3>My To-do List</h3>
 
@@ -50,6 +53,7 @@
         <%= simple_form_for @newteam do |f| %>
         <%= f.input :title %>
         <%= f.input :description %>
+        <%= f.file_field :documents, multiple: true %>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
         <% end %>
       </div>

@@ -17,6 +17,7 @@
         <%= f.input :title %>
         <%= f.input :description %>
 				<%= f.input :category %>
+        <%= f.file_field :documents, multiple: true %>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
         <% end %>
       </div>
