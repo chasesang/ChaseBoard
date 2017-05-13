@@ -323,7 +323,7 @@
       <div class="col-md-4 col-sm-12 col-xs-12">
   <div class="panel panel-default">
     <div class="panel-heading">
-     Messages
+     <%= link_to 'Message Board', team_messages_path(@team) %>
     </div>
 
           <div class="panel-body">
@@ -345,9 +345,31 @@
 
 
   <div class="col-md-4 col-sm-12 col-xs-12">
+<div class="panel panel-default">
+<div class="panel-heading">
+<%= link_to 'Tasks', team_tasks_path(@team)  %>
+</div>
+
+<%= @task.errors.full_messages.join(', ') %>
+  <div class="panel-body">
+  <% @tasks.each do |t| %>
+        <div class="alert alert-success">
+          <strong><%= t.body %></strong>
+
+        </div>
+        <% end %>
+
+
+      </div>
+</div>
+</div>
+<!-- /. ROW  -->
+
+<div class="row">
+  <div class="col-md-4 col-sm-12 col-xs-12">
       <div class="panel panel-default">
           <div class="panel-heading">
-            <h4>Members</h4>
+            Members
           </div>
           <div class="panel-body">
               <div class="list-group">
@@ -372,19 +394,10 @@
 
 </div>
 
-<h4><%= link_to 'Message Board', team_messages_path(@team) %></h4>
+</div>
 
 
-<h4><%= link_to 'Tasks', team_tasks_path(@team)  %></h4>
-<%= @task.errors.full_messages.join(', ') %>
-<ul>
-<% @tasks.each do |t| %>
-<li><%= t.body %></li>
-<br>
-<% end %>
-</ul>
 
-<hr>
 
 
 <h4><%= link_to 'Calendar', team_events_path(@team) %></h4>
