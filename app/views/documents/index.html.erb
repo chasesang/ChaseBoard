@@ -1,0 +1,37 @@
+<h1>Documents</h1>
+
+<% if @team.documents.present? %>
+<% @team.documents.each do |doc| %>
+<%= link_to doc.filename , doc.url  %>
+<%= image_tag 'google.png' %>
+<% end %>
+<% end %>
+
+<hr>
+
+<% @tasks.each do |task|%>
+<% if task.documents.present? %>
+<% task.documents.each do |doc| %>
+<%= link_to doc.filename , doc.url  %>
+<%= image_tag 'google.png' %>
+<% end %>
+<% end %>
+<% end %>
+<hr>
+
+<% @messages.each do |message| %>
+<% if message.documents.present? %>
+<% message.documents.each do |doc| %>
+<%= link_to doc.filename , doc.url  %>
+<%= image_tag 'google.png' %>
+<% end %>
+<% end %>
+<% message.comments.each do |comment| %>
+<% if comment.documents.present? %>
+<% comment.documents.each do |doc| %>
+<%= link_to doc.filename , doc.url  %>
+<%= image_tag 'google.png' %>
+<% end %>
+<% end %>
+<% end %>
+<% end %>

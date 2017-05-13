@@ -6,7 +6,7 @@ end
 
 def create
   @team = Team.new team_params
-  if @team.save
+  if @team.save!
   redirect_to dashboard_index_path, notice: 'team created!'
 else
   redirect_to dashboard_index_path, alert: 'something went wrong'
@@ -29,7 +29,7 @@ end
 private
 
 def team_params
-  params.require(:team).permit([:title, :description, {document: []}])
+  params.require(:team).permit([:title, :description, {documents: []}])
 end
 
 end

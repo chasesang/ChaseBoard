@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512023104) do
+ActiveRecord::Schema.define(version: 20170513003518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,20 @@ ActiveRecord::Schema.define(version: 20170512023104) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json     "documents"
     t.index ["message_id"], name: "index_comments_on_message_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "body"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "joins", force: :cascade do |t|
@@ -82,7 +94,7 @@ ActiveRecord::Schema.define(version: 20170512023104) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "documents"
+    t.json     "documents"
     t.index ["team_id"], name: "index_messages_on_team_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
@@ -122,6 +134,7 @@ ActiveRecord::Schema.define(version: 20170512023104) do
   add_foreign_key "assigns", "users"
   add_foreign_key "comments", "messages"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "joins", "teams"
   add_foreign_key "joins", "users"
   add_foreign_key "messages", "teams"

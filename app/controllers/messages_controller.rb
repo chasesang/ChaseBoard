@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
       redirect_to team_messages_path(@team), notice: 'Message Created!'
     else
       redirect_to team_messages_path(@team),
-      alert: 'Something went wrong!'
+      alert: @message.errors.full_messages.join(', ')
     end
 
   end
@@ -60,7 +60,7 @@ class MessagesController < ApplicationController
 
 
   def message_params
-    params.require(:message).permit([:title, :description, :category, {document: []}])
+    params.require(:message).permit([:title, :description, :category, {documents: []}])
   end
 
 

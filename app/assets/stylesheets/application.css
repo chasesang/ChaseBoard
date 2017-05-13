@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+
  *= require chosen
+ *= require simple_calendar
  *=stub active_admin
  */

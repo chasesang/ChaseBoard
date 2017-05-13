@@ -5,6 +5,6 @@ has_many :messages, dependent: :destroy
 has_many :joins, dependent: :destroy
 has_many :users, through: :joins
 
-mount_uploader :documents, DocumentUploader
+mount_uploaders :documents, DocumentUploader
 
 end

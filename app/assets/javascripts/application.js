@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require cocoon
 //= require underscore
 //= require bootstrap-sprockets
@@ -20,6 +21,9 @@
 //= require_tree .
 $(document).ready(function(){
   $('.chosen-select').chosen();
+})
+$(function () {
+  $('[data-toggle="popover"]').popover()
 })
 //
 // $('.chosen-select').chosen

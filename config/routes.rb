@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get('/about' => 'about#index')
   get('/contact' => 'contact#index')
 
+
   resources :teams do
     # resources :tasks, shallow: true do
     resources :tasks do
@@ -16,7 +17,8 @@ Rails.application.routes.draw do
     resources :messages do
       resources :comments, only: [:create, :destroy, :edit, :update]
     end
-
+    resources :events
+    resources :documents, only:[:index]
   end
 
 

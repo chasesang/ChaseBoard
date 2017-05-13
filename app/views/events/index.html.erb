@@ -1,0 +1,26 @@
+<h1>Team calendar</h1>
+<hr>
+<%= month_calendar events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+   <div>
+<button type="button" class="btn btn" data-toggle="popover" title="event title" data-content=' body?'>
+<strong><%= event.name %></strong></button>
+
+
+
+
+   </div>
+ <% end %>
+<% end %>
+
+
+<h3>New Event</h3>
+<%= simple_form_for [@team, @event] do |f|%>
+<%= f.input :name %>
+<%= f.input :body %>
+<%= f.input :start_time %>
+<%= f.input :end_time %>
+<%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

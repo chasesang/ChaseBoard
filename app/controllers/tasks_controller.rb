@@ -28,9 +28,9 @@ def create
   @task.user = current_user
 
   if @task.save
-    redirect_to team_tasks_path(@team)
+    redirect_to team_tasks_path(@team), notice:'task created!'
   else
-    redirect_to team_tasks_path(@team)
+    redirect_to team_tasks_path(@team), alert: @task.errors.full_messages.join(', ')
   end
 end
 
@@ -72,7 +72,7 @@ end
 
 
 def task_params
-  params.require(:task).permit([:body, {document: []}, :assignee_ids => []])
+  params.require(:task).permit([:body, {documents: []}, :assignee_ids => []])
 end
 
 end

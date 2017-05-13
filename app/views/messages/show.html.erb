@@ -3,6 +3,14 @@
 		<h2><%= @message.title %></h2>
     <p><%= @message.description %></p>
     <p><%= @message.category %></p>
+
+		<% if @message.documents.present? %>
+		<% @message.documents.each do |doc| %>
+		<%= link_to doc.filename , doc.url  %>
+		<%= image_tag 'google.png' %>
+		<% end %>
+		<% end %>
+
 		<p class="message-posted-by">Posted by <%= @message.user.first_name %> <%= time_ago_in_words(@message.created_at) %> ago</p>
 		<p class="message-desc"><%= @message.description %></p>
 
