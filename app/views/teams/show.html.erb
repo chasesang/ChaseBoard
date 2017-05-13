@@ -1,7 +1,7 @@
 <h1><%= @team.title %></h1>
 <h2><%= @team.description %></h2>
 
-<h4>Chat</h4>
+<h4><%= link_to 'Chat', team_rooms_path(@team) %> </h4>
 
 
 <h4>Members</h4>

@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   get('/about' => 'about#index')
   get('/contact' => 'contact#index')
 
-
+  mount ActionCable.server => '/cable'
+  
   resources :teams do
     # resources :tasks, shallow: true do
+    resources :rooms, only:[:index]
     resources :tasks do
       member do
         patch :complete
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
     end
     resources :events
     resources :documents, only:[:index]
+
   end
 
 
