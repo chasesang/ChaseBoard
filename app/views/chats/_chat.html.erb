@@ -1,4 +1,13 @@
-<div class="chat">
-  <p><%= chat.content %></p>
 
+<div class="chat">
+  <a href="" class="chat_profile-pic"></a>
+  <a href="" class="chat_username">
+    <%= chat.user.email %></a>
+  <span class="chat_timestamp">
+    <%= chat.created_at %>
+  </span>
+  <span class="chat_star"></span>
+  <span class="chat_content">
+    <%= chat.content %>
+  </span>
 </div>

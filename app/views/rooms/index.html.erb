@@ -1,5 +1,12 @@
 <h1>Chat Room</h1>
-<div id="chats">
-  <%= render @chats %>
-
+  <div class="chat-history" id="chats">
+    <%= render @chats %>
+  </div>
+</div>
+<div class="footer">
+  <div class="user-menu">
+    <span class="user-menu_profile-pic"></span><span class="user-menu_username"><%= current_user.first_name%>
+  <div class="input-box">
+    <input type="text" class="input-box_text" id="chat_input"/>
+  </div>
 </div>

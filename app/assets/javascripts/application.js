@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require cocoon
 //= require underscore
 //= require bootstrap-sprockets
