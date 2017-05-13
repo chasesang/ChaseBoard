@@ -1,12 +1,13 @@
 
-<section id="container">
+
+  <section id="container">
       <!--header start-->
       <header class="header white-bg">
               <div class="sidebar-toggle-box">
                   <i class="fa fa-bars"></i>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo">Flat<span>lab</span></a>
+            <a href="index.html" class="logo">CHASE<span>BOARD</span></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -107,7 +108,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
+                                    <span class="photo"><%= image_tag 'avatar-mini.jpg' %></span>
                                     <span class="subject">
                                     <span class="from">Jonathan Smith</span>
                                     <span class="time">Just now</span>
@@ -439,13 +440,13 @@
           </div>
       </aside>
       <!--sidebar end-->
-      <!--main content start-->
+
+
+
+      <!--To do content start-->
       <section id="main-content">
           <section class="wrapper">
               <!--state overview start-->
-
-
-
               <div class="row state-overview">
                   <div class="col-lg-3 col-sm-6">
                       <section class="panel">
@@ -454,9 +455,9 @@
                           </div>
                           <div class="value">
                               <h1 class="count">
-
+                                  0
                               </h1>
-                              <p>My Tasks</p>
+                              <p>My Messages</p>
                           </div>
                       </section>
                   </div>
@@ -469,7 +470,7 @@
                               <h1 class=" count2">
                                   0
                               </h1>
-                              <p>My documents</p>
+                              <p>My Events</p>
                           </div>
                       </section>
                   </div>
@@ -482,7 +483,7 @@
                               <h1 class=" count3">
                                   0
                               </h1>
-                              <p>My Bookmarks</p>
+                              <p>My Documents</p>
                           </div>
                       </section>
                   </div>
@@ -495,89 +496,607 @@
                               <h1 class=" count4">
                                   0
                               </h1>
-                              <p>My Toolbox</p>
+                              <p>My Bookmarks</p>
                           </div>
                       </section>
                   </div>
               </div>
-
               <!--state overview end-->
-              <div class="row">
-
-                <section class="panel">
 
 
-              </div>
-                  <div class="col-lg-6">
-                      <!--work progress start-->
 
-                          <div class="panel-body progress-panel">
+                            <!-- page start-->
+                            <div class="row">
+                            <header class="panel-heading">
+                                <h2>Todo list</h2>
 
-                                  <p>The To-do I created</p>
+                            </header>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <section class="panel tasks-widget">
+                                        <header class="panel-heading">
+
+                                            <p>Tasks that assigned to me</p>
+                                        </header>
+                                        <div class="panel-body">
+
+                                            <div class="task-content">
+
+                                                <ul class="task-list">
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Flatlab is Modern Dashboard</span>
+                                                            <span class="badge badge-sm label-success">2 Days</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Fully Responsive & Bootstrap 3.0.2 Compatible</span>
+                                                            <span class="badge badge-sm label-danger">Done</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Daily Standup Meeting</span>
+                                                            <span class="badge badge-sm label-warning">Company</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Write well documentation for this theme</span>
+                                                            <span class="badge badge-sm label-primary">3 Days</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">We have a plan to include more features in future update</span>
+                                                            <span class="badge badge-sm label-info">Tomorrow</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Don't be hesitate to purchase this Dashbord</span>
+                                                            <span class="badge badge-sm label-inverse">Now</span>
+                                                            <div class="pull-right">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Code compile and upload</span>
+                                                            <span class="badge badge-sm label-success">2 Days</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Tell your friends to buy this dashboad</span>
+                                                            <span class="badge badge-sm label-danger">Now</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+                                            <div class=" add-task-row">
+                                                <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+                                                <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <section class="panel tasks-widget">
+                                        <header class="panel-heading">
+
+                                            <p>Tasks that I created</p>
+                                        </header>
+                                        <div class="panel-body">
+
+                                            <div class="task-content">
+
+                                                <ul class="task-list">
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Flatlab is Modern Dashboard</span>
+                                                            <span class="badge badge-sm label-success">2 Days</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Fully Responsive & Bootstrap 3.0.2 Compatible</span>
+                                                            <span class="badge badge-sm label-danger">Done</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Daily Standup Meeting</span>
+                                                            <span class="badge badge-sm label-warning">Company</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Write well documentation for this theme</span>
+                                                            <span class="badge badge-sm label-primary">3 Days</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">We have a plan to include more features in future update</span>
+                                                            <span class="badge badge-sm label-info">Tomorrow</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Don't be hesitate to purchase this Dashbord</span>
+                                                            <span class="badge badge-sm label-inverse">Now</span>
+                                                            <div class="pull-right">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Code compile and upload</span>
+                                                            <span class="badge badge-sm label-success">2 Days</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp">Tell your friends to buy this dashboad</span>
+                                                            <span class="badge badge-sm label-danger">Now</span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+                                            <div class=" add-task-row">
+                                                <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+                                                <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                          </div>
+
+
+                            <!-- page end-->
+
+
+                    <!--Todo content end-->
+
+
+                   <!-- Team profile start -->
+                   <section class="wrapper">
+                   <div class="row">
+                   <header class="panel-heading">
+                       <h2>My Teams</h2>
+                   </header>
+                    <div class="row">
+
+                                      <div class="col-lg-3">
+                                          <!--widget start-->
+                                          <aside class="profile-nav alt green-border">
+                                              <section class="panel">
+                                                  <div class="user-heading alt green-bg">
+                                                      <a href="#">
+                                                          <img alt="" src="img/profile-avatar.jpg">
+                                                      </a>
+                                                      <h1>Jonathan Smith</h1>
+                                                      <p>jsmith@flatlab.com</p>
+                                                  </div>
+
+                                                  <ul class="nav nav-pills nav-stacked">
+                                                      <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Mail Inbox <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                                      <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-info pull-right r-activity">11</span></a></li>
+                                                      <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Notification <span class="label label-warning pull-right r-activity">03</span></a></li>
+                                                      <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Message <span class="label label-success pull-right r-activity">10</span></a></li>
+                                                  </ul>
+
+                                              </section>
+                                          </aside>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <!--widget start-->
+                                            <aside class="profile-nav alt green-border">
+                                                <section class="panel">
+                                                    <div class="user-heading alt green-bg">
+                                                        <a href="#">
+                                                            <img alt="" src="img/profile-avatar.jpg">
+                                                        </a>
+                                                        <h1>Jonathan Smith</h1>
+                                                        <p>jsmith@flatlab.com</p>
+                                                    </div>
+
+                                                    <ul class="nav nav-pills nav-stacked">
+                                                        <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Mail Inbox <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                                        <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-info pull-right r-activity">11</span></a></li>
+                                                        <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Notification <span class="label label-warning pull-right r-activity">03</span></a></li>
+                                                        <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Message <span class="label label-success pull-right r-activity">10</span></a></li>
+                                                    </ul>
+
+                                                </section>
+                                            </aside>
+                                          </div>
+
+                                          <div class="col-lg-3">
+                                              <!--widget start-->
+                                              <aside class="profile-nav alt green-border">
+                                                  <section class="panel">
+                                                      <div class="user-heading alt green-bg">
+                                                          <a href="#">
+                                                              <img alt="" src="img/profile-avatar.jpg">
+                                                          </a>
+                                                          <h1>Jonathan Smith</h1>
+                                                          <p>jsmith@flatlab.com</p>
+                                                      </div>
+
+                                                      <ul class="nav nav-pills nav-stacked">
+                                                          <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Mail Inbox <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                                          <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-info pull-right r-activity">11</span></a></li>
+                                                          <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Notification <span class="label label-warning pull-right r-activity">03</span></a></li>
+                                                          <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Message <span class="label label-success pull-right r-activity">10</span></a></li>
+                                                      </ul>
+
+                                                  </section>
+                                              </aside>
+                                            </div>
+
+                                            <div class="col-lg-3">
+                                                <!--widget start-->
+                                                <aside class="profile-nav alt green-border">
+                                                    <section class="panel">
+                                                        <div class="user-heading alt green-bg">
+                                                            <a href="#">
+                                                                <img alt="" src="img/profile-avatar.jpg">
+                                                            </a>
+                                                            <h1>Jonathan Smith</h1>
+                                                            <p>jsmith@flatlab.com</p>
+                                                        </div>
+
+                                                        <ul class="nav nav-pills nav-stacked">
+                                                            <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Mail Inbox <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                                            <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-info pull-right r-activity">11</span></a></li>
+                                                            <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Notification <span class="label label-warning pull-right r-activity">03</span></a></li>
+                                                            <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Message <span class="label label-success pull-right r-activity">10</span></a></li>
+                                                        </ul>
+
+                                                    </section>
+                                                </aside>
+                                              </div>
+
+
+                                            </div>
+                                              </div>
+                                            </secion>
+
+
+
+                                          <!--project profile start-->
+                                          <section class="wrapper">
+                                          <div class="row">
+                                          <header class="panel-heading">
+                                              <h2>My Projects</h2>
+                                          </header>
+                                           <div class="row">
+
+                                                             <div class="col-lg-3">
+                                                                 <!--widget start-->
+                                                                 <section class="panel">
+                                  <div class="twt-feed blue-bg">
+                                      <h1>Jonathan Smith</h1>
+                                      <p>jsmith@flatlab.com</p>
+                                      <a href="#">
+                                          <img src="img/profile-avatar.jpg" alt="">
+                                      </a>
+                                  </div>
+                                  <div class="weather-category twt-category">
+                                      <ul>
+                                          <li class="active">
+                                              <h5>320</h5>
+                                              Tweet
+                                          </li>
+                                          <li>
+                                              <h5>1245</h5>
+                                              Following
+                                          </li>
+                                          <li>
+                                              <h5>24657</h5>
+                                              Followers
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="twt-write col-sm-12">
+                                      <textarea class="form-control  t-text-area" rows="2" placeholder="Tweet Here"></textarea>
+                                  </div>
+                                  <footer class="twt-footer">
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-map-marker"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-camera"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-info pull-right" type="button">
+                                          <i class="fa fa-twitter"></i>
+                                          Tweet
+                                      </button>
+                                  </footer>
+                              </section>
                               </div>
 
-                          <table class="table table-hover personal-task">
+                                                               <div class="col-lg-3">
+                                                                   <!--widget start-->
+                                                                   <section class="panel">
+                                  <div class="twt-feed blue-bg">
+                                      <h1>Jonathan Smith</h1>
+                                      <p>jsmith@flatlab.com</p>
+                                      <a href="#">
+                                          <img src="img/profile-avatar.jpg" alt="">
+                                      </a>
+                                  </div>
+                                  <div class="weather-category twt-category">
+                                      <ul>
+                                          <li class="active">
+                                              <h5>320</h5>
+                                              Tweet
+                                          </li>
+                                          <li>
+                                              <h5>1245</h5>
+                                              Following
+                                          </li>
+                                          <li>
+                                              <h5>24657</h5>
+                                              Followers
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="twt-write col-sm-12">
+                                      <textarea class="form-control  t-text-area" rows="2" placeholder="Tweet Here"></textarea>
+                                  </div>
+                                  <footer class="twt-footer">
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-map-marker"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-camera"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-info pull-right" type="button">
+                                          <i class="fa fa-twitter"></i>
+                                          Tweet
+                                      </button>
+                                  </footer>
+                              </section>
+                                                                 </div>
 
-                            <% if user_signed_in? %>
+                                                                 <div class="col-lg-3">
+                                                                     <!--widget start-->
+                                                                     <section class="panel">
+                                  <div class="twt-feed blue-bg">
+                                      <h1>Jonathan Smith</h1>
+                                      <p>jsmith@flatlab.com</p>
+                                      <a href="#">
+                                          <img src="img/profile-avatar.jpg" alt="">
+                                      </a>
+                                  </div>
+                                  <div class="weather-category twt-category">
+                                      <ul>
+                                          <li class="active">
+                                              <h5>320</h5>
+                                              Tweet
+                                          </li>
+                                          <li>
+                                              <h5>1245</h5>
+                                              Following
+                                          </li>
+                                          <li>
+                                              <h5>24657</h5>
+                                              Followers
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="twt-write col-sm-12">
+                                      <textarea class="form-control  t-text-area" rows="2" placeholder="Tweet Here"></textarea>
+                                  </div>
+                                  <footer class="twt-footer">
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-map-marker"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-camera"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-info pull-right" type="button">
+                                          <i class="fa fa-twitter"></i>
+                                          Tweet
+                                      </button>
+                                  </footer>
+                              </section>
+                                                                   </div>
 
-                            <% @tasks.each do |task| %>
-                              <tbody>
-                              <tr>
-                                  <td>Number</td>
-                                  <td>
-                                    <%= link_to task.body, team_task_path(task.team, task) %>
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-important">75%</span>
-                                  </td>
-                                  <td>
-                                    <div id="work-progress1">
-                                    <%= link_to task.team.title, team_path(task.team_id) %></div>
-                                  </td>
-                              </tr>
-                              <% end %>
-                              <% end %>
+                                                                   <div class="col-lg-3">
+                                                                       <!--widget start-->
+                                                                       <section class="panel">
+                                  <div class="twt-feed blue-bg">
+                                      <h1>Jonathan Smith</h1>
+                                      <p>jsmith@flatlab.com</p>
+                                      <a href="#">
+                                          <img src="img/profile-avatar.jpg" alt="">
+                                      </a>
+                                  </div>
+                                  <div class="weather-category twt-category">
+                                      <ul>
+                                          <li class="active">
+                                              <h5>320</h5>
+                                              Tweet
+                                          </li>
+                                          <li>
+                                              <h5>1245</h5>
+                                              Following
+                                          </li>
+                                          <li>
+                                              <h5>24657</h5>
+                                              Followers
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="twt-write col-sm-12">
+                                      <textarea class="form-control  t-text-area" rows="2" placeholder="Tweet Here"></textarea>
+                                  </div>
+                                  <footer class="twt-footer">
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-map-marker"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-white" data-toggle="button">
+                                          <i class="fa fa-camera"></i>
+                                      </button>
+                                      <button class="btn btn-space btn-info pull-right" type="button">
+                                          <i class="fa fa-twitter"></i>
+                                          Tweet
+                                      </button>
+                                  </footer>
+                              </section>
+                                                                     </div>
 
-                              </tbody>
-                          </table>
 
-                      <!--work progress end-->
-                  </div>
+                                                                   </div>
+                                                                     </div>
+                                                                   </secion>
 
-                  <div class="col-lg-6">
-                      <!--work progress start-->
 
-                          <div class="panel-body progress-panel">
+<!--project profile end-->
 
-                                  <p>The To-dos assigned to me</p>
-                              </div>
 
-                          <table class="table table-hover personal-task">
+</section>
 
-                            <% if user_signed_in? %>
 
-                              <% @user.assigned_tasks.each do |task| %>
-                              <tbody>
-                              <tr>
-                                  <td>Number</td>
-                                  <td>
-                                    <%= link_to task.body, team_task_path(task.team, task) %>
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-important">75%</span>
-                                  </td>
-                                  <td>
-                                    <div id="work-progress1">
-                                    <%= link_to task.team.title, team_path(task.team_id) %></div>
-                                  </td>
-                              </tr>
-                              <% end %>
-                              <% end %>
+  </section>
 
-                              </tbody>
-                          </table>
-                      </section>
-                      <!--work progress end-->
-                  </div>
 
-              </div>
+
+  </body>
+</html>
