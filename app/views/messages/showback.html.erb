@@ -1,0 +1,152 @@
+<div class="row">
+
+	<section class="panel">
+		<div class="panel-body">
+			<div class="">
+			<h2><%= @message.title %></h2>
+			<p><%= @message.category %></p>
+			</div>
+			<br>
+			<div class="fb-user-thumb">
+				<%= image_tag 'avatar-mini'%>
+			</div>
+			<div class="fb-user-details">
+				<h3>
+					<a class="#" href="#"><%= @message.user.first_name %> <%= @message.user.last_name %></a>
+				</h3>
+				<p><%= time_ago_in_words(@message.created_at) %>
+				ago</p>
+			</div>
+			<div class="clearfix"></div>
+			<p class="fb-user-status">J<%= @message.description %>
+			</p>
+			<% if @message.documents.present? %>
+			<% @message.documents.each do |doc| %>
+			<%= link_to doc.filename , doc.url  %>
+			<%= image_tag 'google.png' %>
+			<% end %>
+			<% end %>
+
+
+			<div class="fb-time-action">
+				<% if @message.user_id == current_user.id %>
+				<%= link_to "Edit", edit_team_message_path(@team, @message) %>
+				<span>-</span>
+				<%= link_to "Delete", team_message_path(@team, @message), method: :delete, data: { confirm: "Are you sure?" } %>
+				<% end %>
+				<span>-</span>
+				<a href="#" title="Like this">Like</a>
+				<span>-</span>
+				<a href="#" title="Leave a comment">Comments</a>
+
+			</div>
+
+			<div class="fb-status-container fb-border fb-gray-bg">
+				<div class="fb-time-action like-info">
+					<a href="#">Jhon Due,</a>
+					<a href="#">Danieal Kalion</a>
+					<span>and</span>
+					<a href="#">40 more</a>
+					<span>like this</span>
+				</div>
+
+				<ul class="fb-comments">
+					<li>
+						<a class="cmt-thumb" href="#">
+							<img alt="" src="img/mail-avatar.jpg">
+						</a>
+						<div class="cmt-details">
+							<a href="#">Jhone due</a>
+							<span>
+								is world famous professional photographer. with forward thinking clients to create beautiful,
+							</span>
+							<p>23 minutes ago -
+								<a class="like-link" href="#" tittle="Like this">Like</a>
+							</p>
+						</div>
+					</li>
+					<li>
+						<a class="cmt-thumb" href="#">
+							<img alt="" src="img/follower-avatar.jpg">
+						</a>
+						<div class="cmt-details">
+							<a href="#">Tawseef</a>
+							<span>
+								is world famous professional photographer. with forward thinking clients to create beautiful,
+							</span>
+							<p>45 minutes ago -
+								<a class="like-link" href="#" tittle="Like this">Like</a>
+							</p>
+						</div>
+					</li>
+
+					<li>
+						<a class="cmt-thumb" href="#">
+							<img alt="" src="img/follower-avatar.jpg">
+						</a>
+						<div class="cmt-form">
+							<textarea name="" placeholder="Write a comment..." class="form-control"></textarea>
+						</div>
+					</li>
+				</ul>
+
+				<div class="clearfix"></div>
+
+			</div>
+
+		</div>
+	</section>
+</div>
+<div class="col-md-8 col-md-offset-2">
+	<div class="message-show">
+		<h2><%= @message.title %></h2>
+		<p><%= @message.description %></p>
+		<p><%= @message.category %></p>
+
+		<% if @message.documents.present? %>
+		<% @message.documents.each do |doc| %>
+		<%= link_to doc.filename , doc.url  %>
+		<%= image_tag 'google.png' %>
+		<% end %>
+		<% end %>
+
+		<p class="message-posted-by">Posted by
+			<%= @message.user.first_name %>
+			<%= time_ago_in_words(@message.created_at) %>
+			ago</p>
+		<p class="message-desc"><%= @message.description %></p>
+
+		<div class="links btn-group">
+			<%= link_to "Back", team_messages_path(@team), class: "btn btn-default" %>
+			<% if @message.user_id == current_user.id %>
+			<%= link_to "Edit", edit_team_message_path(@team, @message), class: "btn btn-default" %>
+			<%= link_to "Delete", team_message_path(@team, @message), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+			<% end %>
+		</div>
+	</div>
+
+	<h3 class="comment-section-header">Comments:</h3>
+	<% @comments.each do |comment| %>
+
+	<div class="comment">
+		<p class="comment-content">
+			<strong><%= comment.content %></strong>
+		</p>
+		<% if comment.user_id %>
+		<p class="comment-posted-by">Posted by
+			<%= comment.user.first_name %>
+			<%= time_ago_in_words(comment.created_at) %>
+			ago</p>
+		<% end %>
+		<div class="links">
+			<% if comment.user_id == current_user.id %>
+			<%= link_to "Edit", edit_team_message_comment_path(comment.message.team, comment.message, comment) %>
+			<%= link_to "Delete", team_message_comment_path(comment.message.team, comment.message, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+			<br>
+			<% end %>
+			<br>
+			<% end %>
+
+			<h3 class="reply-to-msg">Reply to Message:</h3>
+
+			<%= render 'comments/form' %>

@@ -1,39 +1,251 @@
 <h1>Message Board</h1>
 <hr>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  New Message
-</button>
+<div class="row">
+    <!--carousel start-->
+    <section class="panel">
+        <div id="c-slide" class="carousel slide auto panel-body">
+            <ol class="carousel-indicators out">
+                <li class="active" data-slide-to="0" data-target="#c-slide"></li>
+                <li class="" data-slide-to="1" data-target="#c-slide"></li>
+                <li class="" data-slide-to="2" data-target="#c-slide"></li>
+                <li class="" data-slide-to="3" data-target="#c-slide"></li>
+            </ol>
+            <a data-slide="prev" href="#c-slide" class="left carousel-control">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a data-slide="next" href="#c-slide" class="right carousel-control">
+                <i class="fa fa-angle-right"></i>
+            </a>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">New Message</h4>
-      </div>
-      <div class="modal-body">
+            <div class="carousel-inner">
+                <div class="item text-center active">
+                    <h3>Annoucement</h3>
+                    <small class="text-muted">Public Annoucement</small>
 
-        <%= simple_form_for [@team, @newmessage] do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
-				<%= f.input :category %>
-        <%= f.file_field :documents, multiple: true %> 
-        <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+                </div>
+                <div class="item text-center">
+                    <h3>FYI</h3>
+                    <small class="text-muted">For Y'all information</small>
+                </div>
+                <div class="item text-center">
+                    <h3>Ideas</h3>
+                    <small class="text-muted">"I have a great idea!"</small>
+                </div>
+                <div class="item text-center">
+                    <h3>Questions</h3>
+                    <small class="text-muted">"Please help..."</small>
+                </div>
+                <div class="item text-center">
+                    <h3>Something else..</h3>
+                    <small class="text-muted">"I just wannna say..."</small>
+                </div>
+            </div>
 
-    </div>
-  </div>
+        </div>
+
+    </section>
 </div>
-<br>
 
+<!--carousel end-->
+<section class="panel">
+    <header class="panel-heading tab-bg-dark-navy-blue ">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#home">Annoucement</a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#about">FYI</a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#profile">Question</a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#contact">Idea</a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#contact">Something else..</a>
+            </li>
+        </ul>
+    </header>
+    <div class="panel-body">
+        <div class="tab-content">
+            <div id="home" class="tab-pane active">
+                <div class="row">
 
-<% @messages.each do |message| %>
-	<div class="col-md-4">
-		<div class="message">
-			<h2 class="message-title"><%= message.title %></h2>
-      <p><%= message.category %></p>
-			<%= link_to "View Message", team_message_path(@team, message), class: "btn btn-default" %>
-		</div>
-	</div>
-<% end %>
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class="fb-user-thumb">
+                                <img src="img/pro-ac-1.png" alt="">
+                            </div>
+                            <div class="fb-user-details">
+                                <h3>
+                                    <a href="#" class="#">Margarita Elina</a>
+                                </h3>
+                                <p>7 minutes ago near Alaska, USA</p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <p class="fb-user-status">John is world famous professional photographer. with forward thinking clients to create beautiful, honest and amazing things that bring positive results. John is world famous professional photographer. with forward thinking
+                                clients to create beautiful, honest and amazing things that bring positive results.
+                            </p>
+                            <div class="fb-status-container fb-border">
+                                <div class="fb-time-action">
+                                    <a href="#" title="Like this">Like</a>
+                                    <span>-</span>
+                                    <a href="#" title="Leave a comment">Comments</a>
+                                    <span>-</span>
+                                    <a href="#" title="Send this to friend or post it on your time line">Share</a>
+                                </div>
+                            </div>
+
+                            <div class="fb-status-container fb-border fb-gray-bg">
+                                <div class="fb-time-action like-info">
+                                    <a href="#">Jhon Due,</a>
+                                    <a href="#">Danieal Kalion</a>
+                                    <span>and</span>
+                                    <a href="#">40 more</a>
+                                    <span>like this</span>
+                                </div>
+                                <div class="fb-time-action">
+                                    <a href="#" title="Leave a comment">See Comments</a>
+
+                                    <div class="panel-group m-bot20" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseComment">
+                                                        See Comments
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseComment" class="panel-collapse collapse">
+
+                                                <ul class="fb-comments">
+                                                    <li>
+                                                        <a href="#" class="cmt-thumb">
+                                                            <img src="img/mail-avatar.jpg" alt="">
+                                                        </a>
+                                                        <div class="cmt-details">
+                                                            <a href="#">Jhone due</a>
+                                                            <span>
+                                                                is world famous professional photographer. with forward thinking clients to create beautiful,
+                                                            </span>
+                                                            <p>40 minutes ago -
+                                                                <a href="#" class="like-link">Like</a>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="cmt-thumb">
+                                                            <img src="img/follower-avatar.jpg" alt="">
+                                                        </a>
+                                                        <div class="cmt-details">
+                                                            <a href="#">Tawseef</a>
+                                                            <span>
+                                                                is world famous professional photographer. with forward thinking clients to create beautiful,
+                                                            </span>
+                                                            <p>34 minutes ago -
+                                                                <a href="#" class="like-link">Like</a>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span>-</span>
+
+                                </div>
+
+                                <ul class="fb-comments">
+                                    <li>
+                                        <a href="#" class="cmt-thumb">
+                                            <img src="img/mail-avatar.jpg" alt="">
+                                        </a>
+                                        <div class="cmt-details">
+                                            <a href="#">Jhone due</a>
+                                            <span>
+                                                is world famous professional photographer. with forward thinking clients to create beautiful,
+                                            </span>
+                                            <p>40 minutes ago -
+                                                <a href="#" class="like-link">Like</a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="cmt-thumb">
+                                            <img src="img/follower-avatar.jpg" alt="">
+                                        </a>
+                                        <div class="cmt-details">
+                                            <a href="#">Tawseef</a>
+                                            <span>
+                                                is world famous professional photographer. with forward thinking clients to create beautiful,
+                                            </span>
+                                            <p>34 minutes ago -
+                                                <a href="#" class="like-link">Like</a>
+                                            </p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <div id="about" class="tab-pane">FYI</div>
+            <div id="profile" class="tab-pane">Question</div>
+            <div id="contact" class="tab-pane">Idea</div>
+            <div id="contact" class="tab-pane">Something else...</div>
+        </div>
+    </div>
+</section>
+
+<div class="row">
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        New Message
+    </button>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">New Message</h4>
+                </div>
+                <div class="modal-body">
+
+                    <%= simple_form_for [@team, @newmessage] do |f| %>
+                    <%= f.input :title %>
+                    <%= f.input :description %>
+                    <%= f.input :category %>
+                    <%= f.file_field :documents, multiple: true %>
+                    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <% @messages.each do |message| %>
+    <div class="col-md-4">
+        <div class="message">
+            <h2 class="message-title"><%= message.title %></h2>
+            <p><%= message.category %></p>
+            <%= link_to "View Message", team_message_path(@team, message), class: "btn btn-default" %>
+        </div>
+    </div>
+    <% end %>
+</div>

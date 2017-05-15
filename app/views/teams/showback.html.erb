@@ -1,0 +1,322 @@
+<h1><%= @team.title %></h1>
+<h2><%= @team.description %></h2>
+<hr>
+
+<div class="row">
+
+<!-- MESSAGE BOARD -->
+<div class="col-lg-4">
+                  <section class="panel ">
+                      <header class="panel-heading">
+                          <h4><%= link_to 'Message Board', team_messages_path(@team) %></h4>
+                            <span class="tools pull-right">
+
+                          </span>
+                      </header>
+                      <div class="panel-body profile-activity">
+                          <h5 class="pull-right">12 August 2013</h5>
+
+                          <div class="activity terques">
+                                    <span>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </span>
+
+                              <div class="activity-desk">
+                                  <div class="panel">
+                                      <div class="panel-body">
+                                          <div class="arrow"></div>
+                                          <i class=" fa fa-clock-o"></i>
+                                          <h4>10:45 AM</h4>
+
+                                          <p>Purchased new equipments for zonal office setup and stationaries.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="activity alt purple">
+                                    <span>
+                                        <i class="fa fa-rocket"></i>
+                                    </span>
+
+                              <div class="activity-desk">
+                                  <div class="panel">
+                                      <div class="panel-body">
+                                          <div class="arrow-alt"></div>
+                                          <i class=" fa fa-clock-o"></i>
+                                          <h4>12:30 AM</h4>
+
+                                          <p>Lorem ipsum dolor sit amet consiquest dio</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="activity blue">
+                                    <span>
+                                        <i class="fa fa-bullhorn"></i>
+                                    </span>
+
+                              <div class="activity-desk">
+                                  <div class="panel">
+                                      <div class="panel-body">
+                                          <div class="arrow"></div>
+                                          <i class=" fa fa-clock-o"></i>
+                                          <h4>10:45 AM</h4>
+
+                                          <p>Please note which location you will consider, or both. Reporting to the
+                                              VP you will be responsible for managing.. </p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="activity alt green">
+                                    <span>
+                                        <i class="fa fa-beer"></i>
+                                    </span>
+
+                              <div class="activity-desk">
+                                  <div class="panel">
+                                      <div class="panel-body">
+                                          <div class="arrow-alt"></div>
+                                          <i class=" fa fa-clock-o"></i>
+                                          <h4>12:30 AM</h4>
+
+                                          <p>Please note which location you will consider, or both.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </section>
+              </div>
+
+
+<!-- chat starts -->
+<div class="col-lg-4">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <h4><%= link_to 'Chat'%></h4>
+                              <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="timeline-messages">
+                                <!-- Comment -->
+                                <div class="msg-time-chat">
+                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar.jpg"
+                                                                         alt=""></a>
+
+                                    <div class="message-body msg-in">
+                                        <span class="arrow"></span>
+
+                                        <div class="text">
+                                            <p class="attribution"><a href="#">Jhon Doe</a> at 1:55pm, 13th April 2013
+                                            </p>
+
+                                            <p>Hello, How are you brother?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /comment -->
+
+                                <!-- Comment -->
+                                <div class="msg-time-chat">
+                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar2.jpg"
+                                                                         alt=""></a>
+
+                                    <div class="message-body msg-out">
+                                        <span class="arrow"></span>
+
+                                        <div class="text">
+                                            <p class="attribution"><a href="#">Jonathan Smith</a> at 2:01pm, 13th April
+                                                2013</p>
+
+                                            <p>I'm Fine, Thank you. What about you? How is going on?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /comment -->
+
+                                <!-- Comment -->
+                                <div class="msg-time-chat">
+                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar.jpg"
+                                                                         alt=""></a>
+
+                                    <div class="message-body msg-in">
+                                        <span class="arrow"></span>
+
+                                        <div class="text">
+                                            <p class="attribution"><a href="#">Jhon Doe</a> at 2:03pm, 13th April 2013
+                                            </p>
+
+                                            <p>Yeah I'm fine too. Everything is going fine here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /comment -->
+
+                                <!-- Comment -->
+                                <div class="msg-time-chat">
+                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar2.jpg"
+                                                                         alt=""></a>
+
+                                    <div class="message-body msg-out">
+                                        <span class="arrow"></span>
+
+                                        <div class="text">
+                                            <p class="attribution"><a href="#">Jonathan Smith</a> at 2:05pm, 13th April
+                                                2013</p>
+
+                                            <p>well good to know that. anyway how much time you need to done your
+                                                task?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /comment -->
+                                <!-- Comment -->
+                                <div class="msg-time-chat">
+                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar.jpg"
+                                                                         alt=""></a>
+
+                                    <div class="message-body msg-in">
+                                        <span class="arrow"></span>
+
+                                        <div class="text">
+                                            <p class="attribution"><a href="#">Jhon Doe</a> at 1:55pm, 13th April 2013
+                                            </p>
+
+                                            <p>Hello, How are you brother?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /comment -->
+                            </div>
+                            <div class="chat-form">
+                                <div class="input-cont ">
+                                    <input type="text" class="form-control col-lg-12"
+                                           placeholder="Type a message here...">
+                                </div>
+                                <div class="form-group">
+                                    <div class="pull-right chat-features">
+                                        <a href="javascript:;">
+                                            <i class="fa fa-camera"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                        <a class="btn btn-danger" href="javascript:;">Send</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            <!-- chat ends -->
+
+
+<!--task start-->
+<div class="col-lg-4">
+
+  <section class="panel ">
+      <header class="panel-heading">
+          <h4><%= link_to 'Tasks' %></h4>
+
+
+                                <header class="panel-heading tab-bg-dark-navy-blue">
+                                    <ul class="nav nav-tabs nav-justified ">
+                                        <li class="active">
+                                            <a href="#" data-toggle="tab">
+                                                Priority
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#comments" data-toggle="tab">
+                                                Overdue
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#recent" data-toggle="tab">
+                                                Recent
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="tab-content tasi-tab">
+                                        <div class="tab-pane active" id="popular">
+                                            <article class="media">
+                                                <a class="pull-left thumb p-thumb">
+                                                    <img src="img/product1.jpg">
+                                                </a>
+
+                                                <div class="media-body">
+                                                  <% @tasks.limit(8).each do |t| %>
+                                                    <a class=" p-head" href="#"><%= t.id %></a>
+
+                                                    <p><%= t.body %></p>
+                                                    <% end %>
+                                                </div>
+                                            </article>
+
+                                        </div>
+                                        <div class="tab-pane " id="recent">
+                                            Recent Item goes here
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                          </div>
+                          </div>
+                            <!--Tasks end-->
+<!-- Calendar starts  -->
+<div class="row">
+
+<div class="col-lg-4">
+<section class="panel">
+                          <header class="panel-heading">
+                              <h4><%= link_to 'Calendar', team_events_path(@team) %></h4>
+                          </header>
+                          <div class="panel-body">
+                              <div class="best-seller">
+                                  <article class="media">
+                                      <a class="pull-left thumb p-thumb">
+                                          <img src="img/product1.jpg">
+                                      </a>
+                                      <div class="media-body">
+                                          <a href="#" class=" p-head">Item One Tittle</a>
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                      </div>
+                                  </article>
+                                  <article class="media">
+                                      <a class="pull-left thumb p-thumb">
+                                          <img src="img/product2.png">
+                                      </a>
+                                      <div class="media-body">
+                                          <a href="#" class=" p-head">Item Two Tittle</a>
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                      </div>
+                                  </article>
+                                  <article class="media">
+                                      <a class="pull-left thumb p-thumb">
+                                          <img src="img/product3.png">
+                                      </a>
+                                      <div class="media-body">
+                                          <a href="#" class=" p-head">Item Three Tittle</a>
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                      </div>
+                                  </article>
+                              </div>
+                          </div>
+                      </section>
+</div>
+<div class="col-lg-4">
+                      <section class="panel">
+                                                <header class="panel-heading">
+                                                    <h4><%= link_to 'Documents and files', team_documents_path(@team)%></h4>
+                                                </header>
+                                              </section>
+</div>
+</div>

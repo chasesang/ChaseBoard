@@ -25,6 +25,10 @@ $(document).ready(function(){
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+
+
+
+
 //
 // $('.chosen-select').chosen
 //    allow_single_deselect: true
