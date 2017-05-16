@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @newmessage = Message.new
-    @messages = Message.all.order("created_at DESC")
+    @messages = Message.all
 
   end
 

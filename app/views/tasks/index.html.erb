@@ -1,27 +1,76 @@
 <h1>Task</h1>
 
-<% if user_signed_in? %>
-	<ul>
-		<% @tasks.each do |task| %>
-			<% if task.complete? %>
-				<%= render "completed", task: task %>
-  		<% else %>
-  			<%= render "not_completed", task: task %>
-			<% end %>
-		<% end %>
-	</ul>
+<!-- page start-->
 
-	<%= simple_form_for [@team, @task] do |f| %>
-		<%= f.input :body, label: "New todos..." %>
-	
-		<%= f.association :assignees,
+<section class="panel tasks-widget">
+	<header class="panel-heading">
+
+		<p>Tasks that assigned to me</p>
+	</header>
+
+	<% if user_signed_in? %>
+	<div class="panel-body">
+
+		<div class="task-content">
+			<% @tasks.each do |task| %>
+			<ul class="task-list">
+				<li>
+					<div class="task-checkbox">
+						<input type="checkbox" class="list-child" value=""/>
+					</div>
+					<div class="task-title">
+						<span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
+						<span class="badge badge-sm label-danger"><%= link_to task.team.title,team_path(task.team_id) %></span>
+						<div class="pull-right hidden-phone">
+							<button class="btn btn-success btn-xs">
+								<i class=" fa fa-check"></i>
+							</button>
+							<button class="btn btn-primary btn-xs">
+								<i class="fa fa-pencil"></i>
+							</button>
+							<button class="btn btn-danger btn-xs">
+								<i class="fa fa-trash-o "></i>
+							</button>
+						</div>
+					</div>
+				</li>
+				<% end %>
+
+				<% end %>
+
+			</ul>
+		</div>
+
+		<div class=" add-task-row">
+			<a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+			<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+		</div>
+	</div>
+</section>
+
+
+<% if user_signed_in? %>
+<ul>
+<% @tasks.each do |task| %>
+<% if task.complete? %>
+<%= render "completed", task: task %>
+<% else %>
+<%= render "not_completed", task: task %>
+<% end %>
+<% end %>
+</ul>
+
+<%= simple_form_for [@team, @task] do |f| %>
+<%= f.input :body, label: "New todos..." %>
+
+<%= f.association :assignees,
 											collection: User.all,
 											label_method: :first_name,
 											include_blank: true,
 		input_html: { class: 'chosen-select input-new-line',
 																					 style: 'width: 400px' } %>
-		<%= f.file_field :documents, multiple: true %>
-		<%= f.submit 'Submit', class: 'btn btn-primary' %>
-	<% end %>
+<%= f.file_field :documents, multiple: true %>
+<%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>
 
 <% end %>

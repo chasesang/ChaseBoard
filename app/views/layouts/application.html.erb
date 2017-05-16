@@ -6,10 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'jsfromtemplate' %>
 
 
-     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -140,7 +139,7 @@
                                   </li>
                                   <li>
                                       <a href="#">
-                                          <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
+                                          <span class="photo"><%= image_tag 'avatar-mini2.jpg' %></span>
                                           <span class="subject">
                                           <span class="from">Jhon Doe</span>
                                           <span class="time">10 mins</span>
@@ -152,7 +151,7 @@
                                   </li>
                                   <li>
                                       <a href="#">
-                                          <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
+                                          <span class="photo"><%= image_tag 'avatar-mini3.jpg' %></span>
                                           <span class="subject">
                                           <span class="from">Jason Stathum</span>
                                           <span class="time">3 hrs</span>
@@ -164,7 +163,7 @@
                                   </li>
                                   <li>
                                       <a href="#">
-                                          <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
+                                          <span class="photo"><%= image_tag 'avatar-mini4.jpg' %></span>
                                           <span class="subject">
                                           <span class="from">Jondi Rose</span>
                                           <span class="time">Just now</span>
@@ -241,12 +240,9 @@
                       <ul class="nav pull-right top-menu">
                           <li>
                               <input type="text" class="form-control search" placeholder="Search">
+
                           </li>
                           <!-- user login dropdown start-->
-
-
-
-
                               <li class="dropdown">
                               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                   <%= image_tag 'avatar-mini.jpg' %>
@@ -291,11 +287,11 @@
 
                         <li>
                         <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
                                   <i class="fa fa-laptop"></i>
                                   My Space
                                 </a>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div id="collapseFirst" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFirst">
                                 <ul class="sub">
                                     <li><a  href="boxed_page.html">My Message</a></li>
                                     <li><a  href="horizontal_menu.html">My Event</a></li>
@@ -309,11 +305,11 @@
 
                       <li>
                       <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <i class="fa fa-laptop"></i>
+                              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <i class="fa fa-users"></i>
                                 My Teams
                               </a>
-                          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                               <ul class="sub">
                                 <% if user_signed_in? %>
 
@@ -329,11 +325,11 @@
 
                     <li>
                     <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              <i class="fa fa-laptop"></i>
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              <i class="fa fa-briefcase"></i>
                               My Projects
                             </a>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                             <ul class="sub">
                                 <li><a  href="boxed_page.html">My Message</a></li>
                                 <li><a  href="horizontal_menu.html">My Event</a></li>
