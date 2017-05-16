@@ -33,8 +33,9 @@
 				<%= link_to "Edit", edit_team_message_path(@team, @message) %>
 				<span>-</span>
 				<%= link_to "Delete", team_message_path(@team, @message), method: :delete, data: { confirm: "Are you sure?" } %>
-				<% end %>
+
 				<span>-</span>
+				<% end %>
 				<a href="#" title="Like this">Like</a>
 				<span>-</span>
 				<a href="#" title="Leave a comment">Comments</a>

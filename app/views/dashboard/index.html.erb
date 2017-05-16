@@ -179,9 +179,9 @@
                                               <section class="panel">
                                                   <div class="user-heading alt green-bg">
                                                       <a href="#">
-                                                          <img alt="" src="img/profile-avatar.jpg">
+                                                        <%= image_tag 'profile-avatar.jpg' %>
                                                       </a>
-                                                      <h1><%= link_to team.title, team_path(team.id) %></h1>
+                                                      <h3><%= link_to team.title, team_path(team.id) %></h3>
                                                       <p><%= link_to team.description, team_path(team.id) %></p>
 
                                                   </div>
