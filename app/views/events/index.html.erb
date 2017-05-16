@@ -1,26 +1,37 @@
-<h1>Team calendar</h1>
-<hr>
-<%= month_calendar events: @events do |date, events| %>
-  <%= date %>
+<div id='wrap'>
 
-  <% events.each do |event| %>
-   <div>
-<button type="button" class="btn btn" data-toggle="popover" title="event title" data-content=' body?'>
-<strong><%= event.name %></strong></button>
+		        <div id='external-events'>
+		          <div id='external-events-listing'>
+		            <h4>Draggable Events</h4>
+		            <div class='fc-event'>My Event 1</div>
+		            <div class='fc-event'>My Event 2</div>
+		            <div class='fc-event'>My Event 3</div>
+		            <div class='fc-event'>My Event 4</div>
+		            <div class='fc-event'>My Event 5</div>
+		          </div>
+		          <p>
+		            <input type='checkbox' id='drop-remove' checked='checked' />
+		            <label for='drop-remove'>remove after drop</label>
+		          </p>
+		        </div>
+		        <div class="container">
+		            <div class="col-md-12">
 
+		              <div class="col-md-6 mb-20">
+		                <div id='calendar1'></div>
+		              </div>
 
+		              <div class="col-md-6 mb-20">
+		                <div id='calendar2'></div>
+		              </div>
 
+		              <div class="col-md-6 mb-20">
+		                <div id='calendar3'></div>
+		              </div>
 
-   </div>
- <% end %>
-<% end %>
+		            </div>
+		        </div>
 
+		        <div style='clear:both'></div>
 
-<h3>New Event</h3>
-<%= simple_form_for [@team, @event] do |f|%>
-<%= f.input :name %>
-<%= f.input :body %>
-<%= f.input :start_time %>
-<%= f.input :end_time %>
-<%= f.submit 'Submit', class: 'btn btn-primary' %>
-<% end %>
+		</div>

@@ -1,72 +1,281 @@
-<h1>Dashboard</h1>
-<hr>
-<%= month_calendar do |date| %>
-  <%= date %>
-<% end %>
-<h2>My Stuff</h2>
-<h3>My To-do List</h3>
 
-<h5>The To-dos I created</h5>
-<% if user_signed_in? %>
-<ul>
-<% @tasks.each do |task| %>
-<li><%= link_to task.body, team_task_path(task.team, task) %><br>
-  From Team: <%= link_to task.team.title, team_path(task.team_id) %>
-</li>
-<br>
-<% end %>
-</ul>
-<% end %>
+      <!--Main content start-->
 
-<h5>The To-dos assigned to me</h5>
-<% if user_signed_in? %>
-<ul>
-  <% @user.assigned_tasks.each do |task| %>
-  <li><%= link_to task.body,team_task_path(task.team, task) %><br>
-  From Team: <%= link_to task.team.title,team_path(task.team_id) %>
-  </li>
-  <br>
-<% end %>
-</ul>
-<% end %>
+              <!--state overview start-->
+              <div class="row state-overview">
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol terques">
+                              <i class="fa fa-user"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class="count">
+                                  0
+                              </h1>
+                              <p>My Messages</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol red">
+                              <i class="fa fa-tags"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count2">
+                                  0
+                              </h1>
+                              <p>My Events</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol yellow">
+                              <i class="fa fa-shopping-cart"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count3">
+                                  0
+                              </h1>
+                              <p>My Documents</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol blue">
+                              <i class="fa fa-bar-chart-o"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count4">
+                                  0
+                              </h1>
+                              <p>My Bookmarks</p>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+              <!--state overview end-->
 
 
 
-<h3>My Bookmarks</h3>
-<h3>My Schedule</h3>
-<h3>My Toolbox</h3>
 
-<hr>
-<h2>Teams</h2>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  New Team
-</button>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">New Team</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for @newteam do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
-        <%= f.file_field :documents, multiple: true %>
-        <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
 
-    </div>
-  </div>
+                            <!-- page start-->
+                            <section class="wrapper">
+                            <div class="row">
+                            <header class="panel-heading">
+                                <h2>Todo list</h2>
+
+                            </header>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <section class="panel tasks-widget">
+                                        <header class="panel-heading">
+
+                                            <p>Tasks that assigned to me</p>
+                                        </header>
+
+                                        <% if user_signed_in? %>
+                                        <div class="panel-body">
+
+                                            <div class="task-content">
+                                              <% @user.assigned_tasks.each do |task| %>
+                                                <ul class="task-list">
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
+                                                            <span class="badge badge-sm label-danger"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <% end %>
+
+                                                    <% end %>
+
+
+                                                </ul>
+                                            </div>
+
+                                            <div class=" add-task-row">
+                                                <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+                                                <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <section class="panel tasks-widget">
+                                        <header class="panel-heading">
+
+                                            <p>Tasks that I created</p>
+                                        </header>
+                                        <div class="panel-body">
+
+                                            <div class="task-content">
+                                              <% if user_signed_in? %>
+
+                                              <% @tasks.each do |task| %>
+                                                <ul class="task-list">
+                                                    <li>
+                                                        <div class="task-checkbox">
+                                                            <input type="checkbox" class="list-child" value=""  />
+                                                        </div>
+                                                        <div class="task-title">
+                                                            <span class="task-title-sp"><%= link_to task.body, team_task_path(task.team, task) %></span>
+                                                            <span class="badge badge-sm label-success"><%= link_to task.team.title, team_path(task.team_id) %></span>
+                                                            <div class="pull-right hidden-phone">
+                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <% end %>
+
+                                                    <% end %>
+                                                  </ul>
+                                            </div>
+
+                                            <div class=" add-task-row">
+                                                <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+                                                <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                          </div>
+                        </section>
+
+                            <!-- page end-->
+
+
+                    <!--Todo content end-->
+
+
+                   <!-- Team profile start -->
+                   <section class="wrapper">
+                   <div class="row">
+                   <header class="panel-heading">
+                       <h2>My Teams</h2>
+                   </header>
+                    <div class="row">
+                      <% @teams.each do |team| %>
+
+                                      <div class="col-lg-3">
+                                          <!--widget start-->
+                                          <aside class="profile-nav alt green-border">
+                                              <section class="panel">
+                                                  <div class="user-heading alt green-bg">
+                                                      <a href="#">
+                                                        <%= image_tag 'profile-avatar.jpg' %>
+                                                      </a>
+                                                      <h3><%= link_to team.title, team_path(team.id) %></h3>
+                                                      <p><%= link_to team.description, team_path(team.id) %></p>
+
+                                                  </div>
+
+                                                  <ul class="nav nav-pills nav-stacked">
+                                                      <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Messages <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                                      <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Events <span class="label label-info pull-right r-activity">11</span></a></li>
+                                                      <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Documents <span class="label label-warning pull-right r-activity">03</span></a></li>
+
+                                                  </ul>
+
+                                              </section>
+                                          </aside>
+                                        </div>
+                                        <% end %>
+                                        </div>
+                                        </div>
+                                      </secion>
+
+
+
+                                          <!--project profile start-->
+                                          <section class="wrapper">
+                                          <div class="row">
+                                          <header class="panel-heading">
+                                              <h2>My Projects</h2>
+                                          </header>
+                                           <div class="row">
+
+                                                             <div class="col-lg-3">
+                                                                 <!--widget start-->
+                                                                 <section class="panel">
+                                  <div class="twt-feed blue-bg">
+                                      <h1>Project Title</h1>
+                                      <p>Project Descprition</p>
+                                      <a href="#">
+                                          <img src="img/profile-avatar.jpg" alt="">
+                                      </a>
+                                  </div>
+                                  <div class="weather-category twt-category">
+                                      <ul>
+                                          <li class="active">
+                                              <h5>320</h5>
+                                              Message
+                                          </li>
+                                          <li>
+                                              <h5>1245</h5>
+                                              Documents
+                                          </li>
+                                          <li>
+                                              <h5>24657</h5>
+                                              Tasks
+                                          </li>
+                                      </ul>
+                                  </div>
+
+                              </section>
+                              </div>
+
+                              <div class="col-lg-3">
+                                  <!--widget start-->
+                                  <section class="panel">
+   <div class="twt-feed blue-bg">
+       <h1>Project Title</h1>
+       <p>Project Descprition</p>
+       <a href="#">
+           <img src="img/profile-avatar.jpg" alt="">
+       </a>
+   </div>
+   <div class="weather-category twt-category">
+       <ul>
+           <li class="active">
+               <h5>320</h5>
+               Message
+           </li>
+           <li>
+               <h5>1245</h5>
+               Documents
+           </li>
+           <li>
+               <h5>24657</h5>
+               Tasks
+           </li>
+       </ul>
+   </div>
+
+</section>
 </div>
 
+<!--project profile end-->
 
 
-<% @teams.each do |team| %>
-<p><%= link_to team.title, team_path(team.id) %></p>
 
-<% end %>
-<hr>
-<h2>Projects</h2>
+
+
+  </body>
+</html>

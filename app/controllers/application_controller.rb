@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
       return true if User.exists?(id: session[:user_id])
       session[:user_id] = nil
     end
+
   end
   helper_method :user_signed_in?
 
