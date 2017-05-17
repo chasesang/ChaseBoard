@@ -312,7 +312,6 @@
                           <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                               <ul class="sub">
                                 <% if user_signed_in? %>
-
                                 <%  User.find(session[:user_id]).joined_teams.each do |team| %>
                                   <li><%= link_to team.title, team_path(team) %></li>
                                 <% end %>
