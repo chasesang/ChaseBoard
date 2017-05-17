@@ -284,32 +284,23 @@
                             </a>
                         </li>
 
-
-                        <li>
-                        <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
-                                  <i class="fa fa-laptop"></i>
-                                  My Space
-                                </a>
-                            <div id="collapseFirst" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFirst">
-                                <ul class="sub">
-                                    <li><a  href="boxed_page.html">My Message</a></li>
-                                    <li><a  href="horizontal_menu.html">My Event</a></li>
-                                    <li><a  href="header-color.html">My Document</a></li>
-                                    <li><a  href="mega_menu.html">My Bookmarks</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                      </li>
-
-                      <li>
-                      <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <li class="sub-menu">
+                                            <a href="javascript:;" >
+                                                <i class="fa fa-laptop"></i>
+                                                <span>My Space</span>
+                                            </a>
+                                            <ul class="sub">
+                                              <li><a  href="boxed_page.html">My Message</a></li>
+                                              <li><a  href="horizontal_menu.html">My Event</a></li>
+                                              <li><a  href="header-color.html">My Document</a></li>
+                                              <li><a  href="mega_menu.html">My Bookmarks</a></li>
+                                            </ul>
+                                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
                                 <i class="fa fa-users"></i>
                                 My Teams
                               </a>
-                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                               <ul class="sub">
                                 <% if user_signed_in? %>
                                 <%  User.find(session[:user_id]).joined_teams.each do |team| %>
@@ -318,17 +309,15 @@
                                 <% end %>
                               </ul>
 
-                          </div>
-                      </div>
                     </li>
 
-                    <li>
-                    <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <li class="sub-menu">
+                        <a href="javascript:;" >
+
                               <i class="fa fa-briefcase"></i>
                               My Projects
                             </a>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        
                             <ul class="sub">
                                 <li><a  href="boxed_page.html">My Message</a></li>
                                 <li><a  href="horizontal_menu.html">My Event</a></li>
@@ -336,8 +325,7 @@
                                 <li><a  href="mega_menu.html">My Bookmarks</a></li>
 
                             </ul>
-                        </div>
-                    </div>
+
                   </li>
 
                         <li>

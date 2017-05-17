@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
-
+*= require fullcalendar
  *= require chosen
  *= require simple_calendar
  *=stub active_admin
@@ -218,7 +218,7 @@ a, a:hover, a:focus {
     height:17px;
     width:17px;
     display:inline-block;
-    background: url(../img/nav-expand.png) no-repeat top;
+    background: url(nav-expand.png) no-repeat top;
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -227,7 +227,7 @@ a, a:hover, a:focus {
     top:15px;
 }
 .active .dcjq-icon {
-    background: url(../img/nav-expand.png) no-repeat bottom;
+    background: url(nav-expand.png) no-repeat bottom;
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -713,7 +713,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     transition: all .3s ease;
     border: 1px solid #fff;
     box-shadow: none;
-    background: url("../imgages/search-icon.png") no-repeat 10px 8px;
+    background: url("search-icon.png") no-repeat 10px 8px;
     padding:0 5px 0 35px;
     color: #000;
 }
@@ -1483,7 +1483,7 @@ h3.timeline-title {
 
 /*flatlab carousel model*/
 
-.flat-carousal {
+/*.flat-carousal {
     background: #58c9f3;
     -webkit-border-radius: 4px 4px 0px 0px;
     border-radius: 4px 4px 0px 0px;
@@ -1513,6 +1513,7 @@ a.view-all {
     text-transform: uppercase;
     font-size: 12px;
 }
+*/
 
 ul.ft-link {
     margin: 0;
@@ -1525,7 +1526,7 @@ ul.ft-link li {
     line-height: 30px;
     margin: 8px 0;
     text-align: center;
-    width: 24%;
+    width: 15%;
 }
 
 ul.ft-link li a {
@@ -1543,9 +1544,8 @@ ul.ft-link li:last-child {
 }
 
 ul.ft-link li a i {
-    display: block;
+    display: inline-block;
 }
-
 
 #owl-demo .item img{
     display: block;
@@ -2984,7 +2984,7 @@ ul.amounts li {
 }
 
 .tab-bg-dark-navy-blue {
-    background: #7087A3;
+    background:#64c9c7;
     border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     border-bottom: none;

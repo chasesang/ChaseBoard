@@ -1,94 +1,140 @@
 <h1>Message Board</h1>
-<hr>
-    <!--carousel start-->
+<script>
 
-    <!-- <section class="panel">
-        <div id="c-slide" class="carousel slide auto panel-body">
-            <ol class="carousel-indicators out">
-                <li class="active" data-slide-to="0" data-target="#c-slide"></li>
-                <li class="" data-slide-to="1" data-target="#c-slide"></li>
-                <li class="" data-slide-to="2" data-target="#c-slide"></li>
-                <li class="" data-slide-to="3" data-target="#c-slide"></li>
-            </ol>
-            <a data-slide="prev" href="#c-slide" class="left carousel-control">
-                <i class="fa fa-angle-left"></i>
-            </a>
-            <a data-slide="next" href="#c-slide" class="right carousel-control">
-                <i class="fa fa-angle-right"></i>
-            </a>
+    $(document).ready(function () {
+        $("#owl-demo").owlCarousel({navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, autoPlay: true});
+    });
 
-            <div class="carousel-inner">
-                <div class="item text-center active">
-                    <h3>Annoucement</h3>
-                    <small class="text-muted">Public Annoucement</small>
+    // custom select box
 
-                </div>
-                <div class="item text-center">
-                    <h3>FYI</h3>
-                    <small class="text-muted">For Y'all information</small>
-                </div>
-                <div class="item text-center">
-                    <h3>Ideas</h3>
-                    <small class="text-muted">"I have a great idea!"</small>
-                </div>
-                <div class="item text-center">
-                    <h3>Questions</h3>
-                    <small class="text-muted">"Please help..."</small>
-                </div>
-                <div class="item text-center">
-                    <h3>Something else..</h3>
-                    <small class="text-muted">"I just wannna say..."</small>
-                </div>
+    $(function () {
+        $('select.styled').customSelect();
+    });
+
+    $(window).on("resize", function () {
+        var owl = $("#owl-demo").data("owlCarousel");
+        owl.reinit();
+    });
+</script>
+<!--carousel start-->
+
+<!--features carousel start-->
+<section class="panel">
+    <div id="c-slide" class="carousel slide auto panel-body">
+        <ol class="carousel-indicators out">
+            <li class="active" data-slide-to="0" data-target="#c-slide"></li>
+            <li class="" data-slide-to="1" data-target="#c-slide"></li>
+            <li class="" data-slide-to="2" data-target="#c-slide"></li>
+            <li class="" data-slide-to="3" data-target="#c-slide"></li>
+            <li class="" data-slide-to="4" data-target="#c-slide"></li>
+            <li class="" data-slide-to="5" data-target="#c-slide"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item text-center active">
+                <h3>Annoucement</h3>
+                <small class="text-muted">Public Announcement</small>
+            </div>
+            <div class="item text-center">
+                <h3>FYI</h3>
+                <small class="text-muted">For Y'all Information</small>
+            </div>
+            <div class="item text-center">
+                <h3>Questions</h3>
+                <small class="text-muted">Please help...</small>
             </div>
 
+            <div class="item text-center">
+                <h3>Ideas</h3>
+                <small class="text-muted">I have a great idea!</small>
+            </div>
+            <div class="item text-center">
+                <h3>Benchmark</h3>
+                <small class="text-muted">Let's celebrate!</small>
+            </div>
+            <div class="item text-center">
+                <h3>Something else</h3>
+                <small class="text-muted">I don't belong anywhere...</small>
+            </div>
         </div>
+        <a data-slide="prev" href="#c-slide" class="left carousel-control">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a data-slide="next" href="#c-slide" class="right carousel-control">
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
 
-    </section>
-</div> -->
+    <div class="panel-body">
+        <ul class="ft-link">
+            <li class="active">
+                <a href="javascript:;">
+                    <i class="fa fa-bars"></i>
+                    Annoucement
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-calendar-o"></i>
+                    FYI
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-camera"></i>
+                    Questions
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-circle"></i>
+                    Ideas
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-circle"></i>
+                    Benchmark
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-circle"></i>
+                    Something else
+                </a>
+            </li>
+        </ul>
+    </div>
 
-    <!--carousel end-->
+</section>
+<section class="panel">
+<section class="wrapper" style="margin-top: 15px">
+  <% @messages.each do |message| %>
+                <div class="row">
+                        <div class="panel-body" style="padding-top: 2px">
+                            <div class="fb-user-details">
+                                <h3>
+                                    <%= link_to message.title,team_message_path(@team, message)  %>
+                                </h3><br>
+                                <p>Category:
+                                    <%= message.category %></p>
+                                <p>Created at:
+                                    <%= time_ago_in_words(message.created_at) %> ago</p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <h4>
+                                <%= message.description %>
+                            </h4>
+                            <% if message.documents.present? %>
+                            <% message.documents.each do |doc| %>
+                            <%= image_tag 'zip.png' %>
+                            <%= link_to doc.filename , doc.url  %>
+                            <br>
+                            <% end %>
+                            <% end %>
+                          <br>
 
-    <section class="panel">
-        <header class="panel-heading tab-bg-dark-navy-blue ">
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a data-toggle="tab" href="#home">Annoucement</a>
-                </li>
-                <li class="">
-                    <a data-toggle="tab" href="#about">FYI</a>
-                </li>
-                <li class="">
-                    <a data-toggle="tab" href="#profile">Question</a>
-                </li>
-                <li class="">
-                    <a data-toggle="tab" href="#contact">Idea</a>
-                </li>
-                <li class="">
-                    <a data-toggle="tab" href="#contact">Milestone</a>
-                </li>
-                <li class="">
-                    <a data-toggle="tab" href="#contact">Something else..</a>
-                </li>
-            </ul>
-        </header>
-        <div class="panel-body">
-            <div class="tab-content">
-                <div id="home" class="tab-pane active">
-                    <div class="row">
-                        <section class="panel">
-                            <% @messages.each do |message| %>
-                            <div class="panel-body">
-
-                                <div class="fb-user-details">
-                                    <h5>
-                                        <%= link_to message.title,team_message_path(@team, message)  %>
-                                    </h5>
-                                    <p><%= message.category %></p>
-                                    <p>7 minutes</p>
-                                </div>
-                                <div class="clearfix"></div>
-                                <p class="fb-user-status"><%= message.description %>
-                                </p>
+                          <div class="fb-status-container fb-border fb-gray-bg">
+                            <div class="fb-status-container fb-border">
                                 <div class="fb-time-action">
                                     <a href="#" title="Like this">Like</a>
                                     <span>-</span>
@@ -99,78 +145,29 @@
                                         <ul>
                                             <li>
                                                 <div class="cmt-details">
-                                                    <a href="#">Tawseef</a>
-                                                    <span>
-                                                        <%= comment.content %>
-                                                    </span>
-                                                    <p><%= comment.user %>
+
+                                                    <p><%= comment.content %></p>
+
+                                                    <p>
+                                                        <%= comment.user.first_name %>
+                                                        <%= comment.user.last_name %>
 
                                                     </p>
-                                                    <p><%= comment.created_at %>
+                                                    <p><%= time_ago_in_words(comment.created_at) %> ago
 
                                                     </p>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
-                                      <% end %>
+                                    <% end %>
                                 </div>
                             </div>
-                          <% end %>
-
+                          </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-
-        </div>
-        <div id="about" class="tab-pane">FYI</div>
-        <div id="profile" class="tab-pane">Question</div>
-        <div id="contact" class="tab-pane">Idea</div>
-        <div id="contact" class="tab-pane">Something else...</div>
-    </div>
-</div>
-</section>
-
-<div class="row">
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    New Message
-</button>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">New Message</h4>
-            </div>
-            <div class="modal-body">
-
-                <%= simple_form_for [@team, @newmessage] do |f| %>
-                <%= f.input :title %>
-                <%= f.input :description %>
-                <%= f.input :category %>
-                <%= f.file_field :documents, multiple: true %>
-                <%= f.submit 'Submit', class: 'btn btn-primary' %>
+                      </div>
                 <% end %>
-            </div>
 
-        </div>
-    </div>
-</div>
-<br>
-
-<% @messages.each do |message| %>
-<div class="col-md-4">
-    <div class="message">
-        <h2 class="message-title"><%= message.title %></h2>
-        <p><%= message.category %></p>
-        <%= link_to "View Message", team_message_path(@team, message), class: "btn btn-default" %>
-    </div>
-</div>
-<% end %>
-</div>
-</secion>
+  </secion>
+</section>
+<!--features carousel end-->

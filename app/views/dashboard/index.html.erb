@@ -58,54 +58,34 @@
               </div>
               <!--state overview end-->
 
-
-
-
-
-
-                            <!-- page start-->
-                            <section class="wrapper">
-                            <div class="row">
-                            <header class="panel-heading">
-                                <h2>Todo list</h2>
-
-                            </header>
-                            <div class="row">
+    <% if user_signed_in? %>
+              <div class="row">
                                 <div class="col-md-6">
                                     <section class="panel tasks-widget">
                                         <header class="panel-heading">
-
-                                            <p>Tasks that assigned to me</p>
+                                            Tasks that assigned to me
                                         </header>
-
-                                        <% if user_signed_in? %>
                                         <div class="panel-body">
-
                                             <div class="task-content">
-                                              <% @user.assigned_tasks.each do |task| %>
-                                                <ul class="task-list">
-                                                    <li>
-                                                        <div class="task-checkbox">
-                                                            <input type="checkbox" class="list-child" value=""  />
-                                                        </div>
+                                                <ul id="sortable" class="task-list">
+                                                    <% @user.assigned_tasks.each do |task| %>
+                                                    <li class="list-primary">
+
                                                         <div class="task-title">
                                                             <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-                                                            <span class="badge badge-sm label-danger"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                                            <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
                                                             <div class="pull-right hidden-phone">
-                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
-                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                                <button class="btn btn-success btn-xs fa fa-check"></button>
+                                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <% end %>
 
-                                                    <% end %>
-
+<% end %>
 
                                                 </ul>
                                             </div>
-
                                             <div class=" add-task-row">
                                                 <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
                                                 <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
@@ -117,36 +97,29 @@
                                 <div class="col-md-6">
                                     <section class="panel tasks-widget">
                                         <header class="panel-heading">
-
-                                            <p>Tasks that I created</p>
+                                            Tasks I Created
                                         </header>
                                         <div class="panel-body">
-
                                             <div class="task-content">
-                                              <% if user_signed_in? %>
-
-                                              <% @tasks.each do |task| %>
-                                                <ul class="task-list">
-                                                    <li>
-                                                        <div class="task-checkbox">
-                                                            <input type="checkbox" class="list-child" value=""  />
-                                                        </div>
+                                                <ul id="sortable2" class="task-list">
+                                                    <% @tasks.each do |task| %>
+                                                    <li class="list-primary">
+                                                    
                                                         <div class="task-title">
-                                                            <span class="task-title-sp"><%= link_to task.body, team_task_path(task.team, task) %></span>
-                                                            <span class="badge badge-sm label-success"><%= link_to task.team.title, team_path(task.team_id) %></span>
+                                                            <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
+                                                            <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
                                                             <div class="pull-right hidden-phone">
-                                                                <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
-                                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                                                <button class="btn btn-success btn-xs fa fa-check"></button>
+                                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <% end %>
 
-                                                    <% end %>
-                                                  </ul>
+<% end %>
+
+                                                </ul>
                                             </div>
-
                                             <div class=" add-task-row">
                                                 <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
                                                 <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
@@ -155,10 +128,9 @@
                                     </section>
                                 </div>
                             </div>
-                          </div>
-                        </section>
 
-                            <!-- page end-->
+
+<% end %>
 
 
                     <!--Todo content end-->
@@ -274,8 +246,16 @@
 <!--project profile end-->
 
 
+    <script>
+      jQuery(document).ready(function() {
+          // TaskList.initTaskWidget();
+      });
 
+      $(function() {
+          $( "#sortable" ).sortable();
+          $( "#sortable" ).disableSelection();
+          $( "#sortable2" ).sortable();
+          $( "#sortable2" ).disableSelection();
+      });
 
-
-  </body>
-</html>
+    </script>

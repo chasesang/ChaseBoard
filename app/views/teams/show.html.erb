@@ -1,9 +1,112 @@
 <h1><%= @team.title %></h1>
 <h2><%= @team.description %></h2>
 <hr>
+<script>
+        jQuery(document).ready(function() {
+            DraggablePortlet.init();
+        });
+    </script>
+
+
+
+              <!-- page start-->
+              <div class="row-fluid" id="draggable_portlets">
+                  <div class="col-md-4 column sortable">
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-default">
+                          <div class="panel-heading">Portlet 1</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+
+
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-primary">
+                          <div class="panel-heading">Portlet 2</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-success">
+                          <div class="panel-heading">Portlet 3</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                  </div>
+                  <div class="col-md-4 column sortable">
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-warning">
+                          <div class="panel-heading">Portlet 4</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-danger">
+                          <div class="panel-heading">Portlet 5</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-info">
+                          <div class="panel-heading">Portlet 6</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                  </div>
+                  <div class="col-md-4 column sortable">
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-default">
+                          <div class="panel-heading">Portlet 7</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-success">
+                          <div class="panel-heading">Portlet 8</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-primary">
+                          <div class="panel-heading">Portlet 9</div>
+                          <div class="panel-body">
+                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                          </div>
+                      </div>
+                      <!-- END Portlet PORTLET-->
+                  </div>
+              </div>
+              <!-- page end-->
+
+
+
 <section class="wrapper">
 
-  
 
 <div class="row">
   <div class="col-lg-3">
@@ -15,7 +118,7 @@
                                       <img alt="" src="img/profile-avatar.jpg">
                                   </a>
                                   <div class="row">
-                                <h3><%= link_to 'Memebers'%></h3>
+                                <h3><%= link_to 'Memebers', team_users_path(@team)%></h3>
                                       </div>
                                         <div class="row">
                                     <h4>People Directory</h4>

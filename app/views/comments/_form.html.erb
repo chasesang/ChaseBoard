@@ -1,5 +1,7 @@
 <%= simple_form_for([@team, @message, @newcomment]) do |f| %>
 	<%= f.input :content, label: "Write Comment" %>
-	<%= f.file_field :documents, multiple: true %>
+	<%= f.file_field :documents, multiple: true, :class => 'btn btn-info' %>
 	<%= f.button :submit, :class => 'btn-custom' %>
+
+
 <% end %>
