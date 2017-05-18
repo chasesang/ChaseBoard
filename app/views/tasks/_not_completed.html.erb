@@ -8,4 +8,15 @@
   <i class="fa fa-check fa-lg"></i>
 <% end %>
 
-<%= render "task_footer", task: task %>
+<!-- <%= render "task_footer", task: task %> -->
+
+
+<%= link_to team_task_path(@team, task), method: :delete, data: { confirm: "Are you sure?" } do %>
+  <i class="fa fa-trash fa-lg"></i>
+<% end %>
+
+<% if task.has_author? %>
+  <p>Author: <%= task.user.first_name %> </p>
+<% end %>
+
+<p>Assignees: <%= task.assignee_short_names %> </p>

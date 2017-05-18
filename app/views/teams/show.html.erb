@@ -11,64 +11,94 @@
 
               <!-- page start-->
               <div class="row-fluid" id="draggable_portlets">
-                  <div class="col-md-6 column sortable">
+                  <div class="col-md-4 column sortable">
                       <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-default">
+                      <div class="panel panel-default ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
                           <div class="panel-heading"><%= link_to 'Memebers', team_users_path(@team)%></div>
                           <div class="panel-body">
                             People Directory
                           </div>
                       </div>
-                      <br>
+
                       <!-- END Portlet PORTLET-->
 
 
                       <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-info">
+                      <div class="panel panel-info ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
                           <div class="panel-heading"><%= link_to 'Message Board', team_messages_path(@team) %></div>
                           <div class="panel-body">
                               Public Message Board
                           </div>
                       </div>
-                      <br>
+
                       <!-- END Portlet PORTLET-->
                       <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-success">
+                      <div class="panel panel-success ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
                           <div class="panel-heading"><%= link_to 'Todo List', team_tasks_path(@team) %></div>
                           <div class="panel-body">
                               List all the tasks under this team.
                           </div>
                       </div>
-                      <br>
+
                       <!-- END Portlet PORTLET-->
                   </div>
-                  <div class="col-md-6 column sortable">
+                  <div class="col-md-4 column sortable">
                       <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-warning">
+                      <div class="panel panel-warning ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
                           <div class="panel-heading"><%= link_to 'Events',team_events_path(@team)%></div>
                           <div class="panel-body">
                               Team Schedule. Important Dates.
                           </div>
                       </div>
-                      <br>
+
                       <!-- END Portlet PORTLET-->
                       <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-danger">
+                      <div class="panel panel-danger ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
                           <div class="panel-heading"><%= link_to 'Documents and files', team_documents_path(@team)%></div>
                           <div class="panel-body">
                               Document / Files / Images
                           </div>
                       </div>
-                      <br>
+
                       <!-- END Portlet PORTLET-->
                       <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-info">
+                      <div class="panel panel-info ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
                           <div class="panel-heading"><%= link_to 'Chat'%></div>
                           <div class="panel-body">
                             Chat Room
                           </div>
                       </div>
-                      <br>
+
                       <!-- END Portlet PORTLET-->
 
                   </div>

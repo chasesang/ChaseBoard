@@ -1,52 +1,47 @@
 <h1>Task</h1>
 
-<!-- page start-->
 
-<section class="panel tasks-widget">
-	<header class="panel-heading">
 
-		<p>Tasks that assigned to me</p>
-	</header>
+<div class="row">
+                  <div class="col-md-12">
+                      <section class="panel tasks-widget">
+                          <header class="panel-heading">
 
-	<% if user_signed_in? %>
-	<div class="panel-body">
+                          </header>
+                          <div class="panel-body">
+                              <div class="task-content">
 
-		<div class="task-content">
-			<% @tasks.each do |task| %>
-			<ul class="task-list">
-				<li>
-					<div class="task-checkbox">
-						<input type="checkbox" class="list-child" value=""/>
-					</div>
-					<div class="task-title">
-						<span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-						<span class="badge badge-sm label-danger"><%= link_to task.team.title,team_path(task.team_id) %></span>
-						<div class="pull-right hidden-phone">
-							<button class="btn btn-success btn-xs">
-								<i class=" fa fa-check"></i>
-							</button>
-							<button class="btn btn-primary btn-xs">
-								<i class="fa fa-pencil"></i>
-							</button>
-							<button class="btn btn-danger btn-xs">
-								<i class="fa fa-trash-o "></i>
-							</button>
-						</div>
-					</div>
-				</li>
-				<% end %>
+                                  <ul id="sortable" class="task-list">
+																		<% @tasks.each do |task| %>
+                                      <li class="list-primary">
+                                          <i class=" fa fa-ellipsis-v"></i>
+                                          <div class="task-checkbox">
+                                              <input type="checkbox" class="list-child" value=""  />
+                                          </div>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Flatlab is Modern Dashboard</span>
+                                              <span class="badge badge-sm label-success">2 Days</span>
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-success btn-xs fa fa-check"></button>
+                                                  <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                                  <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                              </div>
+                                          </div>
+                                      </li>
+																			<% end %>
 
-				<% end %>
+                                  </ul>
+                              </div>
+                              <div class=" add-task-row">
+                                  <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+                                  <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
 
-			</ul>
-		</div>
 
-		<div class=" add-task-row">
-			<a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
-			<a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
-		</div>
-	</div>
-</section>
 
 
 <% if user_signed_in? %>
@@ -74,3 +69,17 @@
 <% end %>
 
 <% end %>
+
+
+    <script>
+      jQuery(document).ready(function() {
+
+
+
+      $(function() {
+          $( "#sortable" ).sortable();
+          $( "#sortable" ).disableSelection();
+      })
+			  });
+
+    </script>
