@@ -60,7 +60,7 @@ class MessagesController < ApplicationController
 
 
   def message_params
-    params.require(:message).permit([:title, :description, :category, {documents: []}])
+    params.require(:message).permit([:title, :description,{ tag_ids: [] }, {documents: []}])
   end
 
 

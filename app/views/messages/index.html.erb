@@ -1,24 +1,48 @@
-<h1>Message Board</h1>
-<script>
 
-    $(document).ready(function () {
-        $("#owl-demo").owlCarousel({navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, autoPlay: true});
-    });
+<div class="row">
 
-    // custom select box
 
-    $(function () {
-        $('select.styled').customSelect();
-    });
+<div class="panel-body">
+                              <a class="btn btn-info btn-lg" data-toggle="modal" href="#myModal" style="position: relative; left: 42.1%; top: 50%">
+                                  Post a New Message
+                              </a>
+</div>
+<br>
+                              <!-- Modal -->
+                              <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                              <h4 class="modal-title">New Message</h4>
+                                          </div>
+                                          <div class="modal-body">
 
-    $(window).on("resize", function () {
-        var owl = $("#owl-demo").data("owlCarousel");
-        owl.reinit();
-    });
-</script>
-<!--carousel start-->
+                                              <%= simple_form_for [@team, @newmessage] do |f| %>
+                                              <%= f.input :title, label: 'Message Title' %>
+                                              <%= f.input :description %>
+
+                                              <%= f.association :tags,
+                                                  collection: Tag.all,
+                                              input_html: { class: 'chosen-select input-new-line', style: 'width: 400px'} %>
+                                              <%= f.file_field :documents, multiple: true %>
+                                            
+
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                              <%= f.submit 'Submit', class: 'btn btn-success' %>
+                                              <% end %>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- modal -->
 
 <!--features carousel start-->
+<div class="row">
+
+
 <section class="panel">
     <div id="c-slide" class="carousel slide auto panel-body">
         <ol class="carousel-indicators out">
@@ -66,7 +90,7 @@
 
     <div class="panel-body">
         <ul class="ft-link">
-            <li class="active">
+            <li>
                 <a href="javascript:;">
                     <i class="fa fa-bars"></i>
                     Annoucement
@@ -110,13 +134,18 @@
 <section class="wrapper" style="margin-top: 15px">
   <% @messages.each do |message| %>
                 <div class="row">
-                        <div class="panel-body" style="padding-top: 2px">
+                        <div class="panel-body" style="padding-top: 2px; padding-left: 40px">
                             <div class="fb-user-details">
                                 <h3>
                                     <%= link_to message.title,team_message_path(@team, message)  %>
                                 </h3><br>
-                                <p>Category:
-                                    <%= message.category %></p>
+                                  <ul class="p-tag-list" style = "padding-left: 0px">
+                                    <% message.tags.each do |t| %>
+
+                                    <li><a href=""><i class="fa fa-tag"></i> <%= t.name %></a></li>
+
+                                    <% end %>
+                                    </ul>
                                 <p>Created at:
                                     <%= time_ago_in_words(message.created_at) %> ago</p>
                             </div>
@@ -171,4 +200,30 @@
 
   </secion>
 </section>
+
 <!--features carousel end-->
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#owl-demo").owlCarousel({navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, autoPlay: true});
+        $('#myModal').on('shown.bs.modal', function () {
+          $('.chosen-select', this).chosen('destroy').chosen();
+        });
+    });
+
+
+
+    // custom select box
+
+    // $(function () {
+    //     $('select.styled').customSelect();
+    // });
+    //
+    // $(window).on("resize", function () {
+    //     var owl = $("#owl-demo").data("owlCarousel");
+    //     owl.reinit();
+    // });
+</script>

@@ -1,277 +1,279 @@
+<!--Main content start-->
 
-      <!--Main content start-->
-
-              <!--state overview start-->
-              <div class="row state-overview">
-                  <div class="col-lg-3 col-sm-6">
-                      <section class="panel">
-                          <div class="symbol terques">
-                              <i class="fa fa-user"></i>
-                          </div>
-                          <div class="value">
-                              <h1 class="count">
-                                  0
-                              </h1>
-                              <p>My Messages</p>
-                          </div>
-                      </section>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                      <section class="panel">
-                          <div class="symbol red">
-                              <i class="fa fa-tags"></i>
-                          </div>
-                          <div class="value">
-                              <h1 class=" count2">
-                                  0
-                              </h1>
-                              <p>My Events</p>
-                          </div>
-                      </section>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                      <section class="panel">
-                          <div class="symbol yellow">
-                              <i class="fa fa-shopping-cart"></i>
-                          </div>
-                          <div class="value">
-                              <h1 class=" count3">
-                                  0
-                              </h1>
-                              <p>My Documents</p>
-                          </div>
-                      </section>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                      <section class="panel">
-                          <div class="symbol blue">
-                              <i class="fa fa-bar-chart-o"></i>
-                          </div>
-                          <div class="value">
-                              <h1 class=" count4">
-                                  0
-                              </h1>
-                              <p>My Bookmarks</p>
-                          </div>
-                      </section>
-                  </div>
-              </div>
-              <!--state overview end-->
-<h2>My Events</h2>
-              <% @user.events.all.each do |e| %>
-              <%= e.name %>
-              <%= e.start_time %>
-              <%= e.end_time %>
-              <%= e.body %><br>
-              <% end %>
-
-
-              <section class="wrapper" style="margin-top: 5px">
-              <div class="row">
-              <header class="panel-heading">
-                  <h2>My Todo List</h2>
-              </header>
+<!--state overview start-->
+<div class="row state-overview">
+    <div class="col-lg-3 col-sm-6">
+        <section class="panel">
+            <div class="symbol terques">
+                <i class="fa fa-user"></i>
             </div>
+            <div class="value">
+                <h1 class="count">
+                    0
+                </h1>
+                <p>My Messages</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <section class="panel">
+            <div class="symbol red">
+                <i class="fa fa-tags"></i>
+            </div>
+            <div class="value">
+                <h1 class=" count2">
+                    <%= link_to @events.count %>
+                </h1>
+                <p>My Events</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <section class="panel">
+            <div class="symbol yellow">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+            <div class="value">
+                <h1 class=" count3">
+                    0
+                </h1>
+                <p>My Documents</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <section class="panel">
+            <div class="symbol blue">
+                <i class="fa fa-bar-chart-o"></i>
+            </div>
+            <div class="value">
+                <h1 class=" count4">
+                    0
+                </h1>
+                <p>My Bookmarks</p>
+            </div>
+        </section>
+    </div>
+</div>
+<!--state overview end-->
+
+
+<section class="wrapper" style="margin-top: 5px">
+    <div class="row">
+        <header class="panel-heading">
+            <h2>My Todo List</h2>
+        </header>
+    </div>
     <% if user_signed_in? %>
-              <div class="row">
-                                <div class="col-md-6">
-                                    <section class="panel tasks-widget">
-                                        <header class="panel-heading">
-                                            Tasks that assigned to me
-                                        </header>
-                                        <div class="panel-body">
-                                            <div class="task-content">
-                                                <ul id="sortable" class="task-list">
-                                                    <% @user.assigned_tasks.each do |task| %>
-                                                    <li class="list-primary">
+    <div class="row">
+        <div class="col-md-6">
+            <section class="panel tasks-widget">
+                <header class="panel-heading">
+                    Tasks that assigned to me
+                </header>
+                <div class="panel-body">
+                    <div class="task-content">
+                        <ul id="sortable" class="task-list">
+                            <% @user.assigned_tasks.each do |task| %>
+                            <li class="list-primary">
 
-                                                        <div class="task-title">
-                                                            <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-                                                            <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
-                                                            <div class="pull-right hidden-phone">
-                                                                <button class="btn btn-success btn-xs fa fa-check"></button>
-                                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-<% end %>
-
-                                                </ul>
-                                            </div>
-                                            <div class=" add-task-row">
-                                                <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
-                                                <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
-                                            </div>
-                                        </div>
-                                    </section>
+                                <div class="task-title">
+                                    <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
+                                    <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-success btn-xs fa fa-check"></button>
+                                        <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                    </div>
                                 </div>
+                            </li>
 
-                                <div class="col-md-6">
-                                    <section class="panel tasks-widget">
-                                        <header class="panel-heading">
-                                            Tasks I Created
-                                        </header>
-                                        <div class="panel-body">
-                                            <div class="task-content">
-                                                <ul id="sortable2" class="task-list ui-sortable" style = "padding-left: 0px">
-                                                    <% @tasks.each do |task| %>
-                                                    <li class="list-primary">
+                            <% end %>
 
-                                                        <div class="task-title">
-                                                            <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-                                                            <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
-                                                            <div class="pull-right hidden-phone">
-                                                                <button class="btn btn-success btn-xs fa fa-check"></button>
-                                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                        </ul>
+                    </div>
+                    <div class=" add-task-row">
+                        <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+                        <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-<% end %>
+        <div class="col-md-6">
+            <section class="panel tasks-widget">
+                <header class="panel-heading">
+                    Tasks I Created
+                </header>
+                <div class="panel-body">
+                    <div class="task-content">
+                        <ul id="sortable2" class="task-list ui-sortable" style="padding-left: 0px">
+                            <% @tasks.each do |task| %>
+                            <li class="list-primary">
 
-                                                </ul>
-                                            </div>
-                                            <div class=" add-task-row">
-                                                <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
-                                                <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
-                                            </div>
-                                        </div>
-                                    </section>
+                                <div class="task-title">
+                                    <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
+                                    <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-success btn-xs fa fa-check"></button>
+                                        <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                    </div>
                                 </div>
-                            </div>
+                            </li>
 
+                            <% end %>
 
-<% end %>
+                        </ul>
+                    </div>
+                    <div class=" add-task-row">
+                        <a class="btn btn-success btn-sm pull-left" href="#">Add New Tasks</a>
+                        <a class="btn btn-default btn-sm pull-right" href="#">See All Tasks</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <% end %>
 </secion>
 
+<!--Todo content end-->
 
-                    <!--Todo content end-->
+<!-- Team profile start -->
+
+    <div class="row">
+        <header class="panel-heading">
+            <h2>My Teams</h2>
+        </header>
+    </div>
+    <div class="row">
+        <% @teams.each do |team| %>
+
+        <div class="col-lg-3">
+            <!--widget start-->
+            <aside class="profile-nav alt green-border">
+                <section class="panel">
+                    <div class="user-heading alt green-bg">
+                        <a href="#">
+                            <img alt="">
+                        </a>
+                        <h6><%= link_to team.title, team_path(team.id) %></h6>
+                        <p><%= link_to team.description, team_path(team.id) %></p>
+
+                    </div>
+
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-envelope-o"></i>
+                                Messages
+                                <span class="label label-primary pull-right r-activity">19</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-calendar"></i>
+                                Events
+                                <span class="label label-info pull-right r-activity">11</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-bell-o"></i>
+                                Documents
+                                <span class="label label-warning pull-right r-activity">03</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+            </aside>
+        </div>
+        <% end %>
+    </div>
 
 
-                   <!-- Team profile start -->
-                    <section class="wrapper" style="margin-top: 5px">
-                   <div class="row">
-                   <header class="panel-heading">
-                       <h2>My Teams</h2>
-                   </header>
-                 </div>
-                    <div class="row">
-                      <% @teams.each do |team| %>
 
-                                      <div class="col-lg-3">
-                                          <!--widget start-->
-                                          <aside class="profile-nav alt green-border">
-                                              <section class="panel">
-                                                  <div class="user-heading alt green-bg">
-                                                      <a href="#">
-                                                          <img alt="">
-                                                      </a>
-                                                      <h6><%= link_to team.title, team_path(team.id) %></h6>
-                                                      <p><%= link_to team.description, team_path(team.id) %></p>
+<!--project profile start-->
 
-                                                  </div>
-
-                                                  <ul class="nav nav-pills nav-stacked">
-                                                      <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Messages <span class="label label-primary pull-right r-activity">19</span></a></li>
-                                                      <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Events <span class="label label-info pull-right r-activity">11</span></a></li>
-                                                      <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Documents <span class="label label-warning pull-right r-activity">03</span></a></li>
-
-                                                  </ul>
-
-                                              </section>
-                                          </aside>
-                                        </div>
-                                        <% end %>
-                                        </div>
-
-                                      </secion>
-
-
-
-                                          <!--project profile start-->
-                                          <section class="wrapper" style="margin-top: 5px">
-                                          <div class="row">
-                                          <header class="panel-heading">
-                                              <h2>My Projects</h2>
-                                          </header>
-                                           <div class="row">
-
-                                                             <div class="col-lg-3">
-                                                                 <!--widget start-->
-                                                                 <section class="panel">
-                                  <div class="twt-feed blue-bg">
-                                      <h1>Project Title</h1>
-                                      <p>Project Descprition</p>
-                                      <a href="#">
-                                          <img alt="">
-                                      </a>
-                                  </div>
-                                  <div class="weather-category twt-category">
-                                      <ul>
-                                          <li class="active">
-                                              <h5>320</h5>
-                                              Message
-                                          </li>
-                                          <li>
-                                              <h5>1245</h5>
-                                              Documents
-                                          </li>
-                                          <li>
-                                              <h5>24657</h5>
-                                              Tasks
-                                          </li>
-                                      </ul>
-                                  </div>
-
-                              </section>
-                              </div>
-
-                              <div class="col-lg-3">
-                                  <!--widget start-->
-                                  <section class="panel">
-   <div class="twt-feed blue-bg">
-       <h1>Project Title</h1>
-       <p>Project Descprition</p>
-       <a href="#">
-           <img src="" alt="">
-       </a>
-   </div>
-   <div class="weather-category twt-category">
-       <ul>
-           <li class="active">
-               <h5>320</h5>
-               Message
-           </li>
-           <li>
-               <h5>1245</h5>
-               Documents
-           </li>
-           <li>
-               <h5>24657</h5>
-               Tasks
-           </li>
-       </ul>
-   </div>
-
-</section>
+<div class="row">
+    <header class="panel-heading">
+        <h2>My Projects</h2>
+    </header>
 </div>
+<div class="row">
 
-<!--project profile end-->
+            <div class="col-lg-3">
+                <!--widget start-->
+                <section class="panel">
+                    <div class="twt-feed blue-bg">
+                        <h1>Project Title</h1>
+                        <p>Project Descprition</p>
+                        <a href="#">
+                            <img alt="">
+                        </a>
+                    </div>
+                    <div class="weather-category twt-category">
+                        <ul>
+                            <li class="active">
+                                <h5>320</h5>
+                                Message
+                            </li>
+                            <li>
+                                <h5>1245</h5>
+                                Documents
+                            </li>
+                            <li>
+                                <h5>24657</h5>
+                                Tasks
+                            </li>
+                        </ul>
+                    </div>
+
+                </section>
+            </div>
+
+            <div class="col-lg-3">
+                <!--widget start-->
+                <section class="panel">
+                    <div class="twt-feed blue-bg">
+                        <h1>Project Title</h1>
+                        <p>Project Descprition</p>
+                        <a href="#">
+                            <img src="" alt="">
+                        </a>
+                    </div>
+                    <div class="weather-category twt-category">
+                        <ul>
+                            <li class="active">
+                                <h5>320</h5>
+                                Message
+                            </li>
+                            <li>
+                                <h5>1245</h5>
+                                Documents
+                            </li>
+                            <li>
+                                <h5>24657</h5>
+                                Tasks
+                            </li>
+                        </ul>
+                    </div>
 
 
-    <script>
-      jQuery(document).ready(function() {
-          // TaskList.initTaskWidget();
-      });
+            <!--project profile end-->
 
-      $(function() {
-          $( "#sortable" ).sortable();
-          $( "#sortable" ).disableSelection();
-          $( "#sortable2" ).sortable();
-          $( "#sortable2" ).disableSelection();
-      });
+            <script>
+                jQuery(document).ready(function () {
+                    // TaskList.initTaskWidget();
+                });
 
-    </script>
+                $(function () {
+                    $("#sortable").sortable();
+                    $("#sortable").disableSelection();
+                    $("#sortable2").sortable();
+                    $("#sortable2").disableSelection();
+                });
+            </script>

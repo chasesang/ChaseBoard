@@ -4,7 +4,10 @@
 		<div class="panel-body">
 			<div class="">
 			<h2><%= @message.title %></h2><br>
-			<p>Categoary: <strong><%= @message.category %></p></strong><br>
+
+			<p>Tags:
+				<% @message.tags.each do |t| %>
+				<strong><%= t.name %></p></strong><% end %><br>
 			<h4><%= @message.description %></h4>
 			</div>
 			<br>
