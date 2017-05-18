@@ -57,7 +57,12 @@
                   </div>
               </div>
               <!--state overview end-->
-
+              <section class="wrapper" style="margin-top: 5px">
+              <div class="row">
+              <header class="panel-heading">
+                  <h2>My Todo List</h2>
+              </header>
+            </div>
     <% if user_signed_in? %>
               <div class="row">
                                 <div class="col-md-6">
@@ -101,10 +106,10 @@
                                         </header>
                                         <div class="panel-body">
                                             <div class="task-content">
-                                                <ul id="sortable2" class="task-list">
+                                                <ul id="sortable2" class="task-list ui-sortable" style = "padding-left: 0px">
                                                     <% @tasks.each do |task| %>
                                                     <li class="list-primary">
-                                                    
+
                                                         <div class="task-title">
                                                             <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
                                                             <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
@@ -131,17 +136,19 @@
 
 
 <% end %>
+</secion>
 
 
                     <!--Todo content end-->
 
 
                    <!-- Team profile start -->
-                   <section class="wrapper">
+                    <section class="wrapper" style="margin-top: 5px">
                    <div class="row">
                    <header class="panel-heading">
                        <h2>My Teams</h2>
                    </header>
+                 </div>
                     <div class="row">
                       <% @teams.each do |team| %>
 
@@ -170,13 +177,13 @@
                                         </div>
                                         <% end %>
                                         </div>
-                                        </div>
+                                    
                                       </secion>
 
 
 
                                           <!--project profile start-->
-                                          <section class="wrapper">
+                                          <section class="wrapper" style="margin-top: 5px">
                                           <div class="row">
                                           <header class="panel-heading">
                                               <h2>My Projects</h2>

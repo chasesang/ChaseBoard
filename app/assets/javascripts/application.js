@@ -19,14 +19,18 @@
 //= require gmaps/google
 //= require moment
 //= require fullcalendar
+//= require external-dragging-calendar
 //= require_tree .
 $(document).ready(function(){
   $('.chosen-select').chosen();
-})
-$(function () {
+
   $('[data-toggle="popover"]').popover()
 })
-$('#calendar').fullCalendar({});
+
+
+// $('#calendar').fullCalendar({
+//   schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives'
+// });
 
 //
 // $('.chosen-select').chosen

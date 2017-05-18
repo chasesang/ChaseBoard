@@ -11,267 +11,67 @@
 
               <!-- page start-->
               <div class="row-fluid" id="draggable_portlets">
-                  <div class="col-md-4 column sortable">
+                  <div class="col-md-6 column sortable">
                       <!-- BEGIN Portlet PORTLET-->
                       <div class="panel panel-default">
-                          <div class="panel-heading">Portlet 1</div>
+                          <div class="panel-heading"><%= link_to 'Memebers', team_users_path(@team)%></div>
                           <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                            People Directory
                           </div>
                       </div>
+                      <br>
                       <!-- END Portlet PORTLET-->
 
 
                       <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-primary">
-                          <div class="panel-heading">Portlet 2</div>
+                      <div class="panel panel-info">
+                          <div class="panel-heading"><%= link_to 'Message Board', team_messages_path(@team) %></div>
                           <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                              Public Message Board
                           </div>
                       </div>
+                      <br>
                       <!-- END Portlet PORTLET-->
                       <!-- BEGIN Portlet PORTLET-->
                       <div class="panel panel-success">
-                          <div class="panel-heading">Portlet 3</div>
+                          <div class="panel-heading"><%= link_to 'Todo List', team_tasks_path(@team) %></div>
                           <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                              List all the tasks under this team.
                           </div>
                       </div>
+                      <br>
                       <!-- END Portlet PORTLET-->
                   </div>
-                  <div class="col-md-4 column sortable">
+                  <div class="col-md-6 column sortable">
                       <!-- BEGIN Portlet PORTLET-->
                       <div class="panel panel-warning">
-                          <div class="panel-heading">Portlet 4</div>
+                          <div class="panel-heading"><%= link_to 'Events',team_events_path(@team)%></div>
                           <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                              Team Schedule. Important Dates.
                           </div>
                       </div>
+                      <br>
                       <!-- END Portlet PORTLET-->
                       <!-- BEGIN Portlet PORTLET-->
                       <div class="panel panel-danger">
-                          <div class="panel-heading">Portlet 5</div>
+                          <div class="panel-heading"><%= link_to 'Documents and files', team_documents_path(@team)%></div>
                           <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                              Document / Files / Images
                           </div>
                       </div>
+                      <br>
                       <!-- END Portlet PORTLET-->
                       <!-- BEGIN Portlet PORTLET-->
                       <div class="panel panel-info">
-                          <div class="panel-heading">Portlet 6</div>
+                          <div class="panel-heading"><%= link_to 'Chat'%></div>
                           <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
+                            Chat Room
                           </div>
                       </div>
+                      <br>
                       <!-- END Portlet PORTLET-->
+
                   </div>
-                  <div class="col-md-4 column sortable">
-                      <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-default">
-                          <div class="panel-heading">Portlet 7</div>
-                          <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
-                          </div>
-                      </div>
-                      <!-- END Portlet PORTLET-->
-                      <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-success">
-                          <div class="panel-heading">Portlet 8</div>
-                          <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
-                          </div>
-                      </div>
-                      <!-- END Portlet PORTLET-->
-                      <!-- BEGIN Portlet PORTLET-->
-                      <div class="panel panel-primary">
-                          <div class="panel-heading">Portlet 9</div>
-                          <div class="panel-body">
-                              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                              Cras mattis consectetur purus sit amet fermentum. Duis mollis.
-                          </div>
-                      </div>
-                      <!-- END Portlet PORTLET-->
-                  </div>
+
               </div>
               <!-- page end-->
-
-
-
-<section class="wrapper">
-
-
-<div class="row">
-  <div class="col-lg-3">
-                        <!--widget start-->
-                        <aside class="profile-nav alt green-border">
-                            <section class="panel">
-                                <div class="user-heading alt green-bg">
-                                  <a href="#">
-                                      <img alt="" src="img/profile-avatar.jpg">
-                                  </a>
-                                  <div class="row">
-                                <h3><%= link_to 'Memebers', team_users_path(@team)%></h3>
-                                      </div>
-                                        <div class="row">
-                                    <h4>People Directory</h4>
-                                  </div>
-                                </div>
-
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Number of people <span class="label label-primary pull-right r-activity">19</span></a></li>
-
-                                </ul>
-
-                            </section>
-                        </aside>
-                        </div>
-
-
-
-  <div class="col-lg-3">
-                        <!--widget start-->
-                        <aside class="profile-nav alt green-border">
-                            <section class="panel">
-                                <div class="user-heading alt green-bg">
-                                  <a href="#">
-                                      <img alt="" src="img/profile-avatar.jpg">
-                                  </a>
-                                  <div class="row">
-                                <h3><%= link_to 'Message Board', team_messages_path(@team) %></h3>
-                                      </div>
-                                        <div class="row">
-                                    <h4>Public Message Board</h4>
-                                  </div>
-                                </div>
-
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Announcement<span class="label label-primary pull-right r-activity">19</span></a></li>
-                                    <li><a href="javascript:;"> <i class="fa fa-calendar"></i> FYI <span class="label label-info pull-right r-activity">11</span></a></li>
-                                    <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Ideas <span class="label label-warning pull-right r-activity">03</span></a></li>
-                                    <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Something else <span class="label label-success pull-right r-activity">10</span></a></li>
-                                </ul>
-
-                            </section>
-                        </aside>
-                        </div>
-
-                        <div class="col-lg-3">
-                                              <!--widget start-->
-                                              <aside class="profile-nav alt green-border">
-                                                  <section class="panel">
-                                                      <div class="user-heading alt green-bg">
-                                                        <a href="#">
-                                                            <img alt="" src="img/profile-avatar.jpg">
-                                                        </a>
-                                                        <div class="row">
-                                                      <h3><%= link_to 'Chat'%></h3>
-                                                            </div>
-                                                              <div class="row">
-                                                          <h4>Chat Rooms</h4>
-                                                        </div>
-                                                      </div>
-
-                                                      <ul class="nav nav-pills nav-stacked">
-                                                          <li><a href="javascript:;"> <i class="fa fa-clock-o"></i>Members online <span class="label label-primary pull-right r-activity">19</span></a></li>
-                                                          <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Memebers offline<span class="label label-info pull-right r-activity">11</span></a></li>
-
-                                                      </ul>
-
-                                                  </section>
-                                              </aside>
-                                              </div>
-
-</div>
-
-
-<!--2nd row starts  -->
-<div class="row">
-
-<div class="col-lg-3">
-                      <!--widget start-->
-                      <aside class="profile-nav alt green-border">
-                          <section class="panel">
-                              <div class="user-heading alt green-bg">
-                                <a href="#">
-                                    <img alt="" src="img/profile-avatar.jpg">
-                                </a>
-                                <div class="row">
-                              <h4><%= link_to 'Tasks', team_tasks_path(@team) %></h4>
-                                    </div>
-                                      <div class="row">
-                                  <p>To-do List</p>
-                                </div>
-                              </div>
-
-                              <ul class="nav nav-pills nav-stacked">
-                                  <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Overdue <span class="label label-primary pull-right r-activity">19</span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Priority <span class="label label-info pull-right r-activity">11</span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Completed <span class="label label-warning pull-right r-activity">03</span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> New Tasks <span class="label label-success pull-right r-activity">10</span></a></li>
-                              </ul>
-
-                          </section>
-                      </aside>
-                      </div>
-
-                      <div class="col-lg-3">
-                                            <!--widget start-->
-                                            <aside class="profile-nav alt green-border">
-                                                <section class="panel">
-                                                    <div class="user-heading alt green-bg">
-                                                      <a href="#">
-                                                          <img alt="" src="img/profile-avatar.jpg">
-                                                      </a>
-                                                      <div class="row">
-                                                    <h4><%= link_to 'Events',team_events_path(@team)%></h4>
-                                                          </div>
-                                                            <div class="row">
-                                                        <p>Events Schedule</p>
-                                                      </div>
-                                                    </div>
-
-                                                    <ul class="nav nav-pills nav-stacked">
-                                                        <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Upcoming Events <span class="label label-primary pull-right r-activity">19</span></a></li>
-                                                        <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Past Events <span class="label label-info pull-right r-activity">11</span></a></li>
-
-                                                    </ul>
-
-                                                </section>
-                                            </aside>
-                                            </div>
-
-                                            <div class="col-lg-3">
-                                                                  <!--widget start-->
-                                                                  <aside class="profile-nav alt green-border">
-                                                                      <section class="panel">
-                                                                          <div class="user-heading alt green-bg">
-                                                                            <a href="#">
-                                                                                <img alt="" src="img/profile-avatar.jpg">
-                                                                            </a>
-                                                                            <div class="row">
-                                                                          <h4><%= link_to 'Documents and files', team_documents_path(@team)%></h4>
-                                                                                </div>
-                                                                                  <div class="row">
-                                                                              <p>Public Message Board</p>
-                                                                            </div>
-                                                                          </div>
-
-                                                                          <ul class="nav nav-pills nav-stacked">
-                                                                              <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Number of documents <span class="label label-primary pull-right r-activity">19</span></a></li>
-
-                                                                          </ul>
-
-                                                                      </section>
-                                                                  </aside>
-                                                                  </div>
-
-</div>
-</section>

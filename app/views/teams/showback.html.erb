@@ -1,322 +1,250 @@
 <h1><%= @team.title %></h1>
 <h2><%= @team.description %></h2>
 <hr>
+<script>
+        jQuery(document).ready(function() {
+            DraggablePortlet.init();
+        });
+    </script>
 
-<div class="row">
 
-<!-- MESSAGE BOARD -->
-<div class="col-lg-4">
-                  <section class="panel ">
-                      <header class="panel-heading">
-                          <h4><%= link_to 'Message Board', team_messages_path(@team) %></h4>
-                            <span class="tools pull-right">
 
-                          </span>
-                      </header>
-                      <div class="panel-body profile-activity">
-                          <h5 class="pull-right">12 August 2013</h5>
-
-                          <div class="activity terques">
-                                    <span>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </span>
-
-                              <div class="activity-desk">
-                                  <div class="panel">
-                                      <div class="panel-body">
-                                          <div class="arrow"></div>
-                                          <i class=" fa fa-clock-o"></i>
-                                          <h4>10:45 AM</h4>
-
-                                          <p>Purchased new equipments for zonal office setup and stationaries.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="activity alt purple">
-                                    <span>
-                                        <i class="fa fa-rocket"></i>
-                                    </span>
-
-                              <div class="activity-desk">
-                                  <div class="panel">
-                                      <div class="panel-body">
-                                          <div class="arrow-alt"></div>
-                                          <i class=" fa fa-clock-o"></i>
-                                          <h4>12:30 AM</h4>
-
-                                          <p>Lorem ipsum dolor sit amet consiquest dio</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="activity blue">
-                                    <span>
-                                        <i class="fa fa-bullhorn"></i>
-                                    </span>
-
-                              <div class="activity-desk">
-                                  <div class="panel">
-                                      <div class="panel-body">
-                                          <div class="arrow"></div>
-                                          <i class=" fa fa-clock-o"></i>
-                                          <h4>10:45 AM</h4>
-
-                                          <p>Please note which location you will consider, or both. Reporting to the
-                                              VP you will be responsible for managing.. </p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="activity alt green">
-                                    <span>
-                                        <i class="fa fa-beer"></i>
-                                    </span>
-
-                              <div class="activity-desk">
-                                  <div class="panel">
-                                      <div class="panel-body">
-                                          <div class="arrow-alt"></div>
-                                          <i class=" fa fa-clock-o"></i>
-                                          <h4>12:30 AM</h4>
-
-                                          <p>Please note which location you will consider, or both.</p>
-                                      </div>
-                                  </div>
-                              </div>
+              <!-- page start-->
+              <div class="row-fluid" id="draggable_portlets">
+                  <div class="col-md-6 column sortable">
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-default">
+                          <div class="panel-heading">Members</div>
+                          <div class="panel-body">
+                            People Directory
                           </div>
                       </div>
-                  </section>
+                      <br>
+                      <!-- END Portlet PORTLET-->
+
+
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-primary">
+                          <div class="panel-heading">Message Board</div>
+                          <div class="panel-body">
+                              Public Message Board
+                          </div>
+                      </div>
+                      <br>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-success">
+                          <div class="panel-heading">Todo List</div>
+                          <div class="panel-body">
+                              List all the tasks under this team.
+                          </div>
+                      </div>
+                      <br>
+                      <!-- END Portlet PORTLET-->
+                  </div>
+                  <div class="col-md-6 column sortable">
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-warning">
+                          <div class="panel-heading">Event</div>
+                          <div class="panel-body">
+                              Team Schedule. Important Dates.
+                          </div>
+                      </div>
+                      <br>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-danger">
+                          <div class="panel-heading">Document</div>
+                          <div class="panel-body">
+                              Document / Files / Images
+                          </div>
+                      </div>
+                      <br>
+                      <!-- END Portlet PORTLET-->
+                      <!-- BEGIN Portlet PORTLET-->
+                      <div class="panel panel-info">
+                          <div class="panel-heading">Chat</div>
+                          <div class="panel-body">
+                            Chat Room
+                          </div>
+                      </div>
+                      <br>
+                      <!-- END Portlet PORTLET-->
+
+                  </div>
+
               </div>
+              <!-- page end-->
 
 
-<!-- chat starts -->
-<div class="col-lg-4">
-                    <section class="panel">
-                        <header class="panel-heading">
-                            <h4><%= link_to 'Chat'%></h4>
-                              <span class="tools pull-right">
-                                <a class="fa fa-chevron-down" href="javascript:;"></a>
-                                <a class="fa fa-times" href="javascript:;"></a>
-                            </span>
-                        </header>
-                        <div class="panel-body">
-                            <div class="timeline-messages">
-                                <!-- Comment -->
-                                <div class="msg-time-chat">
-                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar.jpg"
-                                                                         alt=""></a>
 
-                                    <div class="message-body msg-in">
-                                        <span class="arrow"></span>
+<section class="wrapper">
 
-                                        <div class="text">
-                                            <p class="attribution"><a href="#">Jhon Doe</a> at 1:55pm, 13th April 2013
-                                            </p>
 
-                                            <p>Hello, How are you brother?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /comment -->
-
-                                <!-- Comment -->
-                                <div class="msg-time-chat">
-                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar2.jpg"
-                                                                         alt=""></a>
-
-                                    <div class="message-body msg-out">
-                                        <span class="arrow"></span>
-
-                                        <div class="text">
-                                            <p class="attribution"><a href="#">Jonathan Smith</a> at 2:01pm, 13th April
-                                                2013</p>
-
-                                            <p>I'm Fine, Thank you. What about you? How is going on?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /comment -->
-
-                                <!-- Comment -->
-                                <div class="msg-time-chat">
-                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar.jpg"
-                                                                         alt=""></a>
-
-                                    <div class="message-body msg-in">
-                                        <span class="arrow"></span>
-
-                                        <div class="text">
-                                            <p class="attribution"><a href="#">Jhon Doe</a> at 2:03pm, 13th April 2013
-                                            </p>
-
-                                            <p>Yeah I'm fine too. Everything is going fine here.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /comment -->
-
-                                <!-- Comment -->
-                                <div class="msg-time-chat">
-                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar2.jpg"
-                                                                         alt=""></a>
-
-                                    <div class="message-body msg-out">
-                                        <span class="arrow"></span>
-
-                                        <div class="text">
-                                            <p class="attribution"><a href="#">Jonathan Smith</a> at 2:05pm, 13th April
-                                                2013</p>
-
-                                            <p>well good to know that. anyway how much time you need to done your
-                                                task?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /comment -->
-                                <!-- Comment -->
-                                <div class="msg-time-chat">
-                                    <a href="#" class="message-img"><img class="avatar" src="img/chat-avatar.jpg"
-                                                                         alt=""></a>
-
-                                    <div class="message-body msg-in">
-                                        <span class="arrow"></span>
-
-                                        <div class="text">
-                                            <p class="attribution"><a href="#">Jhon Doe</a> at 1:55pm, 13th April 2013
-                                            </p>
-
-                                            <p>Hello, How are you brother?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /comment -->
-                            </div>
-                            <div class="chat-form">
-                                <div class="input-cont ">
-                                    <input type="text" class="form-control col-lg-12"
-                                           placeholder="Type a message here...">
-                                </div>
-                                <div class="form-group">
-                                    <div class="pull-right chat-features">
-                                        <a href="javascript:;">
-                                            <i class="fa fa-camera"></i>
-                                        </a>
-                                        <a href="javascript:;">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                        <a class="btn btn-danger" href="javascript:;">Send</a>
-                                    </div>
+<div class="row">
+  <div class="col-lg-3">
+                        <!--widget start-->
+                        <aside class="profile-nav alt green-border">
+                            <section class="panel">
+                                <div class="user-heading alt green-bg">
+                                  <a href="#">
+                                      <img alt="" src="img/profile-avatar.jpg">
+                                  </a>
+                                  <div class="row">
+                                <h3><%= link_to 'Memebers', team_users_path(@team)%></h3>
+                                      </div>
+                                        <div class="row">
+                                    <h4>People Directory</h4>
+                                  </div>
                                 </div>
 
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Number of people <span class="label label-primary pull-right r-activity">19</span></a></li>
 
-            <!-- chat ends -->
+                                </ul>
 
-
-<!--task start-->
-<div class="col-lg-4">
-
-  <section class="panel ">
-      <header class="panel-heading">
-          <h4><%= link_to 'Tasks' %></h4>
-
-
-                                <header class="panel-heading tab-bg-dark-navy-blue">
-                                    <ul class="nav nav-tabs nav-justified ">
-                                        <li class="active">
-                                            <a href="#" data-toggle="tab">
-                                                Priority
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#comments" data-toggle="tab">
-                                                Overdue
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#recent" data-toggle="tab">
-                                                Recent
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </header>
-                                <div class="panel-body">
-                                    <div class="tab-content tasi-tab">
-                                        <div class="tab-pane active" id="popular">
-                                            <article class="media">
-                                                <a class="pull-left thumb p-thumb">
-                                                    <img src="img/product1.jpg">
-                                                </a>
-
-                                                <div class="media-body">
-                                                  <% @tasks.limit(8).each do |t| %>
-                                                    <a class=" p-head" href="#"><%= t.id %></a>
-
-                                                    <p><%= t.body %></p>
-                                                    <% end %>
-                                                </div>
-                                            </article>
-
-                                        </div>
-                                        <div class="tab-pane " id="recent">
-                                            Recent Item goes here
-                                        </div>
-                                    </div>
-                                </div>
                             </section>
-                          </div>
-                          </div>
-                            <!--Tasks end-->
-<!-- Calendar starts  -->
+                        </aside>
+                        </div>
+
+
+
+  <div class="col-lg-3">
+                        <!--widget start-->
+                        <aside class="profile-nav alt green-border">
+                            <section class="panel">
+                                <div class="user-heading alt green-bg">
+                                  <a href="#">
+                                      <img alt="" src="img/profile-avatar.jpg">
+                                  </a>
+                                  <div class="row">
+                                <h3><%= link_to 'Message Board', team_messages_path(@team) %></h3>
+                                      </div>
+                                        <div class="row">
+                                    <h4>Public Message Board</h4>
+                                  </div>
+                                </div>
+
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Announcement<span class="label label-primary pull-right r-activity">19</span></a></li>
+                                    <li><a href="javascript:;"> <i class="fa fa-calendar"></i> FYI <span class="label label-info pull-right r-activity">11</span></a></li>
+                                    <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Ideas <span class="label label-warning pull-right r-activity">03</span></a></li>
+                                    <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> Something else <span class="label label-success pull-right r-activity">10</span></a></li>
+                                </ul>
+
+                            </section>
+                        </aside>
+                        </div>
+
+                        <div class="col-lg-3">
+                                              <!--widget start-->
+                                              <aside class="profile-nav alt green-border">
+                                                  <section class="panel">
+                                                      <div class="user-heading alt green-bg">
+                                                        <a href="#">
+                                                            <img alt="" src="img/profile-avatar.jpg">
+                                                        </a>
+                                                        <div class="row">
+                                                      <h3><%= link_to 'Chat'%></h3>
+                                                            </div>
+                                                              <div class="row">
+                                                          <h4>Chat Rooms</h4>
+                                                        </div>
+                                                      </div>
+
+                                                      <ul class="nav nav-pills nav-stacked">
+                                                          <li><a href="javascript:;"> <i class="fa fa-clock-o"></i>Members online <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                                          <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Memebers offline<span class="label label-info pull-right r-activity">11</span></a></li>
+
+                                                      </ul>
+
+                                                  </section>
+                                              </aside>
+                                              </div>
+
+</div>
+
+
+<!--2nd row starts  -->
 <div class="row">
 
-<div class="col-lg-4">
-<section class="panel">
-                          <header class="panel-heading">
-                              <h4><%= link_to 'Calendar', team_events_path(@team) %></h4>
-                          </header>
-                          <div class="panel-body">
-                              <div class="best-seller">
-                                  <article class="media">
-                                      <a class="pull-left thumb p-thumb">
-                                          <img src="img/product1.jpg">
-                                      </a>
-                                      <div class="media-body">
-                                          <a href="#" class=" p-head">Item One Tittle</a>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                      </div>
-                                  </article>
-                                  <article class="media">
-                                      <a class="pull-left thumb p-thumb">
-                                          <img src="img/product2.png">
-                                      </a>
-                                      <div class="media-body">
-                                          <a href="#" class=" p-head">Item Two Tittle</a>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                      </div>
-                                  </article>
-                                  <article class="media">
-                                      <a class="pull-left thumb p-thumb">
-                                          <img src="img/product3.png">
-                                      </a>
-                                      <div class="media-body">
-                                          <a href="#" class=" p-head">Item Three Tittle</a>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                      </div>
-                                  </article>
+<div class="col-lg-3">
+                      <!--widget start-->
+                      <aside class="profile-nav alt green-border">
+                          <section class="panel">
+                              <div class="user-heading alt green-bg">
+                                <a href="#">
+                                    <img alt="" src="img/profile-avatar.jpg">
+                                </a>
+                                <div class="row">
+                              <h4><%= link_to 'Tasks', team_tasks_path(@team) %></h4>
+                                    </div>
+                                      <div class="row">
+                                  <p>To-do List</p>
+                                </div>
                               </div>
-                          </div>
-                      </section>
+
+                              <ul class="nav nav-pills nav-stacked">
+                                  <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Overdue <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Priority <span class="label label-info pull-right r-activity">11</span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-bell-o"></i> Completed <span class="label label-warning pull-right r-activity">03</span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-envelope-o"></i> New Tasks <span class="label label-success pull-right r-activity">10</span></a></li>
+                              </ul>
+
+                          </section>
+                      </aside>
+                      </div>
+
+                      <div class="col-lg-3">
+                                            <!--widget start-->
+                                            <aside class="profile-nav alt green-border">
+                                                <section class="panel">
+                                                    <div class="user-heading alt green-bg">
+                                                      <a href="#">
+                                                          <img alt="" src="img/profile-avatar.jpg">
+                                                      </a>
+                                                      <div class="row">
+                                                    <h4><%= link_to 'Events',team_events_path(@team)%></h4>
+                                                          </div>
+                                                            <div class="row">
+                                                        <p>Events Schedule</p>
+                                                      </div>
+                                                    </div>
+
+                                                    <ul class="nav nav-pills nav-stacked">
+                                                        <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Upcoming Events <span class="label label-primary pull-right r-activity">19</span></a></li>
+                                                        <li><a href="javascript:;"> <i class="fa fa-calendar"></i> Past Events <span class="label label-info pull-right r-activity">11</span></a></li>
+
+                                                    </ul>
+
+                                                </section>
+                                            </aside>
+                                            </div>
+
+                                            <div class="col-lg-3">
+                                                                  <!--widget start-->
+                                                                  <aside class="profile-nav alt green-border">
+                                                                      <section class="panel">
+                                                                          <div class="user-heading alt green-bg">
+                                                                            <a href="#">
+                                                                                <img alt="" src="img/profile-avatar.jpg">
+                                                                            </a>
+                                                                            <div class="row">
+                                                                          <h4><%= link_to 'Documents and files', team_documents_path(@team)%></h4>
+                                                                                </div>
+                                                                                  <div class="row">
+                                                                              <p>Public Message Board</p>
+                                                                            </div>
+                                                                          </div>
+
+                                                                          <ul class="nav nav-pills nav-stacked">
+                                                                              <li><a href="javascript:;"> <i class="fa fa-clock-o"></i> Number of documents <span class="label label-primary pull-right r-activity">19</span></a></li>
+
+                                                                          </ul>
+
+                                                                      </section>
+                                                                  </aside>
+                                                                  </div>
+
 </div>
-<div class="col-lg-4">
-                      <section class="panel">
-                                                <header class="panel-heading">
-                                                    <h4><%= link_to 'Documents and files', team_documents_path(@team)%></h4>
-                                                </header>
-                                              </section>
-</div>
-</div>
+</section>

@@ -1,23 +1,38 @@
 <h1>Team calendar</h1>
 
 
-
+              <!-- page start-->
+              <div class="row">
+                  <aside class="col-lg-3">
+                      <h4 class="drg-event-title"> Draggable Events</h4>
+                      <div id='external-events'>
+                          <div class='external-event label label-primary'>Deadline</div>
+                          <div class='external-event label label-success'>My Event 2</div>
+                          <div class='external-event label label-info'>My Event 3</div>
+                          <div class='external-event label label-inverse'>My Event 4</div>
+                          <div class='external-event label label-warning'>My Event 5</div>
+                          <div class='external-event label label-danger'>My Event 6</div>
+                          <div class='external-event label label-default'>My Event 7</div>
+                          <div class='external-event label label-primary'>My Event 8</div>
+                          <div class='external-event label label-info'>My Event 9</div>
+                          <div class='external-event label label-success'>My Event 10</div>
+                          <p class="border-top drp-rmv">
+                              <input type='checkbox' id='drop-remove' />
+                              remove after drop
+                          </p>
+                      </div>
+                  </aside>
+                  <aside class="col-lg-9">
+                      <section class="panel">
+                          <div class="panel-body">
+                              <div id="calendar" class="has-toolbar"></div>
+                          </div>
+                      </section>
+                  </aside>
+              </div>
+              <!-- page end-->
 
 <hr>
-<%= month_calendar events: @events do |date, events| %>
-  <%= date %>
-
-  <% events.each do |event| %>
-   <div>
-<button type="button" class="btn btn" data-toggle="popover" title="event title" data-content=' body?'>
-<strong><%= event.name %></strong></button>
-
-
-
-
-   </div>
- <% end %>
-<% end %>
 
 
 <h3>New Event</h3>
@@ -28,35 +43,126 @@
 <%= f.input :end_time %>
 <%= f.submit 'Submit', class: 'btn btn-primary' %>
 <% end %>
+<script>
+$(document).ready(function(){
+  /* initialize the external events
+       -----------------------------------------------------------------*/
+
+      $('#external-events div.external-event').each(function() {
+
+          // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+          // it doesn't need to have a start or end
+          var eventObject = {
+              title: $.trim($(this).text()) // use the element's text as the event title
+          };
+
+          // store the Event Object in the DOM element so we can get to it later
+          $(this).data('eventObject', eventObject);
+
+          // make the event draggable using jQuery UI
+          $(this).draggable({
+              zIndex: 999,
+              revert: true,      // will cause the event to go back to its
+              revertDuration: 0  //  original position after the drag
+          });
+
+      });
 
 
+      /* initialize the calendar
+       -----------------------------------------------------------------*/
 
- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- <script>
- $( function() {
-   $( "#sortable" ).sortable({
-     revert: true
-   });
-   $( "#draggable" ).draggable({
-     connectToSortable: "#sortable",
-     helper: "clone",
-     revert: "invalid"
-   });
-   $( "ul, li" ).disableSelection();
- } );
- </script>
-</head>
-<body>
+      var date = new Date();
+      var d = date.getDate();
+      var m = date.getMonth();
+      var y = date.getFullYear();
 
-<ul>
- <li id="draggable" class="ui-state-highlight">Drag me down</li>
-</ul>
+      $('#calendar').fullCalendar({
+          schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+          header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,basicWeek,basicDay'
+          },
+          editable: true,
+          droppable: true, // this allows things to be dropped onto the calendar !!!
+          drop: function(date, allDay) { // this function is called when something is dropped
 
-<ul id="sortable">
- <li class="ui-state-default">Item 1</li>
- <li class="ui-state-default">Item 2</li>
- <li class="ui-state-default">Item 3</li>
- <li class="ui-state-default">Item 4</li>
- <li class="ui-state-default">Item 5</li>
-</ul>
+              // retrieve the dropped element's stored Event Object
+              var originalEventObject = $(this).data('eventObject');
+
+
+              // we need to copy it, so that multiple events don't have a reference to the same object
+              var copiedEventObject = $.extend({}, originalEventObject);
+
+              // assign it the date that was reported
+              copiedEventObject.start = date;
+              copiedEventObject.allDay = allDay;
+              console.log(copiedEventObject)
+              // render the event on the calendar
+              // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+              $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+              // is the "remove after drop" checkbox checked?
+              if ($('#drop-remove').is(':checked')) {
+                  // if so, remove the element from the "Draggable Events" list
+                  $(this).remove();
+              }
+
+          },
+          events: [
+              // {
+              //     title: 'All Day Event',
+              //     start: new Date(y, m, 1)
+              // },
+              // {
+              //     title: 'Spin Class',
+              //     start: new Date(y, m, d-5),
+              //     end: new Date(y, m, d-2)
+              // },
+              // {
+              //     id: 999,
+              //     title: 'Repeating Event',
+              //     start: new Date(y, m, d-3, 16, 0),
+              //     allDay: false
+              // },
+              // {
+              //     id: 999,
+              //     title: 'Repeating Event',
+              //     start: new Date(y, m, d+4, 16, 0),
+              //     allDay: false
+              // },
+              // {
+              //     title: 'Meeting',
+              //     start: new Date(y, m, d, 10, 30),
+              //     allDay: false
+              // },
+              // {
+              //     title: 'Lunch',
+              //     start: new Date(y, m, d, 12, 0),
+              //     end: new Date(y, m, d, 14, 0),
+              //     allDay: false
+              // },
+              // {
+              //     title: 'Birthday Party',
+              //     start: new Date(y, m, d+1, 19, 0),
+              //     end: new Date(y, m, d+1, 22, 30),
+              //     allDay: false
+              // },
+
+              <% @events.each do |e| %>
+
+              {
+                  title: "<%= e.name %>",
+                  start: "<%= e.start_time.iso8601 %>",
+                  end: "<%= e.end_time.iso8601 %>",
+
+                  url: '/teams/<%= @team.id %>/events/<%= e.id %>'
+              },
+              <% end %>
+          ]
+      });
+
+
+})
+</script>

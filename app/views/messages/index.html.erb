@@ -135,12 +135,13 @@
 
                           <div class="fb-status-container fb-border fb-gray-bg">
                             <div class="fb-status-container fb-border">
-                                <div class="fb-time-action">
+                                <div class="fb-time-action" id="accordion-<%= message.id %>">
                                     <a href="#" title="Like this">Like</a>
                                     <span>-</span>
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseComment">Recent Comments</a>
+
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-<%= message.id %>" href="#collapseComment-<%= message.id %>">Recent Comments</a>
                                     <% message.comments.last(3).each do |comment| %>
-                                    <div id="collapseComment" class="panel-collapse collapse">
+                                    <div id="collapseComment-<%= message.id %>" class="panel-collapse collapse">
                                         <br>
                                         <ul>
                                             <li>
