@@ -12,6 +12,7 @@ end
 
 def create
   @event = Event.create event_params
+
   @event.user = current_user
 
   if @event.save

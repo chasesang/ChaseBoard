@@ -57,6 +57,13 @@
                   </div>
               </div>
               <!--state overview end-->
+<h2>My Events</h2>
+              <% @user.events.all.each do |e| %>
+              <%= e.name %>
+              <%= e.start_time %>
+              <%= e.end_time %>
+              <%= e.body %><br>
+              <% end %>
               <section class="wrapper" style="margin-top: 5px">
               <div class="row">
               <header class="panel-heading">
@@ -177,7 +184,7 @@
                                         </div>
                                         <% end %>
                                         </div>
-                                    
+
                                       </secion>
 
 
