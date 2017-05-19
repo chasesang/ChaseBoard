@@ -29,7 +29,7 @@ end
 private
 
 def team_params
-  params.require(:team).permit([:title, :description, {documents: []}])
+  params.require(:team).permit([:title, :description, {documents: []}, :address])
 end
 
 end

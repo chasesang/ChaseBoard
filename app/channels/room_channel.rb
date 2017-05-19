@@ -12,4 +12,15 @@ class RoomChannel < ApplicationCable::Channel
     # ActionCable.server.broadcast 'room_channel', msg: data['chat']
       Chat.create content: data['chat'], user_id: current_user.id
   end
+
+  def sendLocation(data)
+    byebug
+  end
+ #    ActionCable.server.broadcast(“room_channel”, location: {
+ #   lat:
+ #   long:
+ #   user_id:
+ # })
+ #  end
+
 end

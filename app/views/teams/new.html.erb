@@ -1,0 +1,7 @@
+<%= simple_form_for @team do |f| %>
+<%= f.input :title, label: 'Team Title' %>
+<%= f.input :description %>
+<%= f.input :address %>
+<%= f.file_field :documents, multiple: true %>
+<%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

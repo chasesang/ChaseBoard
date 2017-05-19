@@ -12,7 +12,18 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     $('#chats').append data + "<br>"
     $chats = $('#chats')
     $chats.scrollTop $chats.prop('scrollHeight')
-
+    # if (data.location)
+    # draw markers if user_ids are the ones we are interested in
+      # handler = Gmaps.build('Google');
+      # handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      # markers = handler.addMarkers(<%=raw @markers.to_json %>);
+      # handler.bounds.extendWith(markers);
+      # handler.fitMapToBounds();
+      # handler.getMap().setZoom(10);
+      # });
 
   speak: (chat)->
     @perform 'speak', chat: chat
+
+  # sendLocation: (lat, long)->
+  #   @perform 'set_location', {lat: lat, lng: lng}
