@@ -262,10 +262,10 @@
                                   <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                   <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                   <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                  <li><a href="login.html"><i class="fa fa-key"></i><%= link_to 'Sign Out', sessions_path, method: :delete %></a></li>
+                                  <li><i class="fa fa-key"></i><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
                                   <% else %>
-                                  <li><a href="#"><i class="fa fa-bell-o"></i><%= link_to 'Sign Up', new_user_path %></a></li>
-                                  <li><a href="#"><i class="fa fa-bell-o"></i><%= link_to 'Log In', new_session_path %></a></li>
+                                  <li><i class="fa fa-bell-o"></i><%= link_to 'Sign Up', new_user_path %></li>
+                                  <li><i class="fa fa-bell-o"></i><%= link_to 'Log In', new_session_path %></li>
                                   <% end %>
                               </ul>
                           </li>
@@ -342,12 +342,7 @@
                         </li>
 
 
-                        <li>
-                            <a  href="login.html">
-                                <i class="fa fa-user"></i>
-                                <span>Login Page</span>
-                            </a>
-                        </li>
+
 
 
                     </ul>

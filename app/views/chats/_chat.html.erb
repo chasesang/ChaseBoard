@@ -1,1 +1,6 @@
-<%= chat.content %>
+
+<% if chat.user_id.present? %>
+<%= chat.user.email %>
+<% end %>
+SAYS: <%= chat.content %>
+<hr>

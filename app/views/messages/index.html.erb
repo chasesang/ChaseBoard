@@ -25,9 +25,21 @@
                                               <%= f.association :tags,
                                                   collection: Tag.all,
                                               input_html: { class: 'chosen-select input-new-line', style: 'width: 400px'} %>
-                                              <%= f.file_field :documents, multiple: true %>
-                                            
 
+                                              <div class="control-group">
+                                                  <div class="attach-set">
+                                                      <%= f.file_field :documents, multiple: true, input_html: {class: 'hidden-input'}%>
+                                                      <div class="input-append">
+                                                        <a id="upload-btn" class="btn">
+                                                          <i class="fa fa-files-o"></i>
+                                                            </a>
+                                                          <input id="file-display" class="input-large uneditable-input" type="text" style = "width: 566px">
+
+                                                      </div>
+                                                  </div>
+                                                  <!-- /attach-set -->
+                                              </div>
+                                              <!-- /control-group -->
                                           </div>
                                           <div class="modal-footer">
                                               <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
@@ -202,7 +214,6 @@
 </section>
 
 <!--features carousel end-->
-
 
 
 <script>

@@ -61,13 +61,22 @@
 
 					<li>
 						<a class="cmt-thumb" href="#">
-							<img alt="" src="img/mail-avatar.jpg">
+							<img_tag = 'mail-avatar.jpg'>
 						</a>
 						<div class="fb-time-action">
 							<a href="#"><%= comment.user.first_name %> <%= comment.user.last_name %></a>
 							<span>
 								<%= comment.content %>
 							</span>
+
+							<% if comment.documents.present? %>
+							<% comment.documents.each do |doc| %>
+							<%= image_tag 'zip.png' %>
+							<%= link_to doc.filename , doc.url  %>
+							<br>
+							<% end %>
+							<% end %>
+
 							<br>
 							<% if comment.user_id == current_user.id %>
 							<br>
@@ -82,9 +91,7 @@
 					<% end %>
 					<% end %>
 					<li>
-						<a class="cmt-thumb" href="#">
-							<img alt="" src="img/follower-avatar.jpg">
-						</a>
+
 						<div class="cmt-form">
 							<%= render 'comments/form' %>
 						</div>
