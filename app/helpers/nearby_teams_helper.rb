@@ -1,0 +1,2 @@
+module NearbyTeamsHelper
+end

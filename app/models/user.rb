@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :nullify
 
-
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode  # auto-fetch address
 
   validates(:first_name, { presence: true })
   validates(:last_name, { presence: true })

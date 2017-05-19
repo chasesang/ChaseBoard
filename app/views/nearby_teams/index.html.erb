@@ -1,0 +1,25 @@
+<h1>Nearby Users</h1>
+
+<% if cookies[:lng] && cookies[:lat] %>
+  <div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+  </div>
+
+  <script>
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @markers.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(17);
+    });
+  </script>
+<% else  %>
+  <script>
+    navigator.geolocation.getCurrentPosition(function(location) {
+      const lat = location.coords.latitude;
+      const lng = location.coords.longitude;
+      window.location = window.location.href + `/?lng=${lng}&lat=${lat}`
+    });
+  </script>
+<% end %>
