@@ -78,8 +78,8 @@
                             <li class="list-primary">
 
                                 <div class="task-title">
-                                    <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-                                    <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                  <strong>  <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
                                     <div class="pull-right hidden-phone">
                                         <button class="btn btn-success btn-xs fa fa-check"></button>
                                         <button class="btn btn-primary btn-xs fa fa-pencil"></button>
@@ -112,8 +112,8 @@
                             <li class="list-primary">
 
                                 <div class="task-title">
-                                    <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-                                    <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                  <strong>  <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span></strong> <br>
+                                    <span>From: <%= link_to task.team.title,team_path(task.team_id) %></span>
                                     <div class="pull-right hidden-phone">
                                         <button class="btn btn-success btn-xs fa fa-check"></button>
                                         <button class="btn btn-primary btn-xs fa fa-pencil"></button>

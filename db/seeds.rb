@@ -21,6 +21,7 @@ end
                 email: Faker::Internet.email,
                 password: '123',
                 password_confirmation: '123',
+                
               )
     puts "User created!"
   end

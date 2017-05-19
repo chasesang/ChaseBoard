@@ -1,47 +1,90 @@
 <h1>Team calendar</h1>
 
 <!-- page start-->
+<section class="wrapper" style="margin-top:20px">
+
 <div class="row">
-    <aside class="col-lg-3">
+  <aside class="col-lg-9">
+          <section class="panel">
+              <div class="panel-body">
+                  <div id="calendar" class="has-toolbar"></div>
+              </div>
+          </section>
+      </aside>
+
+
+<aside class="col-lg-3">
         <h4 class="drg-event-title">
-            Draggable Events</h4>
+            Recurring Meetings</h4>
         <div id='external-events'>
-            <div class='external-event label label-primary'>Deadline</div>
-            <div class='external-event label label-success'>My Event 2</div>
-            <div class='external-event label label-info'>My Event 3</div>
-            <div class='external-event label label-inverse'>My Event 4</div>
-            <div class='external-event label label-warning'>My Event 5</div>
-            <div class='external-event label label-danger'>My Event 6</div>
-            <div class='external-event label label-default'>My Event 7</div>
-            <div class='external-event label label-primary'>My Event 8</div>
+            <div class='external-event label label-primary'>Update Project</div>
+            <div class='external-event label label-success'>Update Team</div>
+            <div class='external-event label label-info'>Lunch</div>
+            <div class='external-event label label-danger'>Gym</div>
+            <div class='external-event label label-warning'>Crossfit</div>
+            <div class='external-event label label-danger'>Anniversary</div>
+            <div class='external-event label label-default'>Birthday</div>
+            <div class='external-event label label-danger'>My Event 8</div>
             <div class='external-event label label-info'>My Event 9</div>
             <div class='external-event label label-success'>My Event 10</div>
-            <p class="border-top drp-rmv">
+            <p >
                 <input type='checkbox' id='drop-remove'/>
                 remove after drop
             </p>
         </div>
-    </aside>
-    <aside class="col-lg-9">
-        <section class="panel">
-            <div class="panel-body">
-                <div id="calendar" class="has-toolbar"></div>
-            </div>
-        </section>
-    </aside>
-</div>
-<!-- page end-->
 
+        <hr>
+
+
+                <h4 class="drg-event-title">
+                  New Meeting</h4>
+
+
+
+
+                    <div class='external-event label label-info'>
+                                                <a data-toggle="modal" href="#myModal8">
+                                                New Event
+                                                </a>
+                                              </div>
+
+
+                                                <!-- vertical center right side Modal start -->
+                                                <div class="modal fade modal-dialog-center right-modal-with-space" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content-wrap">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                    <h4 class="modal-title">New Event</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                  <%= simple_form_for [@team, @event] do |f|%>
+                                                                  <%= f.input :name %>
+                                                                  <%= f.input :body %>
+                                                                  <%= f.input :start_time %>
+                                                                  <%= f.input :end_time %>
+
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                                                  <%= f.submit 'Submit', class: 'btn btn-warning' %>
+                                                                        <% end %>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- vertical center right side Modal end -->
+                    </aside>
 <hr>
 
-<h3>New Event</h3>
-<%= simple_form_for [@team, @event] do |f|%>
-<%= f.input :name %>
-<%= f.input :body %>
-<%= f.input :start_time %>
-<%= f.input :end_time %>
-<%= f.submit 'Submit', class: 'btn btn-primary' %>
-<% end %>
+</div>
+
+<!-- page end-->
+
 <script>
     $(document).ready(function () {
         /* initialize the external events

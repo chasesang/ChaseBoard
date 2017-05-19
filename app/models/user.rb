@@ -12,13 +12,16 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :nullify
 
-  reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode  # auto-fetch address
 
   validates(:first_name, { presence: true })
   validates(:last_name, { presence: true })
   validates(:email, { presence: true })
 
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+
+  # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode  # auto-fetch address
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

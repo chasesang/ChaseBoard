@@ -1,8 +1,9 @@
 <h1>Rooms#show</h1>
 <div id="chats">
 
+<%= render @chats %>
+  </div>
 
-<% @chats.each do |c| %>
-<%= c.content %>
-<% end %>
-</div>
+
+  <div class="input-box">
+      <input type="text" class="input-box_text" id="chat_input"/>
