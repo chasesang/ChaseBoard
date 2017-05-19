@@ -37,7 +37,9 @@
                             <strike><%= a.first_name%></strike>
                             <% end %></td>
                         <% if task.has_author? %>
-                        <td><strike><%= task.user.first_name%></strike></td>
+                        <td>
+                            <strike><%= task.user.first_name%></strike>
+                        </td>
                         <% end %>
                         <td>
                             <span class="label label-info label-mini" style="opacity: 0.5">Completed
@@ -126,11 +128,23 @@
                     <div class="modal-body">
 
                         <%= simple_form_for [@team, @task] do |f| %>
-                        <%= f.input :body, label: "New todos..." %>
+                        <%= f.input :body, label: "New Todos..." %>
+                        <%= f.association :assignees, label:"Assign to: ", collection: User.all, label_method: :first_name, include_blank: true, input_html: { class: 'chosen-select', style: 'width: 500px, margin-left: 15px' } %>
 
-                        <%= f.association :assignees, collection: User.all, label_method: :first_name, include_blank: true, input_html: { class: 'chosen-select input-new-line', style: 'width: 200px' } %>
-                        <%= f.file_field :documents, multiple: true %>
+                        <div class="control-group">
+                            <div class="attach-set">
+                                <%= f.file_field :documents, multiple: true, input_html: {class: 'hidden-input'}%>
+                                <div class="input-append">
+                                  <a id="upload-btn" class="btn">
+                                    <i class="fa fa-files-o"></i>
+                                      </a>
+                                    <input id="file-display" class="input-large uneditable-input" type="text" style = "width: 566px">
 
+                                </div>
+                            </div>
+                            <!-- /attach-set -->
+                        </div>
+                        <!-- /control-group -->
 
                     </div>
                     <div class="modal-footer">
@@ -144,14 +158,13 @@
     </div>
 </div>
 
-
-
 <script>
 
     jQuery(document).ready(function () {
-      $('#myTaskModal').on('shown.bs.modal', function () {
-        $('.chosen-select', this).chosen('destroy').chosen();
-      });
+        $('#myTaskModal').on('shown.bs.modal', function () {
+            $('.chosen-select', this).chosen('destroy').chosen();
+
+        });
 
     });
 </script>
