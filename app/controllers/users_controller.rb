@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # skip_before_action :verify_authenticity_token
+
+
   def new
     @user = User.new
   end
@@ -19,6 +22,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find params[:id]
+    @user.update(user_params)
+end
+
   private
 
   def user_params
@@ -27,6 +35,8 @@ class UsersController < ApplicationController
                                   :email,
                                   :password,
                                   :password_confirmation,
-                                  :address])
+                                  :address,
+                                  :longitude,
+                                  :latitude])
   end
 end

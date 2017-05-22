@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :update] do
+    resources :mybookmarks, only: [:create, :destroy, :edit, :index]
+  end
 
     resources :sessions, only: [:new, :create] do
       delete :destroy, on: :collection

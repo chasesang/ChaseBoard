@@ -1,6 +1,8 @@
 <h1>Nearby Friends</h1>
 
 <% if cookies[:lng] && cookies[:lat] %>
+<%# if false %>
+
   <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
@@ -20,9 +22,17 @@
       const lat = location.coords.latitude;
       const lng = location.coords.longitude;
       window.location = window.location.href + `/?lng=${lng}&lat=${lat}`
+
+      const body = new FormData();
+      body.set('user[latitude]', lat);
+      body.set('user[longitude]', lng);
+
+
+      fetch('/users/<%= current_user.id %>', {
+        method: 'PATCH',
+        body: body
+      })
+      // debugger
     });
   </script>
 <% end %>
-
-<!-- // map everything out
-//   App.teamLocations = <%= current_user.joined_teams.users.locations.to_json %> -->

@@ -25,5 +25,5 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   speak: (chat)->
     @perform 'speak', chat: chat
 
-  # sendLocation: (lat, long)->
-  #   @perform 'set_location', {lat: lat, lng: lng}
+  # sendLocation: (location)->
+  #   @perform 'set_location', locaion: {lat: lat, lng: lng}

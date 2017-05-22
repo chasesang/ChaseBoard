@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519213945) do
+ActiveRecord::Schema.define(version: 20170522203124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20170519213945) do
     t.index ["user_id"], name: "index_assigns_on_user_id", using: :btree
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+  end
+
   create_table "chats", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at", null: false
@@ -92,6 +100,15 @@ ActiveRecord::Schema.define(version: 20170519213945) do
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_joins_on_team_id", using: :btree
     t.index ["user_id"], name: "index_joins_on_user_id", using: :btree
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -158,12 +175,14 @@ ActiveRecord::Schema.define(version: 20170519213945) do
 
   add_foreign_key "assigns", "tasks"
   add_foreign_key "assigns", "users"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "chats", "users"
   add_foreign_key "comments", "messages"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
   add_foreign_key "joins", "teams"
   add_foreign_key "joins", "users"
+  add_foreign_key "locations", "users"
   add_foreign_key "messages", "teams"
   add_foreign_key "messages", "users"
   add_foreign_key "taggings", "messages"
