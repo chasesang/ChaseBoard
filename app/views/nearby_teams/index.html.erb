@@ -1,4 +1,5 @@
-<h1>Nearby Members</h1>
+<h1>Nearby Teams / Events / Members</h1>
+<hr>
 
 <% if cookies[:lng] && cookies[:lat] %>
 
@@ -8,6 +9,7 @@
   </div>
 
   <script>
+
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(<%=raw @markers.to_json %>);
@@ -21,6 +23,9 @@
     navigator.geolocation.getCurrentPosition(function(location) {
       const lat = location.coords.latitude;
       const lng = location.coords.longitude;
+      debugger
+      console.log(lat);
+      console.log(lng);
       window.location = window.location.href + `/?lng=${lng}&lat=${lat}`
       //
       // const body = new FormData();

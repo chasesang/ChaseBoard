@@ -1,7 +1,7 @@
 
 <% if chat.user_id.present? %>
-<%= chat.user.email %>
+<strong><%= chat.user.first_name %></strong>
 
 <% end %>
-SAYS: <%= chat.content %>
+says: <%= chat.content %>
 <hr>

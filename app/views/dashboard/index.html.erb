@@ -76,6 +76,21 @@
                     <div class="task-content">
                         <ul id="sortable" class="task-list">
                             <% @user.assigned_tasks.each do |task| %>
+                            <% if task.complete? %>
+                            <li class="list-primary">
+
+                                <div class="task-title">
+                                  <strong>  <span class="task-title-sp"><strike><%= link_to task.body,team_task_path(task.team, task) %></strike></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-success btn-xs fa fa-check"></button>
+                                        <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <% else %>
                             <li class="list-primary">
 
                                 <div class="task-title">
@@ -88,9 +103,8 @@
                                     </div>
                                 </div>
                             </li>
-
                             <% end %>
-
+                            <% end %>
                         </ul>
                     </div>
                     <div class=" add-task-row">
@@ -110,11 +124,12 @@
                     <div class="task-content">
                         <ul id="sortable2" class="task-list ui-sortable" style="padding-left: 0px">
                             <% @tasks.each do |task| %>
+                            <% if task.complete? %>
                             <li class="list-primary">
 
                                 <div class="task-title">
-                                  <strong>  <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span></strong> <br>
-                                    <span>From: <%= link_to task.team.title,team_path(task.team_id) %></span>
+                                  <strong>  <span class="task-title-sp"><strike><%= link_to task.body,team_task_path(task.team, task) %></strike></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
                                     <div class="pull-right hidden-phone">
                                         <button class="btn btn-success btn-xs fa fa-check"></button>
                                         <button class="btn btn-primary btn-xs fa fa-pencil"></button>
@@ -123,8 +138,21 @@
                                 </div>
                             </li>
 
-                            <% end %>
+                            <% else %>
+                            <li class="list-primary">
 
+                                <div class="task-title">
+                                  <strong>  <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-success btn-xs fa fa-check"></button>
+                                        <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <% end %>
+                            <% end %>
                         </ul>
                     </div>
                     <div class=" add-task-row">
@@ -147,13 +175,14 @@
         <header class="panel-heading">
           <center><h2>My Teams</h2></center>
         </header>
+
     </div>
     <hr>
 
     <div class="row">
         <% @teams.each do |team| %>
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <!--widget start-->
             <aside class="profile-nav alt green-border">
                 <section class="panel">
@@ -197,6 +226,50 @@
             </aside>
         </div>
         <% end %>
+
+        <div class="col-lg-4">
+            <!--widget start-->
+            <aside class="profile-nav alt green-border">
+                <section class="panel">
+                    <div class="user-heading alt green-bg">
+                        <a href="#">
+                            <img src="http://monroevillein.com/wp-content/uploads/2015/06/Question-Mark.png">
+                        </a>
+                        <h4><strong><%= link_to'Add a New Team' %></h4></strong>
+                        <br><br>
+                        <p><%=  'Team Description' %></p>
+
+
+                    </div>
+
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-envelope-o"></i>
+                                Messages
+                                <span class="label label-primary pull-right r-activity">0</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-calendar"></i>
+                                Events
+                                <span class="label label-info pull-right r-activity">0</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-bell-o"></i>
+                                Documents
+                                <span class="label label-warning pull-right r-activity">0</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+            </aside>
+        </div>
     </div>
 
 
@@ -211,7 +284,7 @@
 <hr>
 <div class="row">
 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <!--widget start-->
                 <section class="panel">
                     <div class="twt-feed blue-bg">
@@ -241,7 +314,7 @@
                 </section>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <!--widget start-->
                 <section class="panel">
                     <div class="twt-feed blue-bg">
@@ -267,6 +340,40 @@
                             </li>
                         </ul>
                     </div>
+                  </div>
+
+                    <div class="col-lg-4">
+                        <!--widget start-->
+                        <section class="panel">
+                            <div class="twt-feed blue-bg">
+                            <strong><h1>Add a New Project</h1></strong>
+                                <p>New Project Description</p>
+                                <a href="#">
+                                    <img src="http://monroevillein.com/wp-content/uploads/2015/06/Question-Mark.png">
+                                </a>
+                            </div>
+                            <div class="weather-category twt-category">
+                                <ul>
+                                    <li class="active">
+                                        <h5>0</h5>
+                                        Message
+                                    </li>
+                                    <li>
+                                        <h5>0</h5>
+                                        Documents
+                                    </li>
+                                    <li>
+                                        <h5>0</h5>
+                                        Tasks
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </section>
+                    </div>
+                  </div>
+
+
 
 
             <!--project profile end-->

@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       cookies.signed[:user_id] = user.id
-      redirect_to root_path, notice: 'Thank you for signing in'
+      redirect_to root_path
     else
-      flash.now[:alert] = 'Wrong credentials!'
+
       render :new
     end
   end
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
       cookies.signed[:user_id] = nil
-    redirect_to root_path, notice: 'Signed Out'
+    redirect_to root_path
   end
 end

@@ -16,9 +16,9 @@ def create
   @event.user = current_user
 
   if @event.save
-    redirect_to team_events_path(@team), notice: 'Event created!'
+    redirect_to team_events_path(@team)
   else
-    redirect_to team_events_path(@team), alert: @event.errors.full_messages.join(', ')
+    redirect_to team_events_path(@team)
   end
 
 end
@@ -31,16 +31,16 @@ end
 def update
   @event = Event.find params[:id]
   if @event.update(event_params)
-    redirect_to team_events_path(@team), notice: 'Event updated!'
+    redirect_to team_events_path(@team)
   else
-    redirect_to team_events_path(@team), alert: @event.errors.full_messages.join(', ')
+    redirect_to team_events_path(@team)
   end
 end
 
 def destroy
   @event = Event.find params[:id]
   @event.destroy
-  redirect_to team_events_path(@team), notice: 'Event deleted!'
+  redirect_to team_events_path(@team)
 end
 
 
