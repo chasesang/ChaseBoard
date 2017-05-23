@@ -1,6 +1,5 @@
 class NearbyTeamsController < ApplicationController
 
-
   def index
 
   cookies[:lng] = params[:lng] if params[:lng]

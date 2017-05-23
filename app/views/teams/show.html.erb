@@ -1,5 +1,5 @@
 <h1><%= @team.title %></h1>
-<h2><%= @team.description %></h2>
+<p><%= @team.description %></p>
 <hr>
 <script>
         jQuery(document).ready(function() {
@@ -100,6 +100,37 @@
                       </div>
 
                       <!-- END Portlet PORTLET-->
+
+                  </div>
+                  <div class="col-md-4 column sortable">
+
+                      <!-- BEGIN Portlet PORTLET-->
+
+                      <div class="panel panel-success ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
+                          <div class="panel-heading"><%= link_to 'Nearby Members', nearby_teams_path %></div>
+                          <div class="panel-body">
+                            I CAN SEE YOU!!
+                          </div>
+                      </div>
+
+                      <!-- END Portlet PORTLET-->
+                      <div class="panel panel-default ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
+                          <div class="panel-heading"><%= link_to 'Add something else...'%></div>
+                          <div class="panel-body">
+                            Something new!
+                          </div>
+                      </div>
+
 
                   </div>
 
