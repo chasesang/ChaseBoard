@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get('/about' => 'about#index')
   get('/contact' => 'contact#index')
+  get('/welcome' => 'welcome#index')
   resources :nearby_teams, only: [:index]
 
   get('/chat' => 'rooms#show')
