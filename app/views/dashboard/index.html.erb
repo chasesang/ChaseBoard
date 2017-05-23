@@ -9,9 +9,9 @@
             </div>
             <div class="value">
                 <h1 class="count">
-                    0
+                    <%= @user.messages.count %>
                 </h1>
-                <p>My Messages</p>
+                <p><%= link_to 'My Messages', user_mymessages_path(@user) %></p>
             </div>
         </section>
     </div>
@@ -22,9 +22,9 @@
             </div>
             <div class="value">
                 <h1 class=" count2">
-                    <%= link_to @events.count %>
+                    <%= @user.events.count %>
                 </h1>
-                <p>My Events</p>
+              <p><%= link_to 'My Events', user_myevents_path(@user) %></p>
             </div>
         </section>
     </div>
@@ -35,9 +35,9 @@
             </div>
             <div class="value">
                 <h1 class=" count3">
-                    0
+                  21
                 </h1>
-                <p>My Documents</p>
+                <p><%= link_to 'My Documents', user_mydocuments_path(@user) %></p>
             </div>
         </section>
     </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="value">
                 <h1 class=" count4">
-                    0
+                    12
                 </h1>
                 <p><%= link_to'My Bookmarks', user_mybookmarks_path(@user) %></p>
             </div>
@@ -61,15 +61,16 @@
 <section class="wrapper" style="margin-top: 5px">
     <div class="row">
         <header class="panel-heading">
-            <h2>My Todo List</h2>
+          <center>  <h2>My Todo List</h2> </center>
         </header>
     </div>
+    <hr>
     <% if user_signed_in? %>
     <div class="row">
         <div class="col-md-6">
             <section class="panel tasks-widget">
                 <header class="panel-heading">
-                    Tasks that assigned to me
+                    Tasks that Assigned To Me
                 </header>
                 <div class="panel-body">
                     <div class="task-content">
@@ -144,9 +145,11 @@
 
     <div class="row">
         <header class="panel-heading">
-            <h2>My Teams</h2>
+          <center><h2>My Teams</h2></center>
         </header>
     </div>
+    <hr>
+
     <div class="row">
         <% @teams.each do |team| %>
 
@@ -156,10 +159,10 @@
                 <section class="panel">
                     <div class="user-heading alt green-bg">
                         <a href="#">
-                            <img alt="">
+                            <img src="http://www.offshoreenergytoday.com/wp-content/uploads/2013/09/Siemens-to-Power-New-Build-Offshore-Drilling-Rigs-China2.jpg">
                         </a>
-                        <h6><%= link_to team.title, team_path(team.id) %></h6>
-                        <p><%= link_to team.description, team_path(team.id) %></p>
+                        <h1><%= link_to team.title, team_path(team.id) %></h1>
+                        <p><%= link_to team.description %></p>
 
                     </div>
 
@@ -200,9 +203,10 @@
 
 <div class="row">
     <header class="panel-heading">
-        <h2>My Projects</h2>
+        <center><h2>My Projects</h2></center>
     </header>
 </div>
+<hr>
 <div class="row">
 
             <div class="col-lg-3">
@@ -275,5 +279,6 @@
                     $("#sortable").disableSelection();
                     $("#sortable2").sortable();
                     $("#sortable2").disableSelection();
+                
                 });
             </script>

@@ -1,0 +1,2 @@
+module MydocumentsHelper
+end

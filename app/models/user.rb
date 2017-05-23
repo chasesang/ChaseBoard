@@ -20,6 +20,8 @@ class User < ApplicationRecord
   validates(:last_name, { presence: true })
   validates(:email, { presence: true })
 
+  mount_uploaders :documents, DocumentUploader
+
   geocoded_by :address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
 

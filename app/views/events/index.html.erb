@@ -3,186 +3,175 @@
 <!-- page start-->
 <section class="wrapper" style="margin-top:20px">
 
-<div class="row">
-  <aside class="col-lg-9">
-          <section class="panel">
-              <div class="panel-body">
-                  <div id="calendar" class="has-toolbar"></div>
-              </div>
-          </section>
-      </aside>
+    <div class="row">
+        <aside class="col-lg-9">
+            <section class="panel">
+                <div class="panel-body">
+                    <div id="calendar" class="has-toolbar"></div>
+                </div>
+            </section>
+        </aside>
 
+        <aside class="col-lg-3">
+            <h4 class="drg-event-title">
+                Recurring Meetings</h4>
+            <div id='external-events'>
+                <div class='external-event label label-primary'>Update Project</div>
+                <div class='external-event label label-success'>Update Team</div>
+                <div class='external-event label label-info'>Lunch</div>
+                <div class='external-event label label-danger'>Gym</div>
+                <div class='external-event label label-warning'>Crossfit</div>
+                <div class='external-event label label-danger'>Anniversary</div>
+                <div class='external-event label label-default'>Birthday</div>
+                <div class='external-event label label-danger'>My Event 8</div>
+                <div class='external-event label label-info'>My Event 9</div>
+                <div class='external-event label label-success'>My Event 10</div>
+                <p >
+                    <input type='checkbox' id='drop-remove'/>
+                    remove after drop
+                </p>
+            </div>
 
-<aside class="col-lg-3">
-        <h4 class="drg-event-title">
-            Recurring Meetings</h4>
-        <div id='external-events'>
-            <div class='external-event label label-primary'>Update Project</div>
-            <div class='external-event label label-success'>Update Team</div>
-            <div class='external-event label label-info'>Lunch</div>
-            <div class='external-event label label-danger'>Gym</div>
-            <div class='external-event label label-warning'>Crossfit</div>
-            <div class='external-event label label-danger'>Anniversary</div>
-            <div class='external-event label label-default'>Birthday</div>
-            <div class='external-event label label-danger'>My Event 8</div>
-            <div class='external-event label label-info'>My Event 9</div>
-            <div class='external-event label label-success'>My Event 10</div>
-            <p >
-                <input type='checkbox' id='drop-remove'/>
-                remove after drop
-            </p>
-        </div>
+            <hr>
 
-        <hr>
+            <h4 class="drg-event-title">
+                New Meeting</h4>
 
+            <div class='external-event label label-info'>
+                <a data-toggle="modal" href="#myModal8">
+                    New Event
+                </a>
+            </div>
 
-                <h4 class="drg-event-title">
-                  New Meeting</h4>
+            <!-- vertical center right side Modal start -->
+            <div class="modal fade modal-dialog-center right-modal-with-space" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content-wrap">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">New Event</h4>
+                            </div>
+                            <div class="modal-body">
 
+                                <%= simple_form_for [@team, @event] do |f|%>
+                                <%= f.input :name %>
+                                <%= f.input :body %>
+                                <%= f.input :start_time %>
+                                <%= f.input :end_time %>
 
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                <%= f.submit 'Submit', class: 'btn btn-warning' %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- vertical center right side Modal end -->
+        </aside>
 
+    </div>
 
-                    <div class='external-event label label-info'>
-                                                <a data-toggle="modal" href="#myModal8">
-                                                New Event
-                                                </a>
-                                              </div>
+    <!-- page end-->
 
-
-                                                <!-- vertical center right side Modal start -->
-                                                <div class="modal fade modal-dialog-center right-modal-with-space" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content-wrap">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                    <h4 class="modal-title">New Event</h4>
-                                                                </div>
-                                                                <div class="modal-body">
-
-                                                                  <%= simple_form_for [@team, @event] do |f|%>
-                                                                  <%= f.input :name %>
-                                                                  <%= f.input :body %>
-                                                                  <%= f.input :start_time %>
-                                                                  <%= f.input :end_time %>
-
-
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-                                                                  <%= f.submit 'Submit', class: 'btn btn-warning' %>
-                                                                        <% end %>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- vertical center right side Modal end -->
-                    </aside>
-<hr>
-
-</div>
-
-<!-- page end-->
-
-
-
-
-<script>
-    $(document).ready(function () {
-        /* initialize the external events
+    <script>
+        $(document).ready(function () {
+            /* initialize the external events
        -----------------------------------------------------------------*/
 
-        $('#external-events div.external-event').each(function () {
-      
-            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/) it doesn't need to have a start or end
-            var eventObject = {
-                title: $.trim($(this).text()) // use the element's text as the event title
-            };
+            $('#external-events div.external-event').each(function () {
 
-            // store the Event Object in the DOM element so we can get to it later
-            $(this).data('eventObject', eventObject);
+                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/) it doesn't need to have a start or end
+                var eventObject = {
+                    title: $.trim($(this).text()) // use the element's text as the event title
+                };
 
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 999, revert: true, // will cause the event to go back to its
-                revertDuration: 0 //  original position after the drag
-            });
+                // store the Event Object in the DOM element so we can get to it later
+                $(this).data('eventObject', eventObject);
 
-        });
-
-        /* initialize the calendar
-       -----------------------------------------------------------------*/
-
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        $('#calendar').fullCalendar({
-            schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,basicWeek,basicDay'
-            },
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (date, allDay) { // this function is called when something is dropped
-
-                // retrieve the dropped element's stored Event Object
-                var originalEventObject = $(this).data('eventObject');
-
-                // we need to copy it, so that multiple events don't have a reference to the same object
-                var copiedEventObject = $.extend({}, originalEventObject);
-
-                // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.allDay = allDay;
-
-                // render the event on the calendar the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-                console.log(copiedEventObject);
-
-                $.ajax({
-                    method: "POST",
-                    url: "/teams/<%= @team.id %>/events",
-                    data: {
-                      event: {
-                        name: copiedEventObject.title,
-                        start_time: copiedEventObject.start.toISOString(),
-                        end_time: copiedEventObject.start.add(1, 'h').toISOString()
-
-                    }
-                  }
-                }).done(function (msg) {
-                    // alert("Data Saved: " + msg);
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 999, revert: true, // will cause the event to go back to its
+                    revertDuration: 0 //  original position after the drag
                 });
 
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
-                }
+            });
 
-            },
-            events: [
-                // {     title: 'All Day Event',     start: new Date(y, m, 1) }, {     title: 'Spin Class',     start: new Date(y, m, d-5),     end: new Date(y, m, d-2) }, {     id: 999,     title: 'Repeating Event',     start: new Date(y, m, d-3, 16, 0),
-                // allDay: false }, {     id: 999,     title: 'Repeating Event',     start: new Date(y, m, d+4, 16, 0),     allDay: false }, {     title: 'Meeting',     start: new Date(y, m, d, 10, 30),     allDay: false }, {     title: 'Lunch',     start: new
-                // Date(y, m, d, 12, 0),     end: new Date(y, m, d, 14, 0),     allDay: false }, {     title: 'Birthday Party',     start: new Date(y, m, d+1, 19, 0),     end: new Date(y, m, d+1, 22, 30),     allDay: false },
+            /* initialize the calendar
+       -----------------------------------------------------------------*/
 
-                <% @events.each do |e| %>
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
 
-                {
-                    title: "<%= e.name %>",
-                    start: "<%= e.start_time.iso8601 %>",
-                    end: "<%= e.end_time.iso8601 %>",
-
-                    url: '/teams/<%= @team.id %>/events/<%= e.id %>'
+            $('#calendar').fullCalendar({
+                schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
                 },
-                <% end %>
-            ]
-        });
+                editable: true,
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function (date, allDay) { // this function is called when something is dropped
 
-    })
-</script>
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject');
+
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject);
+
+                    // assign it the date that was reported
+                    copiedEventObject.start = date;
+                    copiedEventObject.allDay = allDay;
+
+                    // render the event on the calendar the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+                    console.log(copiedEventObject);
+
+                    $.ajax({
+                        method: "POST",
+                        url: "/teams/<%= @team.id %>/events",
+                        data: {
+                            event: {
+                                name: copiedEventObject.title,
+                                start_time: copiedEventObject.start.toISOString(),
+                                end_time: copiedEventObject.start.add(1, 'h').toISOString()
+
+                            }
+                        }
+                    }).done(function (msg) {
+                        // alert("Data Saved: " + msg);
+                    });
+
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+
+                },
+                events: [
+                    // {     title: 'All Day Event',     start: new Date(y, m, 1) }, {     title: 'Spin Class',     start: new Date(y, m, d-5),     end: new Date(y, m, d-2) }, {     id: 999,     title: 'Repeating Event',     start: new Date(y, m, d-3, 16, 0), allDay:
+                    // false }, {     id: 999,     title: 'Repeating Event',     start: new Date(y, m, d+4, 16, 0),     allDay: false }, {     title: 'Meeting',     start: new Date(y, m, d, 10, 30),     allDay: false }, {     title: 'Lunch',     start: new Date(y, m, d,
+                    // 12, 0),     end: new Date(y, m, d, 14, 0),     allDay: false }, {     title: 'Birthday Party',     start: new Date(y, m, d+1, 19, 0),     end: new Date(y, m, d+1, 22, 30),     allDay: false },
+
+                    <% @events.each do |e| %>
+
+                    {
+                        title: "<%= e.name %>",
+                        start: "<%= e.start_time.iso8601 %>",
+                        end: "<%= e.end_time.iso8601 %>",
+
+                        url: '/teams/<%= @team.id %>/events/<%= e.id %>'
+                    },
+                    <% end %>
+                ]
+            });
+
+        })
+    </script>

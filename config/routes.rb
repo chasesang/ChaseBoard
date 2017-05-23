@@ -32,7 +32,10 @@ Rails.application.routes.draw do
   resources :dashboard
 
   resources :users, only: [:new, :create, :update] do
-    resources :mybookmarks, only: [:create, :destroy, :edit, :index]
+    resources :mybookmarks, only: [:new, :create, :update, :index]
+    resources :mymessages, only: [:index]
+    resources :myevents, only: [:index]
+    resources :mydocuments, only: [:index]
   end
 
     resources :sessions, only: [:new, :create] do
