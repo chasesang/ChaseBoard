@@ -1,7 +1,7 @@
-
 <% if chat.user_id.present? %>
-<strong><%= chat.user.first_name %></strong>
 
-<% end %>
-says: <%= chat.content %>
-<hr>
+  <div style="padding-left:10px; padding-top:5px; padding-right: 20px"><strong><%= chat.user.first_name %> <%= chat.user.last_name %></strong> says:
+  <%= chat.content %> <br><br>
+  <%= time_ago_in_words(chat.created_at) %> ago </div>
+  <hr class="clear">
+  <% end %>

@@ -1,11 +1,213 @@
-<h1>Chat Room</h1>
-<hr>
-<p></p>
-<div id="chats">
+<h1 style ="font-family: 'Play', sans-serif; padding-left: 15px">Chat Room</h1>
 
-<%= render @chats %>
-  </div>
+              <div class="chat-room">
+                <div class="col-">
+
+                </div>
+                  <aside class="left-side">
+
+                      <ul class="chat-list">
+                          <li class="">
+                              <a class="lobby" href="lobby.html">
+                                  <h4>
+                                      <i class="fa fa-list"></i>
+                                      Lobby
+                                  </h4>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="chat_room.html">
+                                <i class="fa fa-rocket"></i>
+                                <span>Drilling</span>
+                                <i class="fa fa-times pull-right"></i>
+                              </a>
+                          </li>
+                          <li class="active">
+                              <a href="chat_room.html">
+                                  <i class="fa fa-rocket"></i>
+                                  <span>Codecore</span>
+                                  <i class="fa fa-times pull-right"></i>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="chat_room.html">
+                                  <i class="fa fa-rocket"></i>
+                                  <span>Reservoir</span>
+                                  <i class="fa fa-times pull-right"></i>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="chat_room.html">
+                                  <i class="fa fa-rocket"></i>
+                                  <span>Exploration</span>
+                                  <i class="fa fa-times pull-right"></i>
+                              </a>
+                          </li>
+
+                      </ul>
+                      <ul class="chat-list chat-user">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-success"></i>
+                                <span>Chase Sang</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+
+                          <li>
+                              <a href="#">
+                                  <i class="fa fa-circle text-success"></i>
+                                  <span>Richard W</span>
+                                  <i class="fa fa-times pull-right"></i>
+                              </a>
+                          </li>
 
 
-  <div class="input-box">
-      <input type="text" class="input-box_text" id="chat_input"/>
+
+                      </ul>
+                      <footer>
+                              <a class="chat-avatar" href="javascript:;">
+                                <%= image_tag 'avatar-mini.jpg' %>
+                              </a>
+                              <div class="user-status">
+                                  <i class="fa fa-circle text-success"></i>
+                                  Available
+                              </div>
+                              <a class="chat-dropdown pull-right" href="javascript:;">
+                                  <i class="fa fa-chevron-down"></i>
+                              </a>
+                      </footer>
+                  </aside>
+                  <aside class="mid-side">
+
+
+
+
+                          <div  id="chats">
+                            <% @chats.each do |chat| %>
+                            <% if chat.user_id.present? %>
+
+                              <div style="padding-left:10px; padding-top:5px; padding-right: 20px"><strong><%= chat.user.first_name %> <%= chat.user.last_name %></strong> says:
+                              <%= chat.content %> <br><br>
+                              <%= time_ago_in_words(chat.created_at) %> ago </div>
+                              <hr class="clear">
+                              <% end %>
+                              <% end %>
+
+                          </div>
+
+                      <footer>
+
+                          <div class="chat-txt">
+                            <input type="text" class="form-control"id="chat_input">
+                        </div>
+                        <div class="btn-group">
+                                                    <button type="button" class="btn btn-white"><i class="fa fa-meh-o"></i></button>
+                                                    <button type="button" class="btn btn-white"><i class=" fa fa-paperclip"></i></button>
+                                                </div>
+                        <button class="btn btn-danger">Send</button>
+                      </footer>
+                  </aside>
+                  <aside class="right-side">
+
+                      <div class="invite-row">
+                          <h4 class="pull-left">People</h4>
+                      </div>
+                      <ul class="chat-available-user">
+
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Serena L</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Tam K</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Steve G</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Cyndi Zhao</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Serena L</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Tam K</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Steve G</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Bronwyn M</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Jason Lam</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Vivian Lau</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Josh G</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle text-danger"></i>
+                                <span>Siobhan</span>
+                                <i class="fa fa-times pull-right"></i>
+                            </a>
+                        </li>
+
+                      </ul>
+                      <footer>
+                          <a href="#" class="guest-on">
+                              <i class="fa fa-check"></i>
+                              Geocoding enabled
+                          </a>
+                      </footer>
+                  </aside>
+
+              </div>
+              <!-- page end-->

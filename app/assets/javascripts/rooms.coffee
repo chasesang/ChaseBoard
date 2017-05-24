@@ -9,5 +9,5 @@ $ ->
 $(document).on 'keypress', '#chat_input', (e) ->
   if e.keyCode == 13 and e.target.value
     App.room.speak(e.target.value)
-    e.target.value = ''
+    e.target.value = '     '
     e.preventDefault()
