@@ -3,6 +3,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @team = Team.find params[:team_id]
+    @teamusers = @team.users.all
+  end
+
   def create
     @user = User.new user_params
     if @user.save

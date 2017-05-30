@@ -1,7 +1,9 @@
 <%= simple_form_for [@team, @message] do |f| %>
 <%= f.input :title, label: 'Message Title' %>
 <%= f.input :description %>
-<%= f.input :category %>
-<%= f.file_field :documents, multiple: true %> 
+
+<%= f.association :tags, input_html: { class: 'chosen-select input-new-line',
+                                       style: 'width: 400px' } %>
+<%= f.file_field :documents, multiple: true %>
 <%= f.submit 'Submit', class: 'btn btn-primary' %>
 <% end %>

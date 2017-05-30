@@ -12,17 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require chaseboard
+
 //= require cocoon
 //= require underscore
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require gmaps/google
+//= require moment
+//= require fullcalendar
+//= require external-dragging-calendar
 //= require_tree .
 $(document).ready(function(){
   $('.chosen-select').chosen();
-})
-$(function () {
+
   $('[data-toggle="popover"]').popover()
 })
 var Script = function () {
@@ -573,8 +575,14 @@ $(document).ready(function() {
 		            },
 		        });
 
+<<<<<<< HEAD
 
 		    });
+=======
+// $('#calendar').fullCalendar({
+//   schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives'
+// });
+>>>>>>> css2
 
 //
 // $('.chosen-select').chosen

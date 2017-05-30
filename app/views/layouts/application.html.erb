@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'jsfromtemplate' %>
+
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
@@ -139,7 +139,7 @@
                                   </li>
                                   <li>
                                       <a href="#">
-                                          <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
+                                          <span class="photo"><%= image_tag 'avatar-mini2.jpg' %></span>
                                           <span class="subject">
                                           <span class="from">Jhon Doe</span>
                                           <span class="time">10 mins</span>
@@ -151,7 +151,7 @@
                                   </li>
                                   <li>
                                       <a href="#">
-                                          <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
+                                          <span class="photo"><%= image_tag 'avatar-mini3.jpg' %></span>
                                           <span class="subject">
                                           <span class="from">Jason Stathum</span>
                                           <span class="time">3 hrs</span>
@@ -163,7 +163,7 @@
                                   </li>
                                   <li>
                                       <a href="#">
-                                          <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
+                                          <span class="photo"><%= image_tag 'avatar-mini4.jpg' %></span>
                                           <span class="subject">
                                           <span class="from">Jondi Rose</span>
                                           <span class="time">Just now</span>
@@ -284,52 +284,43 @@
                             </a>
                         </li>
 
-
-                        <li>
-                        <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
-                                  <i class="fa fa-laptop"></i>
-                                  My Space
-                                </a>
-                            <div id="collapseFirst" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFirst">
-                                <ul class="sub">
-                                    <li><a  href="boxed_page.html">My Message</a></li>
-                                    <li><a  href="horizontal_menu.html">My Event</a></li>
-                                    <li><a  href="header-color.html">My Document</a></li>
-                                    <li><a  href="mega_menu.html">My Bookmarks</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                      </li>
-
-                      <li>
-                      <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <li class="sub-menu">
+                                            <a href="javascript:;" >
+                                                <i class="fa fa-laptop"></i>
+                                                <span>My Space</span>
+                                            </a>
+                                            <ul class="sub">
+                                              <li><a  href="boxed_page.html">My Message</a></li>
+                                              <li><a  href="horizontal_menu.html">My Event</a></li>
+                                              <li><a  href="header-color.html">My Document</a></li>
+                                              <li><a  href="mega_menu.html">My Bookmarks</a></li>
+                                            </ul>
+                                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
                                 <i class="fa fa-users"></i>
                                 My Teams
                               </a>
-                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+
                               <ul class="sub">
                                 <% if user_signed_in? %>
-
                                 <%  User.find(session[:user_id]).joined_teams.each do |team| %>
                                   <li><%= link_to team.title, team_path(team) %></li>
                                 <% end %>
                                 <% end %>
                               </ul>
 
-                          </div>
-                      </div>
                     </li>
 
-                    <li>
-                    <div class="sub-menu" id="accordion" role="tablist" aria-multiselectable="true">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" >
+
                               <i class="fa fa-briefcase"></i>
                               My Projects
                             </a>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+
+
                             <ul class="sub">
                                 <li><a  href="boxed_page.html">My Message</a></li>
                                 <li><a  href="horizontal_menu.html">My Event</a></li>
@@ -337,8 +328,7 @@
                                 <li><a  href="mega_menu.html">My Bookmarks</a></li>
 
                             </ul>
-                        </div>
-                    </div>
+
                   </li>
 
                         <li>

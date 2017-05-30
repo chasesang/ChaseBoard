@@ -73,6 +73,9 @@ gem 'delayed_job_web'
 gem 'fog'
 gem "simple_calendar", "~> 2.0"
 gem 'jquery-ui-rails'
+
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

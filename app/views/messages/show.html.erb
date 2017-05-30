@@ -3,8 +3,12 @@
 	<section class="panel">
 		<div class="panel-body">
 			<div class="">
-			<h2><%= @message.title %></h2>
-			<p><%= @message.category %></p>
+			<h2><%= @message.title %></h2><br>
+
+			<p>Tags:
+				<% @message.tags.each do |t| %>
+				<strong><%= t.name %></p></strong><% end %><br>
+			<h4><%= @message.description %></h4>
 			</div>
 			<br>
 			<div class="fb-user-thumb">
@@ -12,18 +16,19 @@
 			</div>
 			<div class="fb-user-details">
 				<h3>
-					<a class="#" href="#"><%= @message.user.first_name %> <%= @message.user.last_name %></a>
+					<%= @message.user.first_name %> <%= @message.user.last_name %>
 				</h3>
 				<p><%= time_ago_in_words(@message.created_at) %>
 				ago</p>
 			</div>
 			<div class="clearfix"></div>
-			<p class="fb-user-status">J<%= @message.description %>
-			</p>
+			<br>
+
 			<% if @message.documents.present? %>
 			<% @message.documents.each do |doc| %>
+			<%= image_tag 'zip.png' %>
 			<%= link_to doc.filename , doc.url  %>
-			<%= image_tag 'google.png' %>
+
 			<% end %>
 			<% end %>
 

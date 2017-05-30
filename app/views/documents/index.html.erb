@@ -1,6 +1,6 @@
 <h1>Documents</h1>
 
-<% if @team.documents.present? %>
+<!-- <% if @team.documents.present? %>
 <% @team.documents.each do |doc| %>
 <%= link_to doc.filename , doc.url  %>
 <%= image_tag 'google.png' %>
@@ -34,144 +34,104 @@
 <% end %>
 <% end %>
 <% end %>
-<% end %>
+<% end %> -->
 
 <div class="row">
 <section class="panel">
-            
+
                 <div class="panel-body">
                     <table class="table table-hover file-search">
+
+
+
                         <thead>
                         <tr>
                             <th>File Name &amp; Location</th>
-                            <th class="hidden-phone">Created</th>
-                            <th class="hidden-phone">Last Modify</th>
+                            <th class="hidden-phone">Created at</th>
+                            <th class="hidden-phone">Uploaded by</th>
                             <th>Size</th>
                             <th class="hidden-phone">Type</th>
                         </tr>
                         </thead>
                         <tbody>
+
+                          <% if @team.documents.present? %>
+                          <% @team.documents.each do |doc| %>
                         <tr>
                             <td>
-                                <img alt="" src="img/file-search/doc.png">
-                                <strong>Linux Manual for dummies.doc</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
+                              <i class="fa fa-file-text"></i>
+                                <strong> <%= doc.filename%></strong>
+                                <span><%= link_to doc.url , doc.url  %></span>
+
                             </td>
                             <td class="hidden-phone">01.01.2012	</td>
                             <td class="hidden-phone">12.05.2013</td>
                             <td>193 KB</td>
                             <td class="hidden-phone">File</td>
                         </tr>
+                        <% end %>
+                        <% end %>
+
+
+                        <% @tasks.each do |task|%>
+                        <% if task.documents.present? %>
+                        <% task.documents.each do |doc| %>
+
                         <tr>
-                            <td>
-                                <img alt="" src="img/file-search/ppt.png">
-                                <strong>User Documentation.ppt</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
+                          <td>
+                            <i class="fa fa-file-text"></i>
+                              <strong> <%= doc.filename%></strong>
+                              <span><%= link_to doc.url , doc.url  %></span>
+
+                          </td>
                             <td class="hidden-phone">01.01.2012	</td>
                             <td class="hidden-phone">12.05.2013</td>
                             <td>193 KB</td>
                             <td class="hidden-phone">File</td>
                         </tr>
                         <tr>
+                          <% end %>
+                          <% end %>
+                          <% end %>
+
+
+                          <% @messages.each do |message| %>
+                          <% if message.documents.present? %>
+                          <% message.documents.each do |doc| %>
+
+                          <tr>
                             <td>
-                                <img alt="" src="img/file-search/xls.png">
-                                <strong>Price chart Table.xls</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
+                              <i class="fa fa-file-text"></i>
+                                <strong> <%= doc.filename%></strong>
+                                <span><%= link_to doc.url , doc.url  %></span>
                             </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
+                              <td class="hidden-phone">01.01.2012	</td>
+                              <td class="hidden-phone">12.05.2013</td>
+                              <td>193 KB</td>
+                              <td class="hidden-phone">File</td>
+                          </tr>
+                          <% end %>
+                          <% end %>
+                          <% message.comments.each do |comment| %>
+                          <% if comment.documents.present? %>
+                          <% comment.documents.each do |doc| %>
+                          <tr>
                             <td>
-                                <img alt="" src="img/file-search/jpg.png">
-                                <strong>Linux Wallpaper.jpg</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
+                              <i class="fa fa-file-text"></i>
+                                <strong> <%= doc.filename%></strong>
+                                <span><%= link_to doc.url , doc.url  %></span>
                             </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="" src="img/file-search/zip.png">
-                                <strong>All Main files.zip</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="" src="img/file-search/pdf.png">
-                                <strong>Metro Lab User Manual and Help fiule.pdf</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="" src="img/file-search/ai.png">
-                                <strong>Vector Lab Logo and Other stuff.ai</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="" src="img/file-search/psd.png">
-                                <strong>Vectorlab wallpaper.psd</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="" src="img/file-search/rss.png">
-                                <strong>themeforest feed.rss</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="" src="img/file-search/email.png">
-                                <strong>Order and Contact.eml</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="" src="img/file-search/eps.png">
-                                <strong>Metro Lab.eps</strong>
-                                <span>C:\Users\Murat\Documents\My Dropbox</span>
-                            </td>
-                            <td class="hidden-phone">01.01.2012	</td>
-                            <td class="hidden-phone">12.05.2013</td>
-                            <td>193 KB</td>
-                            <td class="hidden-phone">File</td>
-                        </tr>
+                              <td class="hidden-phone">01.01.2012	</td>
+                              <td class="hidden-phone">12.05.2013</td>
+                              <td>193 KB</td>
+                              <td class="hidden-phone">File</td>
+                          </tr>
+
+                          <% end %>
+                          <% end %>
+                          <% end %>
+                          <% end %>
+
 
                         </tbody>
                     </table>

@@ -1,0 +1,214 @@
+<h1>Message Board</h1>
+<script>
+
+      //owl carousel
+
+      $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true,
+			  autoPlay:true
+
+          });
+      });
+
+      //custom select box
+
+      // $(function(){
+      //     $('select.styled').customSelect();
+      // });
+      //
+      // $(window).on("resize",function(){
+      //     var owl = $("#owl-demo").data("owlCarousel");
+      //     owl.reinit();
+      // });
+
+  </script>
+    <!--carousel start-->
+
+                      <!--features carousel start-->
+                      <section class="panel">
+                          <div class="flat-carousal">
+                              <div id="owl-demo" class="owl-carousel owl-theme">
+                                  <div class="item">
+                                      <h1>Flatlab is new model of admin dashboard for happy use</h1>
+                                      <div class="text-center">
+                                          <a href="javascript:;" class="view-all">View All</a>
+                                      </div>
+                                  </div>
+                                  <div class="item">
+                                      <h1>Fully responsive and build with Bootstrap 3.0</h1>
+                                      <div class="text-center">
+                                          <a href="javascript:;" class="view-all">View All</a>
+                                      </div>
+                                  </div>
+                                  <div class="item">
+                                      <h1>Responsive Frontend is free if you get this.</h1>
+                                      <div class="text-center">
+                                          <a href="javascript:;" class="view-all">View All</a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel-body">
+                              <ul class="ft-link">
+                                  <li class="active">
+                                      <a href="javascript:;">
+                                          <i class="fa fa-bars"></i>
+                                          Sales
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:;">
+                                          <i class=" fa fa-calendar-o"></i>
+                                          promo
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:;">
+                                          <i class=" fa fa-camera"></i>
+                                          photo
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="javascript:;">
+                                          <i class=" fa fa-circle"></i>
+                                          other
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </section>
+                      <!--features carousel end-->
+
+
+
+
+    <section class="panel">
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#home">Annoucement</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#about">FYI</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#profile">Question</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#contact">Idea</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#contact">Milestone</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#contact">Something else..</a>
+                </li>
+            </ul>
+        </header>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div id="home" class="tab-pane active">
+                    <div class="row">
+                        <section class="panel">
+                            <% @messages.each do |message| %>
+                            <div class="panel-body">
+
+                                <div class="fb-user-details">
+                                    <h5>
+                                        <%= link_to message.title,team_message_path(@team, message)  %>
+                                    </h5>
+                                    <p><%= message.category %></p>
+                                    <p>7 minutes</p>
+                                </div>
+                                <div class="clearfix"></div>
+                                <p class="fb-user-status"><%= message.description %>
+                                </p>
+                                <div class="fb-time-action">
+                                    <a href="#" title="Like this">Like</a>
+                                    <span>-</span>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseComment">Recent Comments</a>
+                                    <% message.comments.last(3).each do |comment| %>
+                                    <div id="collapseComment" class="panel-collapse collapse">
+                                        <br>
+                                        <ul>
+                                            <li>
+                                                <div class="cmt-details">
+                                                    <a href="#">Tawseef</a>
+                                                    <span>
+                                                        <%= comment.content %>
+                                                    </span>
+                                                    <p><%= comment.user %>
+
+                                                    </p>
+                                                    <p><%= comment.created_at %>
+
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                      <% end %>
+                                </div>
+                            </div>
+                          <% end %>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+        <div id="about" class="tab-pane">FYI</div>
+        <div id="profile" class="tab-pane">Question</div>
+        <div id="contact" class="tab-pane">Idea</div>
+        <div id="contact" class="tab-pane">Something else...</div>
+    </div>
+</div>
+</section>
+
+<div class="row">
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    New Message
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">New Message</h4>
+            </div>
+            <div class="modal-body">
+
+                <%= simple_form_for [@team, @newmessage] do |f| %>
+                <%= f.input :title %>
+                <%= f.input :description %>
+                <%= f.input :category %>
+                <%= f.file_field :documents, multiple: true %>
+                <%= f.submit 'Submit', class: 'btn btn-primary' %>
+                <% end %>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+
+<% @messages.each do |message| %>
+<div class="col-md-4">
+    <div class="message">
+        <h2 class="message-title"><%= message.title %></h2>
+        <p><%= message.category %></p>
+        <%= link_to "View Message", team_message_path(@team, message), class: "btn btn-default" %>
+    </div>
+</div>
+<% end %>
+</div>
+</secion>

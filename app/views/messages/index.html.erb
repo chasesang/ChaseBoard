@@ -1,251 +1,229 @@
-<h1>Message Board</h1>
-<hr>
+
 <div class="row">
-    <!--carousel start-->
-    <section class="panel">
-        <div id="c-slide" class="carousel slide auto panel-body">
-            <ol class="carousel-indicators out">
-                <li class="active" data-slide-to="0" data-target="#c-slide"></li>
-                <li class="" data-slide-to="1" data-target="#c-slide"></li>
-                <li class="" data-slide-to="2" data-target="#c-slide"></li>
-                <li class="" data-slide-to="3" data-target="#c-slide"></li>
-            </ol>
-            <a data-slide="prev" href="#c-slide" class="left carousel-control">
-                <i class="fa fa-angle-left"></i>
-            </a>
-            <a data-slide="next" href="#c-slide" class="right carousel-control">
-                <i class="fa fa-angle-right"></i>
-            </a>
 
-            <div class="carousel-inner">
-                <div class="item text-center active">
-                    <h3>Annoucement</h3>
-                    <small class="text-muted">Public Annoucement</small>
 
-                </div>
-                <div class="item text-center">
-                    <h3>FYI</h3>
-                    <small class="text-muted">For Y'all information</small>
-                </div>
-                <div class="item text-center">
-                    <h3>Ideas</h3>
-                    <small class="text-muted">"I have a great idea!"</small>
-                </div>
-                <div class="item text-center">
-                    <h3>Questions</h3>
-                    <small class="text-muted">"Please help..."</small>
-                </div>
-                <div class="item text-center">
-                    <h3>Something else..</h3>
-                    <small class="text-muted">"I just wannna say..."</small>
-                </div>
+<div class="panel-body">
+                              <a class="btn btn-info btn-lg" data-toggle="modal" href="#myModal" style="position: relative; left: 42.1%; top: 50%">
+                                  Post a New Message
+                              </a>
+</div>
+<br>
+                              <!-- Modal -->
+                              <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                              <h4 class="modal-title">New Message</h4>
+                                          </div>
+                                          <div class="modal-body">
+
+                                              <%= simple_form_for [@team, @newmessage] do |f| %>
+                                              <%= f.input :title, label: 'Message Title' %>
+                                              <%= f.input :description %>
+
+                                              <%= f.association :tags,
+                                                  collection: Tag.all,
+                                              input_html: { class: 'chosen-select input-new-line', style: 'width: 400px'} %>
+                                              <%= f.file_field :documents, multiple: true %>
+                                            
+
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                              <%= f.submit 'Submit', class: 'btn btn-success' %>
+                                              <% end %>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- modal -->
+
+<!--features carousel start-->
+<div class="row">
+
+
+<section class="panel">
+    <div id="c-slide" class="carousel slide auto panel-body">
+        <ol class="carousel-indicators out">
+            <li class="active" data-slide-to="0" data-target="#c-slide"></li>
+            <li class="" data-slide-to="1" data-target="#c-slide"></li>
+            <li class="" data-slide-to="2" data-target="#c-slide"></li>
+            <li class="" data-slide-to="3" data-target="#c-slide"></li>
+            <li class="" data-slide-to="4" data-target="#c-slide"></li>
+            <li class="" data-slide-to="5" data-target="#c-slide"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item text-center active">
+                <h3>Annoucement</h3>
+                <small class="text-muted">Public Announcement</small>
+            </div>
+            <div class="item text-center">
+                <h3>FYI</h3>
+                <small class="text-muted">For Y'all Information</small>
+            </div>
+            <div class="item text-center">
+                <h3>Questions</h3>
+                <small class="text-muted">Please help...</small>
             </div>
 
+            <div class="item text-center">
+                <h3>Ideas</h3>
+                <small class="text-muted">I have a great idea!</small>
+            </div>
+            <div class="item text-center">
+                <h3>Benchmark</h3>
+                <small class="text-muted">Let's celebrate!</small>
+            </div>
+            <div class="item text-center">
+                <h3>Something else</h3>
+                <small class="text-muted">I don't belong anywhere...</small>
+            </div>
         </div>
+        <a data-slide="prev" href="#c-slide" class="left carousel-control">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a data-slide="next" href="#c-slide" class="right carousel-control">
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
 
-    </section>
-</div>
-
-<!--carousel end-->
-<section class="panel">
-    <header class="panel-heading tab-bg-dark-navy-blue ">
-        <ul class="nav nav-tabs">
-            <li class="active">
-                <a data-toggle="tab" href="#home">Annoucement</a>
+    <div class="panel-body">
+        <ul class="ft-link">
+            <li>
+                <a href="javascript:;">
+                    <i class="fa fa-bars"></i>
+                    Annoucement
+                </a>
             </li>
-            <li class="">
-                <a data-toggle="tab" href="#about">FYI</a>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-calendar-o"></i>
+                    FYI
+                </a>
             </li>
-            <li class="">
-                <a data-toggle="tab" href="#profile">Question</a>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-camera"></i>
+                    Questions
+                </a>
             </li>
-            <li class="">
-                <a data-toggle="tab" href="#contact">Idea</a>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-circle"></i>
+                    Ideas
+                </a>
             </li>
-            <li class="">
-                <a data-toggle="tab" href="#contact">Something else..</a>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-circle"></i>
+                    Benchmark
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class=" fa fa-circle"></i>
+                    Something else
+                </a>
             </li>
         </ul>
-    </header>
-    <div class="panel-body">
-        <div class="tab-content">
-            <div id="home" class="tab-pane active">
-                <div class="row">
+    </div>
 
-                    <section class="panel">
-                        <div class="panel-body">
-                            <div class="fb-user-thumb">
-                                <img src="img/pro-ac-1.png" alt="">
-                            </div>
+</section>
+<section class="panel">
+<section class="wrapper" style="margin-top: 15px">
+  <% @messages.each do |message| %>
+                <div class="row">
+                        <div class="panel-body" style="padding-top: 2px; padding-left: 40px">
                             <div class="fb-user-details">
                                 <h3>
-                                    <a href="#" class="#">Margarita Elina</a>
-                                </h3>
-                                <p>7 minutes ago near Alaska, USA</p>
+                                    <%= link_to message.title,team_message_path(@team, message)  %>
+                                </h3><br>
+                                  <ul class="p-tag-list" style = "padding-left: 0px">
+                                    <% message.tags.each do |t| %>
+
+                                    <li><a href=""><i class="fa fa-tag"></i> <%= t.name %></a></li>
+
+                                    <% end %>
+                                    </ul>
+                                <p>Created at:
+                                    <%= time_ago_in_words(message.created_at) %> ago</p>
                             </div>
                             <div class="clearfix"></div>
-                            <p class="fb-user-status">John is world famous professional photographer. with forward thinking clients to create beautiful, honest and amazing things that bring positive results. John is world famous professional photographer. with forward thinking
-                                clients to create beautiful, honest and amazing things that bring positive results.
-                            </p>
+                            <h4>
+                                <%= message.description %>
+                            </h4>
+                            <% if message.documents.present? %>
+                            <% message.documents.each do |doc| %>
+                            <%= image_tag 'zip.png' %>
+                            <%= link_to doc.filename , doc.url  %>
+                            <br>
+                            <% end %>
+                            <% end %>
+                          <br>
+
+                          <div class="fb-status-container fb-border fb-gray-bg">
                             <div class="fb-status-container fb-border">
-                                <div class="fb-time-action">
+                                <div class="fb-time-action" id="accordion-<%= message.id %>">
                                     <a href="#" title="Like this">Like</a>
                                     <span>-</span>
-                                    <a href="#" title="Leave a comment">Comments</a>
-                                    <span>-</span>
-                                    <a href="#" title="Send this to friend or post it on your time line">Share</a>
-                                </div>
-                            </div>
 
-                            <div class="fb-status-container fb-border fb-gray-bg">
-                                <div class="fb-time-action like-info">
-                                    <a href="#">Jhon Due,</a>
-                                    <a href="#">Danieal Kalion</a>
-                                    <span>and</span>
-                                    <a href="#">40 more</a>
-                                    <span>like this</span>
-                                </div>
-                                <div class="fb-time-action">
-                                    <a href="#" title="Leave a comment">See Comments</a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-<%= message.id %>" href="#collapseComment-<%= message.id %>">Recent Comments</a>
+                                    <% message.comments.last(3).each do |comment| %>
+                                    <div id="collapseComment-<%= message.id %>" class="panel-collapse collapse">
+                                        <br>
+                                        <ul>
+                                            <li>
+                                                <div class="cmt-details">
 
-                                    <div class="panel-group m-bot20" id="accordion">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">
-                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseComment">
-                                                        See Comments
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseComment" class="panel-collapse collapse">
+                                                    <p><%= comment.content %></p>
 
-                                                <ul class="fb-comments">
-                                                    <li>
-                                                        <a href="#" class="cmt-thumb">
-                                                            <img src="img/mail-avatar.jpg" alt="">
-                                                        </a>
-                                                        <div class="cmt-details">
-                                                            <a href="#">Jhone due</a>
-                                                            <span>
-                                                                is world famous professional photographer. with forward thinking clients to create beautiful,
-                                                            </span>
-                                                            <p>40 minutes ago -
-                                                                <a href="#" class="like-link">Like</a>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="cmt-thumb">
-                                                            <img src="img/follower-avatar.jpg" alt="">
-                                                        </a>
-                                                        <div class="cmt-details">
-                                                            <a href="#">Tawseef</a>
-                                                            <span>
-                                                                is world famous professional photographer. with forward thinking clients to create beautiful,
-                                                            </span>
-                                                            <p>34 minutes ago -
-                                                                <a href="#" class="like-link">Like</a>
-                                                            </p>
-                                                        </div>
-                                                    </li>
+                                                    <p>
+                                                        <%= comment.user.first_name %>
+                                                        <%= comment.user.last_name %>
 
-                                                </ul>
+                                                    </p>
+                                                    <p><%= time_ago_in_words(comment.created_at) %> ago
 
-                                            </div>
-                                        </div>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-
-                                    <span>-</span>
-
+                                    <% end %>
                                 </div>
-
-                                <ul class="fb-comments">
-                                    <li>
-                                        <a href="#" class="cmt-thumb">
-                                            <img src="img/mail-avatar.jpg" alt="">
-                                        </a>
-                                        <div class="cmt-details">
-                                            <a href="#">Jhone due</a>
-                                            <span>
-                                                is world famous professional photographer. with forward thinking clients to create beautiful,
-                                            </span>
-                                            <p>40 minutes ago -
-                                                <a href="#" class="like-link">Like</a>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="cmt-thumb">
-                                            <img src="img/follower-avatar.jpg" alt="">
-                                        </a>
-                                        <div class="cmt-details">
-                                            <a href="#">Tawseef</a>
-                                            <span>
-                                                is world famous professional photographer. with forward thinking clients to create beautiful,
-                                            </span>
-                                            <p>34 minutes ago -
-                                                <a href="#" class="like-link">Like</a>
-                                            </p>
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-                                <div class="clearfix"></div>
-
                             </div>
-
+                          </div>
                         </div>
-                    </section>
-                </div>
+                      </div>
+                <% end %>
 
-            </div>
-            <div id="about" class="tab-pane">FYI</div>
-            <div id="profile" class="tab-pane">Question</div>
-            <div id="contact" class="tab-pane">Idea</div>
-            <div id="contact" class="tab-pane">Something else...</div>
-        </div>
-    </div>
+  </secion>
 </section>
 
-<div class="row">
+<!--features carousel end-->
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        New Message
-    </button>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">New Message</h4>
-                </div>
-                <div class="modal-body">
 
-                    <%= simple_form_for [@team, @newmessage] do |f| %>
-                    <%= f.input :title %>
-                    <%= f.input :description %>
-                    <%= f.input :category %>
-                    <%= f.file_field :documents, multiple: true %>
-                    <%= f.submit 'Submit', class: 'btn btn-primary' %>
-                    <% end %>
-                </div>
+<script>
 
-            </div>
-        </div>
-    </div>
-    <br>
+    $(document).ready(function () {
+        $("#owl-demo").owlCarousel({navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, autoPlay: true});
+        $('#myModal').on('shown.bs.modal', function () {
+          $('.chosen-select', this).chosen('destroy').chosen();
+        });
+    });
 
-    <% @messages.each do |message| %>
-    <div class="col-md-4">
-        <div class="message">
-            <h2 class="message-title"><%= message.title %></h2>
-            <p><%= message.category %></p>
-            <%= link_to "View Message", team_message_path(@team, message), class: "btn btn-default" %>
-        </div>
-    </div>
-    <% end %>
-</div>
+
+
+    // custom select box
+
+    // $(function () {
+    //     $('select.styled').customSelect();
+    // });
+    //
+    // $(window).on("resize", function () {
+    //     var owl = $("#owl-demo").data("owlCarousel");
+    //     owl.reinit();
+    // });
+</script>
