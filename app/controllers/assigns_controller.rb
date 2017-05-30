@@ -8,10 +8,10 @@ class AssignsController < ApplicationController
     assign = Assign.new
     assign.task = task
     if assign.save
-        redirect_to team_tasks_path(@team), notice: 'Task assigned!'
+        redirect_to team_tasks_path(@team)
     else
-        redirect_to team_tasks_path(@team), alert: 'Something went wrong!'
-    end 
+        redirect_to team_tasks_path(@team)
+    end
   end
 
   def destroy

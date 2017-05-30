@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # skip_before_action :verify_authenticity_token
+
+
   def new
     @user = User.new
   end
@@ -12,11 +15,17 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path, notice: 'Thank you for signing up'
+      cookies.signed[:user_id] = @user.id
+      redirect_to root_path
     else
       render :new
     end
   end
+
+  def update
+    @user = User.find params[:id]
+    @user.update(user_params)
+end
 
   private
 
@@ -25,6 +34,9 @@ class UsersController < ApplicationController
                                   :last_name,
                                   :email,
                                   :password,
-                                  :password_confirmation])
+                                  :password_confirmation,
+                                  :address,
+                                  :longitude,
+                                  :latitude])
   end
 end

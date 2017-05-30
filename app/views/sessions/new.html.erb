@@ -1,5 +1,85 @@
 <h1>Sign In</h1>
 
+<body class="login-body">
+
+    <div class="container">
+
+      <form class="form-signin" action="/dashboard">
+        <h2 class="form-signin-heading">sign in now</h2>
+        <div class="login-wrap">
+
+
+
+<%= form_tag sessions_path do %>
+    <%= label_tag :email %>
+            <%= email_field_tag :email, "", class: 'form-control' %><br>
+
+  <%= label_tag :password %>
+            <%= password_field_tag :password, "", class: 'form-control' %>
+                <input type="checkbox" value="remember-me" >  Remember me
+                <span class="pull-right">
+                    <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
+
+                </span>
+                <hr>
+
+                <%= submit_tag 'Sign In', class: "btn btn-lg btn-login btn-block" %>
+              <% end %>
+            <p>or you can sign in via social network</p>
+            <div class="login-social-link">
+                <a href="/dashboard" class="facebook" style="margin-right: 10px">
+                    <i class="fa fa-facebook"></i>
+                    Facebook
+                </a>
+                <a href="/dashboard" class="twitter">
+                    <i class="fa fa-twitter"></i>
+                    Twitter
+                </a>
+            </div>
+            <div class="registration">
+                Don't have an account yet?
+                <a class="" href="/users/new">
+                    Create an account
+                </a>
+            </div>
+
+        </div>
+
+          <!-- Modal -->
+          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title">Forgot Password ?</h4>
+                      </div>
+                      <div class="modal-body">
+                          <p>Enter your e-mail address below to reset your password.</p>
+                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+                      </div>
+                      <div class="modal-footer">
+                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                          <button class="btn btn-success" type="button">Submit</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- modal -->
+
+      </form>
+
+    </div>
+  </body>
+
+
+
+
+
+
+
+
+
 <%= form_tag sessions_path do %>
   <div class="form-group">
     <%= label_tag :email %>

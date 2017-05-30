@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get('/about' => 'about#index')
   get('/contact' => 'contact#index')
+  get('/welcome' => 'welcome#index')
+  resources :nearby_teams, only: [:index]
 
+  get('/chat' => 'rooms#show')
 
   resources :teams do
     # resources :tasks, shallow: true do
@@ -27,7 +32,12 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :update] do
+    resources :mybookmarks, only: [:new, :create, :update, :index]
+    resources :mymessages, only: [:index]
+    resources :myevents, only: [:index]
+    resources :mydocuments, only: [:index]
+  end
 
     resources :sessions, only: [:new, :create] do
       delete :destroy, on: :collection

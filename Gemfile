@@ -73,6 +73,8 @@ gem 'delayed_job_web'
 gem 'fog'
 gem "simple_calendar", "~> 2.0"
 gem 'jquery-ui-rails'
+gem 'gmaps4rails'
+gem 'geocoder'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'

@@ -1,5 +1,7 @@
-<h1><%= @team.title %></h1>
-<h2><%= @team.description %></h2>
+
+
+<h1 style="padding-left: 35px; font-family: 'Play', sans-serif;"><%= @team.title %></h1>
+<h5 style="padding-left: 35px; font-family: 'Play', sans-serif;"><%= @team.description %></h5>
 <hr>
 <script>
         jQuery(document).ready(function() {
@@ -19,7 +21,7 @@
                           margin-top: 20px;
                           margin-bottom: 40px;
                       ">
-                          <div class="panel-heading"><%= link_to 'Memebers', team_users_path(@team)%></div>
+                          <div class="panel-heading"><%= link_to 'Members', team_users_path(@team)%></div>
                           <div class="panel-body">
                             People Directory
                           </div>
@@ -93,7 +95,7 @@
                           margin-top: 20px;
                           margin-bottom: 40px;
                       ">
-                          <div class="panel-heading"><%= link_to 'Chat'%></div>
+                          <div class="panel-heading"><%= link_to 'Chat', chat_path%></div>
                           <div class="panel-body">
                             Chat Room
                           </div>
@@ -102,6 +104,38 @@
                       <!-- END Portlet PORTLET-->
 
                   </div>
+                  <div class="col-md-4 column sortable">
+
+                      <!-- BEGIN Portlet PORTLET-->
+
+                      <div class="panel panel-success ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
+                          <div class="panel-heading"><%= link_to 'Locations', nearby_teams_path %></div>
+                          <div class="panel-body">
+                            Nearby Members/Teams/Events
+                          </div>
+                      </div>
+
+                      <!-- END Portlet PORTLET-->
+                      <div class="panel panel-default ui-sortable-handle" style="
+                          border-left-width: 20px;
+                          margin-left: 20px;
+                          margin-top: 20px;
+                          margin-bottom: 40px;
+                      ">
+                          <div class="panel-heading"><%= link_to 'Add something else...'%></div>
+                          <div class="panel-body">
+                            Something new!
+                          </div>
+                      </div>
+
+
+                  </div>
 
               </div>
+
               <!-- page end-->

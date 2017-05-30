@@ -9,9 +9,9 @@
             </div>
             <div class="value">
                 <h1 class="count">
-                    0
+                    <%= @user.messages.count %>
                 </h1>
-                <p>My Messages</p>
+                <p><%= link_to 'My Messages', user_mymessages_path(@user) %></p>
             </div>
         </section>
     </div>
@@ -22,9 +22,9 @@
             </div>
             <div class="value">
                 <h1 class=" count2">
-                    <%= link_to @events.count %>
+                    <%= @user.events.count %>
                 </h1>
-                <p>My Events</p>
+              <p><%= link_to 'My Events', user_myevents_path(@user) %></p>
             </div>
         </section>
     </div>
@@ -35,9 +35,9 @@
             </div>
             <div class="value">
                 <h1 class=" count3">
-                    0
+                  21
                 </h1>
-                <p>My Documents</p>
+                <p><%= link_to 'My Documents', user_mydocuments_path(@user) %></p>
             </div>
         </section>
     </div>
@@ -48,9 +48,9 @@
             </div>
             <div class="value">
                 <h1 class=" count4">
-                    0
+                    12
                 </h1>
-                <p>My Bookmarks</p>
+                <p><%= link_to'My Bookmarks', user_mybookmarks_path(@user) %></p>
             </div>
         </section>
     </div>
@@ -61,25 +61,27 @@
 <section class="wrapper" style="margin-top: 5px">
     <div class="row">
         <header class="panel-heading">
-            <h2>My Todo List</h2>
+          <center>  <h1 style="font-family: 'Play', sans-serif;">My Todo List</h1> </center>
         </header>
     </div>
+    <hr>
     <% if user_signed_in? %>
     <div class="row">
         <div class="col-md-6">
             <section class="panel tasks-widget">
                 <header class="panel-heading">
-                    Tasks that assigned to me
+                    Tasks that Assigned To Me
                 </header>
                 <div class="panel-body">
                     <div class="task-content">
                         <ul id="sortable" class="task-list">
                             <% @user.assigned_tasks.each do |task| %>
+                            <% if task.complete? %>
                             <li class="list-primary">
 
                                 <div class="task-title">
-                                    <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-                                    <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                  <strong>  <span class="task-title-sp"><strike><%= link_to task.body,team_task_path(task.team, task) %></strike></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
                                     <div class="pull-right hidden-phone">
                                         <button class="btn btn-success btn-xs fa fa-check"></button>
                                         <button class="btn btn-primary btn-xs fa fa-pencil"></button>
@@ -88,8 +90,21 @@
                                 </div>
                             </li>
 
-                            <% end %>
+                            <% else %>
+                            <li class="list-primary">
 
+                                <div class="task-title">
+                                  <strong>  <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-success btn-xs fa fa-check"></button>
+                                        <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <% end %>
+                            <% end %>
                         </ul>
                     </div>
                     <div class=" add-task-row">
@@ -109,11 +124,12 @@
                     <div class="task-content">
                         <ul id="sortable2" class="task-list ui-sortable" style="padding-left: 0px">
                             <% @tasks.each do |task| %>
+                            <% if task.complete? %>
                             <li class="list-primary">
 
                                 <div class="task-title">
-                                    <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span>
-                                    <span class="badge badge-sm label-success"><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                  <strong>  <span class="task-title-sp"><strike><%= link_to task.body,team_task_path(task.team, task) %></strike></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
                                     <div class="pull-right hidden-phone">
                                         <button class="btn btn-success btn-xs fa fa-check"></button>
                                         <button class="btn btn-primary btn-xs fa fa-pencil"></button>
@@ -123,8 +139,21 @@
 
                             </li>
 
-                            <% end %>
+                            <% else %>
+                            <li class="list-primary">
 
+                                <div class="task-title">
+                                  <strong>  <span class="task-title-sp"><%= link_to task.body,team_task_path(task.team, task) %></span></strong><br>
+                                  From: <span><%= link_to task.team.title,team_path(task.team_id) %></span>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-success btn-xs fa fa-check"></button>
+                                        <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <% end %>
+                            <% end %>
                         </ul>
                     </div>
                     <div class=" add-task-row">
@@ -145,22 +174,27 @@
 
     <div class="row">
         <header class="panel-heading">
-            <h2>My Teams</h2>
+          <center><h1 style="font-family: 'Play', sans-serif;">My Teams</h1></center>
         </header>
+
     </div>
+    <hr>
+
     <div class="row">
         <% @teams.each do |team| %>
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <!--widget start-->
             <aside class="profile-nav alt green-border">
                 <section class="panel">
                     <div class="user-heading alt green-bg">
                         <a href="#">
-                            <img alt="">
+                            <img src="http://www.offshoreenergytoday.com/wp-content/uploads/2013/09/Siemens-to-Power-New-Build-Offshore-Drilling-Rigs-China2.jpg">
                         </a>
-                        <h6><%= link_to team.title, team_path(team.id) %></h6>
-                        <p><%= link_to team.description, team_path(team.id) %></p>
+                        <h4><strong><%= link_to team.title, team_path(team.id) %></h4></strong>
+                        <br><br>
+                        <p><%= team.description %></p>
+
 
                     </div>
 
@@ -193,6 +227,50 @@
             </aside>
         </div>
         <% end %>
+
+        <div class="col-lg-4">
+            <!--widget start-->
+            <aside class="profile-nav alt green-border">
+                <section class="panel">
+                    <div class="user-heading alt green-bg">
+                        <a href="#">
+                            <img src="http://monroevillein.com/wp-content/uploads/2015/06/Question-Mark.png">
+                        </a>
+                        <h4><strong><%= link_to'Add a New Team' %></h4></strong>
+                        <br><br>
+                        <p><%=  'Team Description' %></p>
+
+
+                    </div>
+
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-envelope-o"></i>
+                                Messages
+                                <span class="label label-primary pull-right r-activity">0</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-calendar"></i>
+                                Events
+                                <span class="label label-info pull-right r-activity">0</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-bell-o"></i>
+                                Documents
+                                <span class="label label-warning pull-right r-activity">0</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+            </aside>
+        </div>
     </div>
 
 
@@ -201,34 +279,35 @@
 
 <div class="row">
     <header class="panel-heading">
-        <h2>My Projects</h2>
+        <center><h1 style="font-family: 'Play', sans-serif;">My Projects</h1></center>
     </header>
 
 </div>
+<hr>
 <div class="row">
 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <!--widget start-->
                 <section class="panel">
                     <div class="twt-feed blue-bg">
-                        <h1>Project Title</h1>
-                        <p>Project Descprition</p>
+                    <strong><h1>Fundamentals</h1></strong>
+                        <p>Introduction to web development</p>
                         <a href="#">
-                            <img alt="">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmmdSByMV6oG9qjnP5rj13BKsDOV824Tae-lcNCwrmzDMsSgJEjQ">
                         </a>
                     </div>
                     <div class="weather-category twt-category">
                         <ul>
                             <li class="active">
-                                <h5>320</h5>
+                                <h5>32</h5>
                                 Message
                             </li>
                             <li>
-                                <h5>1245</h5>
+                                <h5>12</h5>
                                 Documents
                             </li>
                             <li>
-                                <h5>24657</h5>
+                                <h5>24</h5>
                                 Tasks
                             </li>
                         </ul>
@@ -237,32 +316,66 @@
                 </section>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <!--widget start-->
                 <section class="panel">
                     <div class="twt-feed blue-bg">
-                        <h1>Project Title</h1>
-                        <p>Project Descprition</p>
+                    <strong><h1>Bootcamp </h1></strong>
+                        <p>3 months of "...x_x"</p>
                         <a href="#">
-                            <img src="" alt="">
+                            <img src="data:image/jpeg;base64,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" alt="">
                         </a>
                     </div>
                     <div class="weather-category twt-category">
                         <ul>
                             <li class="active">
-                                <h5>320</h5>
+                                <h5>10</h5>
                                 Message
                             </li>
                             <li>
-                                <h5>1245</h5>
+                                <h5>15</h5>
                                 Documents
                             </li>
                             <li>
-                                <h5>24657</h5>
+                                <h5>2689</h5>
                                 Tasks
                             </li>
                         </ul>
                     </div>
+                  </div>
+
+                    <div class="col-lg-4">
+                        <!--widget start-->
+                        <section class="panel">
+                            <div class="twt-feed blue-bg">
+                            <strong><h1>Add a New Project</h1></strong>
+                                <p>New Project Description</p>
+                                <a href="#">
+                                    <img src="http://monroevillein.com/wp-content/uploads/2015/06/Question-Mark.png">
+                                </a>
+                            </div>
+                            <div class="weather-category twt-category">
+                                <ul>
+                                    <li class="active">
+                                        <h5>0</h5>
+                                        Message
+                                    </li>
+                                    <li>
+                                        <h5>0</h5>
+                                        Documents
+                                    </li>
+                                    <li>
+                                        <h5>0</h5>
+                                        Tasks
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </section>
+                    </div>
+                  </div>
+
+
 
 
             <!--project profile end-->
@@ -277,5 +390,6 @@
                     $("#sortable").disableSelection();
                     $("#sortable2").sortable();
                     $("#sortable2").disableSelection();
+
                 });
             </script>

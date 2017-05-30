@@ -38,7 +38,7 @@
                       <div class="panel-body">
                           <div class="media">
                               <a class="pull-left" href="#">
-                                  <img class="thumb media-object" src="img/photos/user1.png" alt="">
+                                  <%= image_tag 'Richard.jpg', size: "120x120"  %>
                               </a>
                               <div class="media-body">
                                   <h4><%= u.first_name %> <%= u.last_name %> <span class="text-muted small"> Engineer</span></h4>
@@ -50,8 +50,8 @@
                                   </ul>
                                   <address>
                                       <strong><%= u.email %>.</strong><br>
-                                      Vancouver <br>
-                                      BC, Canada <br>
+                                      <%= u.address %><br>
+
                                       <abbr title="Phone">P:</abbr> (123) - 456789
                                   </address>
 

@@ -2,7 +2,20 @@
 
 
 	<%= f.input :content, label: "Write Comment" %>
-	<%= f.file_field :documents, multiple: true, :class => 'btn btn-info' %>
+	<div class="control-group">
+			<div class="attach-set">
+					<%= f.file_field :documents, multiple: true, input_html: {class: 'hidden-input'}%>
+					<div class="input-append">
+						<a id="upload-btn" class="btn">
+							<i class="fa fa-files-o"></i>
+								</a>
+							<input id="file-display" class="input-large uneditable-input" type="text" style = "width: 566px">
+
+					</div>
+			</div>
+			<!-- /attach-set -->
+	</div>
+	<!-- /control-group -->
 	<%= f.button :submit, :class => 'btn-custom' %>
 
 

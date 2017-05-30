@@ -28,9 +28,9 @@ def create
   @task.user = current_user
 
   if @task.save
-    redirect_to team_tasks_path(@team), notice:'task created!'
+    redirect_to team_tasks_path(@team)
   else
-    redirect_to team_tasks_path(@team), alert: @task.errors.full_messages.join(', ')
+    redirect_to team_tasks_path(@team)
   end
 end
 

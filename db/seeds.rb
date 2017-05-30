@@ -8,7 +8,7 @@
 
 # create teams
 
-['Exploration', 'Geology', 'Reservoir', 'Drilling', 'Production', 'Operations', 'Maintenance'].each do |team|
+['Exploration', 'Geology', 'Reservoir', 'Drilling', 'Production', 'Operations'].each do |team|
   Team.create(title: team)
   puts 'Team Created'
 end
@@ -21,6 +21,7 @@ end
                 email: Faker::Internet.email,
                 password: '123',
                 password_confirmation: '123',
+
               )
     puts "User created!"
   end
@@ -28,7 +29,7 @@ end
 # create Join
 100.times do
   Join.create(user_id: rand(1..40),
-              team_id: rand(1..7),
+              team_id: rand(1..6),
   )
   puts "Join created"
 end
@@ -58,45 +59,45 @@ tasks.each do |task|
   end
 end
 
-# create Messages
-['FYI','Announcement','Idea','Question','Milestone'].each do |category|
-
-10.times do
-  Message.create(title: Faker::Food.ingredient,
-                  description: Faker::Food.spice,
-                  category: category,
-                  team_id: rand(1..7),
-                  user_id: rand(1..40)
-
-
-  )
-  puts 'Messages Created'
-
-end
-end
-
-
-#create comments
-
-
-messages = Message.all
-messages.each do |message|
-  rand(0..5).times do
-    user = User.all.sample
-    message.comments.create({
-      content: Faker::Friends.quote,
-      user_id: user.id
-    })
-    puts 'Comments Created'
-  end
-end
+# # create Messages
+# ['FYI','Announcement','Idea','Question','Milestone'].each do |category|
+#
+# 10.times do
+#   Message.create(title: Faker::Food.ingredient,
+#                   description: Faker::Food.spice,
+#                   category: category,
+#                   team_id: rand(1..6),
+#                   user_id: rand(1..40)
+#
+#
+#   )
+#   puts 'Messages Created'
+#
+# end
+# end
+#
+#
+# #create comments
+#
+#
+# messages = Message.all
+# messages.each do |message|
+#   rand(0..5).times do
+#     user = User.all.sample
+#     message.comments.create({
+#       content: Faker::Friends.quote,
+#       user_id: user.id
+#     })
+#     puts 'Comments Created'
+#   end
+# end
 
 
 teams_count = Team.count
 users_count = User.count
 tasks_count = Task.count
-messages_count = Message.count
-comments_count = Comment.count
+# messages_count = Message.count
+# comments_count = Comment.count
 
 
 puts Cowsay.say "Created #{teams_count} Teams", :cow
@@ -104,5 +105,5 @@ puts Cowsay.say "Created #{teams_count} Teams", :cow
 puts Cowsay.say "Created #{users_count} Users", :cow
 
 puts Cowsay.say "Created #{tasks_count} Tasks", :cow
-puts Cowsay.say "Created #{comments_count} Comments", :cow
+# puts Cowsay.say "Created #{comments_count} Comments", :cow
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

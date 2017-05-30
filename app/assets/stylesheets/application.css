@@ -3769,7 +3769,7 @@ table.sliders tr td {
 }
 
 .alt.green-bg {
-    background: #aec785;
+    background: #58C9F3;
 }
 
 .profile-nav.alt.green-border ul > li > a:hover, .profile-nav.alt.green-border ul > li > a:focus, .profile-nav.alt.green-border ul li.active a {
@@ -3779,9 +3779,9 @@ table.sliders tr td {
 .user-heading.alt a {
     float: left;
     margin-right: 15px;
-    margin-left: -10px;
+
     display: inline-block;
-    border: 5px solid rgba(255, 255, 255, 0.3);
+
     border-radius: 50%;
     -webkit-border-radius: 50%;
 }
@@ -3802,7 +3802,7 @@ table.sliders tr td {
 }
 
 .twt-feed.blue-bg {
-    background: #58C9F3;
+    background: #6ccac9;
 }
 
 .twt-feed h1 {

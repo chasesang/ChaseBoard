@@ -25,10 +25,10 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      redirect_to team_messages_path(@team), notice: 'Message Created!'
+      redirect_to team_messages_path(@team)
     else
-      redirect_to team_messages_path(@team),
-      alert: @message.errors.full_messages.join(', ')
+      redirect_to team_messages_path(@team)
+
     end
 
   end
@@ -40,9 +40,9 @@ class MessagesController < ApplicationController
   def update
     @message = Message.find params[:id]
     if @message.update(message_params)
-      redirect_to team_messages_path(@team), notice: 'Message updated!'
+      redirect_to team_messages_path(@team)
     else
-      render :edit, alert: 'Something went wrong!'
+      render :edit
     end
   end
 

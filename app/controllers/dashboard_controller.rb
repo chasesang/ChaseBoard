@@ -1,9 +1,10 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_user!
+
 
 def index
   @newteam = Team.new
-  @teams = Team.all
+
+  @teams = Team.all.order("created_at DESC")
   if user_signed_in?
   @user = current_user
 

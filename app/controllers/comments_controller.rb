@@ -7,9 +7,9 @@ def create
   @comment.user = current_user
 
   if @comment.save
-    redirect_to team_message_path(@message.team, @message), notice:'Comment Created!'
+    redirect_to team_message_path(@message.team, @message)
   else
-    redirect_to team_message_path(@message.team, @message), alert: 'Something went wrong!'
+    redirect_to team_message_path(@message.team, @message)
   end
 end
 
@@ -20,7 +20,7 @@ end
 def update
   @comment = @message.comments.find(params[:id])
   if @comment.update(comment_params)
-    redirect_to team_message_path(@message.team, @message), notice:'Comment updated!'
+    redirect_to team_message_path(@message.team, @message)
   else
     render 'edit'
   end
@@ -39,7 +39,7 @@ end
 private
 
 def comment_params
-	params.require(:comment).permit(:content)
+	params.require(:comment).permit(:content, {documents: []})
 end
 
 def find_message

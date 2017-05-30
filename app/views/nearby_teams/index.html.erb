@@ -1,0 +1,43 @@
+<h1 style ="font-family: 'Play', sans-serif; padding-left: 0px">Nearby Teams / Events / Members</h1>
+<hr>
+
+<% if cookies[:lng] && cookies[:lat] %>
+
+
+  <div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+  </div>
+
+  <script>
+
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @markers.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(13);
+    });
+  </script>
+<% else  %>
+  <script>
+    navigator.geolocation.getCurrentPosition(function(location) {
+      const lat = location.coords.latitude;
+      const lng = location.coords.longitude;
+      debugger
+      console.log(lat);
+      console.log(lng);
+      window.location = window.location.href + `/?lng=${lng}&lat=${lat}`
+      //
+      // const body = new FormData();
+      // body.set('user[latitude]', lat);
+      // body.set('user[longitude]', lng);
+      //
+      //
+      // fetch('/users/<%= current_user.id %>', {
+      //   method: 'PATCH',
+      //   body: body
+      // })
+      // // debugger
+    });
+  </script>
+<% end %>

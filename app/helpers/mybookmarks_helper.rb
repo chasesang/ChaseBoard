@@ -1,0 +1,2 @@
+module MybookmarksHelper
+end

@@ -1,0 +1,2 @@
+module MymessagesHelper
+end
