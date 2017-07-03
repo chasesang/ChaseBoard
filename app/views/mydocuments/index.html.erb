@@ -1,3 +1,7 @@
 <h1>Documents for  <%= @user.first_name %> <%= @user.last_name %></h1>
+<% @documents.each do |d| %>
+<%= doc.filename %>
+<%= link_to doc.url , doc.url  %>
+<% end %>
 
 <p></p>

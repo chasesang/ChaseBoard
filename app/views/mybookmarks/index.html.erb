@@ -7,9 +7,7 @@
         });
     </script>
 
-    <% @bookmarks.each do |b| %>
-    <%= b.content %>
-    <% end %>
+
 
     <div class="row-fluid" id="draggable_portlets">
           <div class="col-md-3 column sortable">
@@ -111,6 +109,8 @@
           </div>
 
       </div>
-
+      <% @bookmarks.each do |b| %>
+      <%= b.content %>
+      <% end %>
 
       <!-- page end-->
