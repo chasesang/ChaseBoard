@@ -1,3 +1,8 @@
 <h1>Events for  <%= @user.first_name %> <%= @user.last_name %></h1>
+<% @events.each do |e| %>
 
-<p></p>
+    title: "<%= e.name %>",
+    start: "<%= e.start_time%>"
+    end: "<%= e.end_time %>"
+<br>
+<% end %>
