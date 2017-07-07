@@ -4,6 +4,10 @@
 Title: <%= m.title %>
 <br>
 Description: <%= m.description %>
+<%= m.comments.each do |c| %>
+Comments: <%= c.content %>
+<% end %>
+
 <br><br>
 <% end %>
 
